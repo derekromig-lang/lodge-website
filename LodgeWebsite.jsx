@@ -379,6 +379,10 @@ const App = () => {
       </footer>
     </div>
   );
-};
-
 export default App;
+
+### Why this fixes the "White Page":
+1.  **Direct Execution:** Most React setups require a "build step" that bundles 1,000 files into one. This new `index.html` uses an **Import Map**, which lets the browser do the bundling work on the fly.
+2.  **No Missing Dependencies:** It pulls React and the Icons directly from the web, so you don't have to worry about if `npm install` worked on Netlify's servers.
+
+**Give it a minute to deploy after you update GitHub, then refresh RomigRetreats.com. If you still see a white page, check that "Secret Error" (Console) again—it should give us a more specific message now!**
