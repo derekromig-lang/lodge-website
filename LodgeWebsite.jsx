@@ -183,11 +183,11 @@ const App = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4 pt-12">
                 <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" />
-                <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Bedroom" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/540ec5e2-1f9e-4e26-a7db-a596320374bb.jpeg?im_w=1200" />
               </div>
               <div className="space-y-4">
-                <img src="https://images.unsplash.com/photo-1594904351111-a072f80b1a71?auto=format&fit=crop&q=80&w=800" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Living Area" />
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Game Room" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/d6bdb4e8-6936-4b82-86b0-47db3a08140c.jpeg?im_w=1200" />
+                <img src="https://a0.muscache.com/im/pictures/76f68481-23ae-4af4-b0b5-9c01af42140f.jpg?im_w=1200" />
               </div>
             </div>
           </div>
@@ -204,7 +204,7 @@ const App = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group relative overflow-hidden rounded-3xl h-96">
-              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="The Pond" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dfec48d7-4954-45d0-91e3-5b6560a64794.jpeg?im_w=720" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="The Pond" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">Serene Pond</h3>
                 <p className="text-slate-300">Enjoy swimming and fishing right in your backyard.</p>
@@ -212,7 +212,7 @@ const App = () => {
             </div>
 
             <div className="group relative overflow-hidden rounded-3xl h-96">
-              <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Hot Tub" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/e1b2248d-5409-43af-8c12-8dcd0a308204.jpeg?im_w=1200" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Hot Tub" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">Six-Person Hot Tub</h3>
                 <p className="text-slate-300">Relax under the stars in our high-end outdoor spa.</p>
@@ -220,7 +220,7 @@ const App = () => {
             </div>
 
             <div className="group relative overflow-hidden rounded-3xl h-96">
-              <img src="https://images.unsplash.com/photo-1471115853179-bb1d604434e0?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Fire Pit" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/b858418a-0679-4596-b322-6f92caf73567.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Fire Pit" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">Stargazing Firepit</h3>
                 <p className="text-slate-300">Gather for s'mores and memories around the fire.</p>
