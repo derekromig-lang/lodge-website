@@ -156,8 +156,8 @@ const App = () => {
                 <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/e1b2248d-5409-43af-8c12-8dcd0a308204.jpeg?aki_policy=xx_large" />
               </div>
               <div className="space-y-4">
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/03882701-f2f6-4999-90d0-e374431e285d.jpeg" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Living Area" />
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/40f6e91f-0d92-4f36-932d-20d91242337a.jpeg" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Game Room" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/2375c61f-7700-4601-a3f8-37eaac183dea.jpeg?aki_policy=xx_large" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/99c328f3-f4b1-40ae-817a-ec1edb87863f.jpeg?aki_policy=xx_large" />
               </div>
             </div>
           </div>
