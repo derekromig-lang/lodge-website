@@ -174,7 +174,7 @@ const App = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/71842a6c-4f7f-4742-887e-e144a991871a.jpeg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="The Pond" />
+              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200 />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">Serene Pond</h3>
                 <p className="text-slate-300 text-sm">Swimming and fishing right on the property.</p>
