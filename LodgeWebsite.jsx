@@ -152,7 +152,7 @@ const App = () => {
 
             <div className="grid grid-cols-2 gap-4 h-full">
               <div className="space-y-4 pt-12">
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/4164b85c-0275-407b-944d-37f2670d8985.jpeg" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Kitchen" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/c8865a1a-e31e-47f3-a978-8f88e5679c64.jpeg?aki_policy=xx_large" />
                 <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/69206148-735c-4315-95a9-444453880628.jpeg" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Bedroom" />
               </div>
               <div className="space-y-4">
