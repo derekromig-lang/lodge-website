@@ -108,7 +108,7 @@ const App = () => {
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" 
+            src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/40960a5d-24a0-47d3-8197-009774619639.jpeg" 
             className="w-full h-full object-cover" 
             alt="Lodge Exterior"
           />
@@ -152,12 +152,12 @@ const App = () => {
 
             <div className="grid grid-cols-2 gap-4 h-full">
               <div className="space-y-4 pt-12">
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" />
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" />
+                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/4164b85c-0275-407b-944d-37f2670d8985.jpeg" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Kitchen" />
+                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/69206148-735c-4315-95a9-444453880628.jpeg" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Bedroom" />
               </div>
               <div className="space-y-4">
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" />
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" />
+                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/03882701-f2f6-4999-90d0-e374431e285d.jpeg" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Living Area" />
+                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/40f6e91f-0d92-4f36-932d-20d91242337a.jpeg" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Game Room" />
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ const App = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200 />
+              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/71842a6c-4f7f-4742-887e-e144a991871a.jpeg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="The Pond" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">Serene Pond</h3>
                 <p className="text-slate-300 text-sm">Swimming and fishing right on the property.</p>
@@ -182,7 +182,7 @@ const App = () => {
             </div>
 
             <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" />
+              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/e9c61555-5874-42b7-8278-6577582496a7.jpeg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Hot Tub" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">6-Person Hot Tub</h3>
                 <p className="text-slate-300 text-sm">Relax under the stars after a day of hiking.</p>
@@ -190,7 +190,7 @@ const App = () => {
             </div>
 
             <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?im_w=1200" />
+              <img src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/36f1c4df-5867-4638-9588-422114778848.jpeg" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Harriet Hollister View" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">Harriet Hollister</h3>
                 <p className="text-slate-300 text-sm">Stunning vistas of Honeoye Lake just 1 mile away.</p>
