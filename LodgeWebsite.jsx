@@ -108,7 +108,7 @@ const App = () => {
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/40960a5d-24a0-47d3-8197-009774619639.jpeg" 
+            src="https://drive.google.com/file/d/1vaUplaDkll-Jm6RDEqAFDtL8fhBgVXe4/view?usp=sharing" 
             className="w-full h-full object-cover" 
             alt="Lodge Exterior"
           />
