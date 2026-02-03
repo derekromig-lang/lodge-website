@@ -30,7 +30,8 @@ import {
   Send,
   MessageCircle,
   Quote,
-  Maximize2
+  Maximize2,
+  Instagram
 } from 'lucide-react';
 
 const App = () => {
@@ -47,8 +48,9 @@ const App = () => {
     message: ''
   });
 
-  // Direct link format for Google Drive images
   const logoUrl = "https://lh3.googleusercontent.com/d/1F5ewK2BZgziU12A7IEl_bj2ECQqyC-gW";
+  const venmoUrl = "https://account.venmo.com/u/Derek-Romig";
+  const instagramUrl = "https://www.instagram.com/romig_retreats/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -245,7 +247,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* NEW: Additional Photos Gallery */}
+      {/* Gallery Section */}
       <section id="gallery" className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -278,7 +280,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* The Grounds Section */}
+      {/* Grounds Section */}
       <section id="grounds" className="py-24 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -314,7 +316,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Customer Reviews Section */}
+      {/* Reviews Section */}
       <section id="reviews" className="py-24 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -328,7 +330,7 @@ const App = () => {
                 Guest Experiences
               </h2>
               <p className="text-slate-600 mt-4 text-lg">
-                We take pride in providing a perfect getaway. Read what our guests have to say about their stay at the Lodge.
+                We take pride in providing a perfect getaway. Read what our guests have to say.
               </p>
             </div>
             <div className="bg-white px-6 py-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
@@ -344,17 +346,14 @@ const App = () => {
             {reviews.map((review, idx) => (
               <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col relative group transition-all hover:shadow-xl hover:-translate-y-1">
                 <Quote className="absolute top-6 right-8 w-10 h-10 text-emerald-50 opacity-50 transition-colors group-hover:text-emerald-100" />
-                
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-
                 <p className="text-slate-700 leading-relaxed mb-8 flex-grow italic">
                   "{review.text}"
                 </p>
-
                 <div className="flex items-center justify-between pt-6 border-t border-slate-50">
                   <div>
                     <h4 className="font-bold text-slate-900">{review.name}</h4>
@@ -370,40 +369,59 @@ const App = () => {
         </div>
       </section>
 
-      {/* Availability & Inquiry Section */}
+      {/* Booking & Payments Section */}
       <section id="book" className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Availability & Booking</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Availability & Payments</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Check our live calendar below. To book directly and avoid service fees, send us a request!
+              Check our live calendar. To book directly and avoid service fees, send us a request!
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Calendar Embed */}
-            <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="font-bold flex items-center gap-2 text-slate-800">
-                  <Calendar className="text-emerald-600 w-5 h-5" />
-                  Live Booking Calendar
-                </h3>
-                <span className="flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                  Synced
-                </span>
+            {/* Calendar & Payments */}
+            <div className="space-y-8">
+              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-bold flex items-center gap-2 text-slate-800">
+                    <Calendar className="text-emerald-600 w-5 h-5" />
+                    Availability Calendar
+                  </h3>
+                  <span className="flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                    Synced
+                  </span>
+                </div>
+                
+                <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[400px]">
+                  <iframe 
+                    src="https://calendar.google.com/calendar/embed?wkst=1&ctz=America%2FNew_York&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YWRmODVhZWEwZTViZjdhNWEyMGNkY2RmZGVjMGViNDY5NTg2N2NmODkwZTAzNjFiMmIxNDI5ZDMxMjA3NTlkOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTNrMXBrMHBrNHI3Y2M4ZzJkcWtmZWUydXJ2OGNnNHVAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bXM3OTk0OG9hdDI2NDExYmI5a28ydDUyZnZrZG1iOWlAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23ad1457&color=%23795548&color=%23d81b60" 
+                    style={{border: 0}} 
+                    width="100%" 
+                    height="100%" 
+                    frameBorder="0" 
+                    scrolling="no"
+                    title="Availability Calendar"
+                  ></iframe>
+                </div>
               </div>
-              
-              <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[450px]">
-                <iframe 
-                  src="https://calendar.google.com/calendar/embed?wkst=1&ctz=America%2FNew_York&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YWRmODVhZWEwZTViZjdhNWEyMGNkY2RmZGVjMGViNDY5NTg2N2NmODkwZTAzNjFiMmIxNDI5ZDMxMjA3NTlkOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTNrMXBrMHBrNHI3Y2M4ZzJkcWtmZWUydXJ2OGNnNHVAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bXM3OTk0OG9hdDI2NDExYmI5a28ydDUyZnZrZG1iOWlAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23ad1457&color=%23795548&color=%23d81b60" 
-                  style={{border: 0}} 
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  scrolling="no"
-                  title="Availability Calendar"
-                ></iframe>
+
+              {/* Payment Prompt */}
+              <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl flex items-center justify-between">
+                <div>
+                  <h4 className="text-xl font-bold text-slate-900 mb-1">Already Booked?</h4>
+                  <p className="text-slate-500 text-sm">Secure your dates via Venmo.</p>
+                </div>
+                <a 
+                  href={venmoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#008CFF] hover:bg-[#0074D9] text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all transform hover:scale-105 active:scale-95 shadow-lg"
+                >
+                  <CreditCard className="w-5 h-5" />
+                  Pay with Venmo
+                </a>
               </div>
             </div>
 
@@ -419,16 +437,8 @@ const App = () => {
                     <CheckCircle className="w-10 h-10" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">Request Drafted!</h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Your email client should have opened with the pre-filled inquiry. <br/>
-                    <strong>Just hit send!</strong>
-                  </p>
-                  <button 
-                    onClick={() => setIsSubmitted(false)}
-                    className="text-emerald-600 font-bold hover:underline"
-                  >
-                    Back to form
-                  </button>
+                  <p className="text-slate-600">Your email client should have opened. <strong>Just hit send!</strong></p>
+                  <button onClick={() => setIsSubmitted(false)} className="text-emerald-600 font-bold hover:underline">Back to form</button>
                 </div>
               ) : (
                 <form onSubmit={handleInquiry} className="space-y-6">
@@ -436,65 +446,35 @@ const App = () => {
                     <h3 className="text-2xl font-bold text-slate-900">Request to Book</h3>
                     <p className="text-slate-500 text-sm italic">Direct bookings save you ~15% vs Airbnb fees.</p>
                   </div>
-                  
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase">Check In</label>
-                      <input 
-                        type="date" 
-                        required
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none transition-all"
-                        onChange={(e) => setBookingData({...bookingData, checkIn: e.target.value})}
-                      />
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Check In</label>
+                      <input type="date" required className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none" onChange={(e) => setBookingData({...bookingData, checkIn: e.target.value})} />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase">Check Out</label>
-                      <input 
-                        type="date" 
-                        required
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none transition-all"
-                        onChange={(e) => setBookingData({...bookingData, checkOut: e.target.value})}
-                      />
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Check Out</label>
+                      <input type="date" required className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none" onChange={(e) => setBookingData({...bookingData, checkOut: e.target.value})} />
                     </div>
                   </div>
-
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase">Your Name</label>
-                      <input 
-                        type="text" 
-                        required
-                        placeholder="Name"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none"
-                        onChange={(e) => setBookingData({...bookingData, name: e.target.value})}
-                      />
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Your Name</label>
+                      <input type="text" required placeholder="Name" className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none" onChange={(e) => setBookingData({...bookingData, name: e.target.value})} />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase">Number of Guests</label>
-                      <select 
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none appearance-none"
-                        onChange={(e) => setBookingData({...bookingData, guests: e.target.value})}
-                      >
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Guests</label>
+                      <select className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none appearance-none" onChange={(e) => setBookingData({...bookingData, guests: e.target.value})}>
                         {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={n}>{n} Guests</option>)}
                       </select>
                     </div>
                   </div>
-
-                  <button 
-                    type="submit"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2"
-                  >
+                  <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2">
                     <span>Send Booking Inquiry</span>
                     <Send className="w-5 h-5" />
                   </button>
-                  
                   <div className="flex items-center justify-center gap-6 pt-4 text-slate-400 text-xs font-medium border-t border-slate-100">
-                    <a href="tel:5853133670" className="flex items-center gap-1 hover:text-emerald-600 transition-colors">
-                      <Phone className="w-3.5 h-3.5" /> Call Derek
-                    </a>
-                    <a href="sms:5853133670" className="flex items-center gap-1 hover:text-emerald-600 transition-colors">
-                      <MessageCircle className="w-3.5 h-3.5" /> Text Now
-                    </a>
+                    <a href="tel:5853133670" className="flex items-center gap-1 hover:text-emerald-600"><Phone className="w-3.5 h-3.5" /> Call</a>
+                    <a href="sms:5853133670" className="flex items-center gap-1 hover:text-emerald-600"><MessageCircle className="w-3.5 h-3.5" /> Text</a>
                   </div>
                 </form>
               )}
@@ -503,23 +483,12 @@ const App = () => {
         </div>
       </section>
 
-      {/* Lightbox Overlay */}
+      {/* Lightbox */}
       {selectedImage && (
-        <div 
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-200"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors">
-            <X className="w-8 h-8" />
-          </button>
-          <img 
-            src={selectedImage.url} 
-            alt={selectedImage.caption} 
-            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-          />
-          <div className="absolute bottom-10 left-0 right-0 text-center">
-            <p className="text-white text-lg font-medium">{selectedImage.caption}</p>
-          </div>
+        <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-200" onClick={() => setSelectedImage(null)}>
+          <button className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full"><X className="w-8 h-8" /></button>
+          <img src={selectedImage.url} alt={selectedImage.caption} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+          <div className="absolute bottom-10 text-center"><p className="text-white text-lg font-medium">{selectedImage.caption}</p></div>
         </div>
       )}
 
@@ -530,31 +499,31 @@ const App = () => {
             <div className="max-w-xs">
               <div className="flex items-center space-x-3 mb-6">
                 <img src={logoUrl} alt="Logo" className="h-12 w-12 object-contain invert opacity-90" />
-                <span className="text-2xl font-bold tracking-tight">ROMIG RETREATS</span>
+                <span className="text-2xl font-bold tracking-tight uppercase">Romig Retreats</span>
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                Direct booking for The Lodge at Luckenbach Hill. Skip the fees, get the best rates.
+              <p className="text-slate-400 text-sm leading-relaxed mb-6 italic">
+                Follow our journey in the Finger Lakes at <span className="text-emerald-400 font-bold">@romig_retreats</span>
               </p>
               <div className="flex gap-4">
-                <a href="https://instagram.com" className="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors">
-                  <Camera className="w-4 h-4" />
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 transition-all transform hover:-translate-y-1">
+                  <Instagram className="w-5 h-5" />
                 </a>
-                <a href="mailto:Derek.Romig@gmail.com" className="w-8 h-8 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-colors">
-                  <Mail className="w-4 h-4" />
+                <a href="mailto:Derek.Romig@gmail.com" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-all transform hover:-translate-y-1">
+                  <Mail className="w-5 h-5" />
                 </a>
               </div>
             </div>
             
             <div className="grid grid-cols-2 gap-12 md:gap-24">
               <div>
-                <h4 className="font-bold mb-6 text-emerald-400 uppercase tracking-wider text-xs">Reach Out</h4>
+                <h4 className="font-bold mb-6 text-emerald-400 uppercase tracking-widest text-[10px]">Reach Out</h4>
                 <div className="space-y-3 text-slate-400 text-sm font-medium">
                   <p className="flex items-center gap-2"><Phone className="w-4 h-4" /> 585-313-3670</p>
-                  <p className="flex items-center gap-2"><Mail className="w-4 h-4" /> Derek.Romig@gmail.com</p>
+                  <p className="flex items-center gap-2 uppercase tracking-tighter">@romig_retreats</p>
                 </div>
               </div>
               <div>
-                <h4 className="font-bold mb-6 text-emerald-400 uppercase tracking-wider text-xs">Location</h4>
+                <h4 className="font-bold mb-6 text-emerald-400 uppercase tracking-widest text-[10px]">Location</h4>
                 <div className="space-y-3 text-slate-400 text-sm">
                   <p>8948 Luckenbach Hill Road</p>
                   <p>Springwater NY 14560</p>
@@ -562,14 +531,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          
-          <div className="flex flex-col md:flex-row justify-between items-center text-slate-500 text-[10px] uppercase tracking-[0.2em]">
-            <p>© {new Date().getFullYear()} Romig Retreats</p>
-            <div className="mt-4 md:mt-0 flex gap-8">
-              <a href="#home" className="hover:text-emerald-500 transition-colors">Top</a>
-              <a href="#book" className="hover:text-emerald-500 transition-colors">Availability</a>
-            </div>
-          </div>
+          <p className="text-center text-slate-600 text-[10px] uppercase tracking-[0.3em]">© {new Date().getFullYear()} Romig Retreats • Luckenbach Hill</p>
         </div>
       </footer>
     </div>
