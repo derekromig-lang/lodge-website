@@ -21,7 +21,10 @@ import {
   Zap,
   CheckCircle,
   Camera,
-  Flame
+  Flame,
+  Calendar,
+  Compass,
+  Wine
 } from 'lucide-react';
 
 const App = () => {
@@ -36,9 +39,10 @@ const App = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
+    { name: 'Availability', href: '#book' },
     { name: 'The Lodge', href: '#lodge' },
     { name: 'Grounds', href: '#grounds' },
-    { name: 'Location', href: '#location' },
+    { name: 'Explore', href: '#explore' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -122,9 +126,57 @@ const App = () => {
           <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-light drop-shadow">
             Experience 6 acres of nature with a private pond, hot tub, and modern comfort just 1 mile from Harriet Hollister Park.
           </p>
-          <a href="https://romig-retreats.lodgify.com" className="inline-block px-10 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-lg shadow-2xl transition-all transform hover:-translate-y-1">
-            Book Your Stay
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#book" className="px-10 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-lg shadow-2xl transition-all transform hover:-translate-y-1">
+              Check Availability
+            </a>
+            <a href="#lodge" className="px-10 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 rounded-full font-bold text-lg transition-all">
+              Explore The Lodge
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Widget Section */}
+      <section id="book" className="py-16 bg-emerald-900 relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden p-8 md:p-12">
+            <div className="flex items-center space-x-3 mb-8 justify-center">
+              <Calendar className="w-6 h-6 text-emerald-600" />
+              <h2 className="text-3xl font-bold text-slate-800">Book Your Stay</h2>
+            </div>
+            
+            <div className="min-h-[400px] flex flex-col items-center justify-center text-center space-y-6">
+              <p className="text-slate-600 max-w-md">
+                Our calendar is synced live with Airbnb and VRBO. Book here directly to save on platform service fees.
+              </p>
+              
+              <div className="w-full max-w-2xl border-2 border-dashed border-slate-200 rounded-2xl p-8 bg-slate-50">
+                <h3 className="text-xl font-semibold mb-4 text-emerald-700">Ready to reserve?</h3>
+                <div className="flex flex-col md:flex-row gap-4 mb-6">
+                  <div className="flex-1 text-left">
+                    <label className="text-xs font-bold text-slate-400 uppercase ml-2">Check In</label>
+                    <div className="w-full bg-white border border-slate-200 p-3 rounded-xl mt-1 text-slate-400">Select Date</div>
+                  </div>
+                  <div className="flex-1 text-left">
+                    <label className="text-xs font-bold text-slate-400 uppercase ml-2">Check Out</label>
+                    <div className="w-full bg-white border border-slate-200 p-3 rounded-xl mt-1 text-slate-400">Select Date</div>
+                  </div>
+                </div>
+                <a 
+                  href="https://romig-retreats.lodgify.com/en/the-lodge-at-luckenbach-hill" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full block bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg transition-all"
+                >
+                  View Prices & Availability
+                </a>
+                <p className="mt-4 text-xs text-slate-400 flex items-center justify-center">
+                  <CheckCircle className="w-3 h-3 mr-1 text-emerald-500" /> Secure Checkout via Lodgify
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -152,12 +204,12 @@ const App = () => {
 
             <div className="grid grid-cols-2 gap-4 h-full">
               <div className="space-y-4 pt-12">
-                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/c8865a1a-e31e-47f3-a978-8f88e5679c64.jpeg?aki_policy=xx_large" />
-                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/e1b2248d-5409-43af-8c12-8dcd0a308204.jpeg?aki_policy=xx_large" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/c8865a1a-e31e-47f3-a978-8f88e5679c64.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Kitchen Area" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/e1b2248d-5409-43af-8c12-8dcd0a308204.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Bedroom" />
               </div>
               <div className="space-y-4">
-                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/2375c61f-7700-4601-a3f8-37eaac183dea.jpeg?aki_policy=xx_large" />
-                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/99c328f3-f4b1-40ae-817a-ec1edb87863f.jpeg?aki_policy=xx_large" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/2375c61f-7700-4601-a3f8-37eaac183dea.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Living Room" />
+                <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/99c328f3-f4b1-40ae-817a-ec1edb87863f.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-64 object-cover" alt="Game Room" />
               </div>
             </div>
           </div>
@@ -174,7 +226,7 @@ const App = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/540ec5e2-1f9e-4e26-a7db-a596320374bb.jpeg?aki_policy=xx_large" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/540ec5e2-1f9e-4e26-a7db-a596320374bb.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Serene Pond" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-8 flex flex-col justify-end">
                 <h3 className="text-2xl font-bold mb-2">Serene Pond</h3>
                 <p className="text-slate-300 text-sm">Swimming and fishing right on the property.</p>
@@ -195,6 +247,75 @@ const App = () => {
                 <h3 className="text-2xl font-bold mb-2">Harriet Hollister</h3>
                 <p className="text-slate-300 text-sm">Stunning vistas of Honeoye Lake just 1 mile away.</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore Section (Guidebook Content) */}
+      <section id="explore" className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Nearby Attractions</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto font-medium">The best of the Finger Lakes region, as featured in our guest book.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <Compass className="w-10 h-10 text-emerald-600 mb-6" />
+              <h3 className="text-xl font-bold mb-4">State Parks</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Harriet Hollister (1 mi):</strong> Hiking, skiing & lake vistas.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Letchworth (37 min):</strong> The "Grand Canyon of the East".</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Stony Brook (30 min):</strong> Stunning waterfalls and trails.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <Wine className="w-10 h-10 text-emerald-600 mb-6" />
+              <h3 className="text-xl font-bold mb-4">Wineries & Towns</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Naples (12 min):</strong> Famous Grape Pies & wineries.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Hammondsport (50 min):</strong> Keuka Lake breweries & museums.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Canandaigua (25 min):</strong> CMAC concerts & lakefront dining.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+              <Star className="w-10 h-10 text-emerald-600 mb-6" />
+              <h3 className="text-xl font-bold mb-4">Local Favorites</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Conesus Lake (20 min):</strong> Great for a scenic drive.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Bristol Mountain:</strong> Premier skiing in the winter months.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-4 h-4 mr-2 text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>Corning Museum:</strong> World-class glass art (1 hour).</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
