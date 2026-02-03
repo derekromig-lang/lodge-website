@@ -28,13 +28,16 @@ import {
   ShieldCheck,
   CreditCard,
   Send,
-  MessageCircle
+  MessageCircle,
+  Quote,
+  Maximize2
 } from 'lucide-react';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
   const [bookingData, setBookingData] = useState({
     checkIn: '',
     checkOut: '',
@@ -43,6 +46,9 @@ const App = () => {
     email: '',
     message: ''
   });
+
+  // Direct link format for Google Drive images
+  const logoUrl = "https://lh3.googleusercontent.com/d/1F5ewK2BZgziU12A7IEl_bj2ECQqyC-gW";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -63,11 +69,20 @@ const App = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Availability', href: '#book' },
     { name: 'The Lodge', href: '#lodge' },
+    { name: 'Gallery', href: '#gallery' },
     { name: 'Grounds', href: '#grounds' },
-    { name: 'Explore', href: '#explore' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Reviews', href: '#reviews' },
+    { name: 'Availability', href: '#book' }
+  ];
+
+  const galleryImages = [
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/b8a88269-23c4-41f8-ab1f-9958675a160a.jpeg?aki_policy=xx_large", caption: "Cozy Bedroom Retreat" },
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dfec48d7-4954-45d0-91e3-5b6560a64794.jpeg?aki_policy=xx_large", caption: "Spacious Living Area" },
+    { url: "https://a0.muscache.com/im/pictures/2f8d3b90-324b-4c47-8fc1-67e306d445ae.jpg?aki_policy=xx_large", caption: "Modern Rustic Bath" },
+    { url: "https://a0.muscache.com/im/pictures/76f68481-23ae-4af4-b0b5-9c01af42140f.jpg?aki_policy=xx_large", caption: "Comfortable Queen Suite" },
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/7b96143c-145c-4e59-813b-5ef5e279ef68.jpeg?aki_policy=xx_large", caption: "Elegant Dining Space" },
+    { url: "https://a0.muscache.com/im/pictures/99ba5a54-b772-4877-98c1-fe59b844b2ac.jpg?aki_policy=xx_large", caption: "Outdoor Entertainment" }
   ];
 
   const amenities = [
@@ -81,13 +96,41 @@ const App = () => {
     { icon: <Flame className="w-5 h-5" />, label: "Fire Pit" },
   ];
 
+  const reviews = [
+    {
+      name: "Sarah Jenkins",
+      date: "October 2025",
+      rating: 5,
+      text: "Absolutely stunning property. The views of Honeoye Lake from the nearby park were breathtaking, but honestly, we didn't want to leave the lodge. The private pond and hot tub made for the most relaxing weekend we've had in years.",
+      source: "Direct Booking"
+    },
+    {
+      name: "The Miller Family",
+      date: "August 2025",
+      rating: 5,
+      text: "Derek was a fantastic host. The lodge is impeccably clean and the game room kept the kids entertained for hours while the adults enjoyed the fire pit. 6 stars if I could!",
+      source: "Airbnb Guest"
+    },
+    {
+      name: "James T.",
+      date: "December 2025",
+      rating: 5,
+      text: "A winter wonderland. We stayed for a ski trip to Bristol Mountain and coming back to that hot tub was heaven. The kitchen is fully equipped—we cooked every night.",
+      source: "Direct Booking"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 scroll-smooth">
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Mountain className={`w-8 h-8 ${scrolled ? 'text-emerald-700' : 'text-white'}`} />
+          <div className="flex items-center space-x-3">
+            <img 
+              src={logoUrl} 
+              alt="Luckenbach Hill Logo" 
+              className={`transition-all duration-300 ${scrolled ? 'h-10 w-10' : 'h-14 w-14'} object-contain brightness-0 ${scrolled ? '' : 'invert'}`}
+            />
             <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-slate-800' : 'text-white'}`}>
               LUCKENBACH HILL
             </span>
@@ -100,7 +143,7 @@ const App = () => {
               </a>
             ))}
             <a href="#book" className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-xl">
-              Check Availability
+              Book Direct
             </a>
           </div>
 
@@ -144,6 +187,13 @@ const App = () => {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <div className="flex justify-center mb-8">
+            <img 
+              src={logoUrl} 
+              alt="Logo" 
+              className="h-24 w-24 object-contain invert drop-shadow-2xl opacity-90"
+            />
+          </div>
           <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white text-sm font-medium mb-6">
             <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
             <span>Top-Rated Finger Lakes Retreat</span>
@@ -165,6 +215,161 @@ const App = () => {
         </div>
       </section>
 
+      {/* Lodge Details */}
+      <section id="lodge" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <div>
+                <span className="text-emerald-600 font-bold tracking-widest uppercase text-xs">Comfort Meets Nature</span>
+                <h2 className="text-4xl font-bold text-slate-900 mt-2 leading-tight">Modern Luxury In The Wild</h2>
+              </div>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Our 4-bedroom retreat offers the perfect balance of rustic charm and modern amenities. Gather around the fire, relax in the hot tub, or explore 6 private acres.
+              </p>
+              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+                {amenities.map((item, idx) => (
+                  <div key={idx} className="flex items-center space-x-3 text-slate-700">
+                    <div className="text-emerald-600">{item.icon}</div>
+                    <span className="text-sm font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/c8865a1a-e31e-47f3-a978-8f88e5679c64.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-64 object-cover mt-8" alt="Kitchen" />
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/2375c61f-7700-4601-a3f8-37eaac183dea.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Living Room" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW: Additional Photos Gallery */}
+      <section id="gallery" className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-emerald-600 font-bold tracking-widest uppercase text-xs">Interior & Details</span>
+            <h2 className="text-4xl font-bold text-slate-900 mt-2">Take a Closer Look</h2>
+            <p className="text-slate-500 mt-4">Every corner of the Lodge is designed for comfort and style.</p>
+          </div>
+
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {galleryImages.map((img, idx) => (
+              <div 
+                key={idx} 
+                className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-md bg-white break-inside-avoid transition-all hover:shadow-2xl"
+                onClick={() => setSelectedImage(img)}
+              >
+                <img 
+                  src={img.url} 
+                  alt={img.caption} 
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="text-center p-4">
+                    <Maximize2 className="text-white w-8 h-8 mx-auto mb-2" />
+                    <p className="text-white font-medium">{img.caption}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Grounds Section */}
+      <section id="grounds" className="py-24 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">The Grounds</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">Six private acres of Springwater's finest hillside.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/540ec5e2-1f9e-4e26-a7db-a596320374bb.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Serene Pond" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
+                <h3 className="text-2xl font-bold mb-2">Serene Pond</h3>
+                <p className="text-slate-300 text-sm">Private swimming and fishing.</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
+              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dcbe31f5-8c8f-4755-8357-e33fccf6dd77.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Hot Tub" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
+                <h3 className="text-2xl font-bold mb-2">Private Spa</h3>
+                <p className="text-slate-300 text-sm">6-Person Hot Tub under the stars.</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
+              <img src="https://a0.muscache.com/im/pictures/f910b196-6a56-493e-9a7e-3db5e168062c.jpg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Harriet Hollister" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
+                <h3 className="text-2xl font-bold mb-2">Stunning Views</h3>
+                <p className="text-slate-300 text-sm">Vistas of Honeoye Lake 1 mile away.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Reviews Section */}
+      <section id="reviews" className="py-24 bg-slate-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <h2 className="text-4xl font-bold text-slate-900 leading-tight">
+                Guest Experiences
+              </h2>
+              <p className="text-slate-600 mt-4 text-lg">
+                We take pride in providing a perfect getaway. Read what our guests have to say about their stay at the Lodge.
+              </p>
+            </div>
+            <div className="bg-white px-6 py-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
+              <div className="text-3xl font-bold text-slate-900">4.9</div>
+              <div className="h-10 w-[1px] bg-slate-200"></div>
+              <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                Average <br/> Rating
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {reviews.map((review, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col relative group transition-all hover:shadow-xl hover:-translate-y-1">
+                <Quote className="absolute top-6 right-8 w-10 h-10 text-emerald-50 opacity-50 transition-colors group-hover:text-emerald-100" />
+                
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+
+                <p className="text-slate-700 leading-relaxed mb-8 flex-grow italic">
+                  "{review.text}"
+                </p>
+
+                <div className="flex items-center justify-between pt-6 border-t border-slate-50">
+                  <div>
+                    <h4 className="font-bold text-slate-900">{review.name}</h4>
+                    <p className="text-xs text-slate-400 font-medium">{review.date}</p>
+                  </div>
+                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-tighter">
+                    {review.source}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Availability & Inquiry Section */}
       <section id="book" className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -176,7 +381,7 @@ const App = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Column: Live Google Calendar Embed */}
+            {/* Calendar Embed */}
             <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold flex items-center gap-2 text-slate-800">
@@ -190,7 +395,6 @@ const App = () => {
               </div>
               
               <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[450px]">
-                {/* UPDATED CALENDAR LINK INCORPORATING MULTIPLE SOURCES */}
                 <iframe 
                   src="https://calendar.google.com/calendar/embed?wkst=1&ctz=America%2FNew_York&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YWRmODVhZWEwZTViZjdhNWEyMGNkY2RmZGVjMGViNDY5NTg2N2NmODkwZTAzNjFiMmIxNDI5ZDMxMjA3NTlkOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTNrMXBrMHBrNHI3Y2M4ZzJkcWtmZWUydXJ2OGNnNHVAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bXM3OTk0OG9hdDI2NDExYmI5a28ydDUyZnZrZG1iOWlAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23ad1457&color=%23795548&color=%23d81b60" 
                   style={{border: 0}} 
@@ -201,12 +405,9 @@ const App = () => {
                   title="Availability Calendar"
                 ></iframe>
               </div>
-              <p className="mt-4 text-center text-xs text-slate-400">
-                Dates marked as busy are already booked. All other dates are currently available.
-              </p>
             </div>
 
-            {/* Right Column: Inquiry Form */}
+            {/* Inquiry Form */}
             <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 p-8 md:p-12 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4">
                 <ShieldCheck className="w-12 h-12 text-emerald-50 opacity-10" />
@@ -279,24 +480,14 @@ const App = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-400 uppercase">Message (Optional)</label>
-                    <textarea 
-                      rows="3"
-                      placeholder="Any questions for us?"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none resize-none"
-                      onChange={(e) => setBookingData({...bookingData, message: e.target.value})}
-                    ></textarea>
-                  </div>
-
                   <button 
                     type="submit"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2 active:scale-[0.98]"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2"
                   >
                     <span>Send Booking Inquiry</span>
                     <Send className="w-5 h-5" />
                   </button>
-
+                  
                   <div className="flex items-center justify-center gap-6 pt-4 text-slate-400 text-xs font-medium border-t border-slate-100">
                     <a href="tel:5853133670" className="flex items-center gap-1 hover:text-emerald-600 transition-colors">
                       <Phone className="w-3.5 h-3.5" /> Call Derek
@@ -312,79 +503,33 @@ const App = () => {
         </div>
       </section>
 
-      {/* Lodge Details */}
-      <section id="lodge" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div>
-                <span className="text-emerald-600 font-bold tracking-widest uppercase text-xs">Comfort Meets Nature</span>
-                <h2 className="text-4xl font-bold text-slate-900 mt-2 leading-tight">Modern Luxury In The Wild</h2>
-              </div>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Our 4-bedroom retreat offers the perfect balance of rustic charm and modern amenities. Gather around the fire, relax in the hot tub, or explore 6 private acres.
-              </p>
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                {amenities.map((item, idx) => (
-                  <div key={idx} className="flex items-center space-x-3 text-slate-700">
-                    <div className="text-emerald-600">{item.icon}</div>
-                    <span className="text-sm font-medium">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/c8865a1a-e31e-47f3-a978-8f88e5679c64.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-64 object-cover mt-8" alt="Kitchen" />
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/2375c61f-7700-4601-a3f8-37eaac183dea.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Living Room" />
-            </div>
+      {/* Lightbox Overlay */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-200"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full transition-colors">
+            <X className="w-8 h-8" />
+          </button>
+          <img 
+            src={selectedImage.url} 
+            alt={selectedImage.caption} 
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+          />
+          <div className="absolute bottom-10 left-0 right-0 text-center">
+            <p className="text-white text-lg font-medium">{selectedImage.caption}</p>
           </div>
         </div>
-      </section>
-
-      {/* The Grounds Section */}
-      <section id="grounds" className="py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">The Grounds</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">Six private acres of Springwater's finest hillside.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/540ec5e2-1f9e-4e26-a7db-a596320374bb.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Serene Pond" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h3 className="text-2xl font-bold mb-2">Serene Pond</h3>
-                <p className="text-slate-300 text-sm">Private swimming and fishing.</p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dcbe31f5-8c8f-4755-8357-e33fccf6dd77.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Hot Tub" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h3 className="text-2xl font-bold mb-2">Private Spa</h3>
-                <p className="text-slate-300 text-sm">6-Person Hot Tub under the stars.</p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/f910b196-6a56-493e-9a7e-3db5e168062c.jpg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Harriet Hollister" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h3 className="text-2xl font-bold mb-2">Stunning Views</h3>
-                <p className="text-slate-300 text-sm">Vistas of Honeoye Lake 1 mile away.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      )}
 
       {/* Footer */}
       <footer id="contact" className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12 border-b border-slate-800 pb-12 mb-12">
             <div className="max-w-xs">
-              <div className="flex items-center space-x-2 mb-6">
-                <Mountain className="w-8 h-8 text-emerald-500" />
+              <div className="flex items-center space-x-3 mb-6">
+                <img src={logoUrl} alt="Logo" className="h-12 w-12 object-contain invert opacity-90" />
                 <span className="text-2xl font-bold tracking-tight">ROMIG RETREATS</span>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -423,7 +568,6 @@ const App = () => {
             <div className="mt-4 md:mt-0 flex gap-8">
               <a href="#home" className="hover:text-emerald-500 transition-colors">Top</a>
               <a href="#book" className="hover:text-emerald-500 transition-colors">Availability</a>
-              <a href="https://romig-retreats.lodgify.com" className="hover:text-emerald-500 transition-colors">Host Login</a>
             </div>
           </div>
         </div>
