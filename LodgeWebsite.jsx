@@ -193,8 +193,7 @@ const App = () => {
               {/* <iframe src="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>*/}
               <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[450px]">
                 <iframe 
-                  src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0" 
-                  style={{border: 0}} 
+                  <iframe src="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
                   width="100%" 
                   height="100%" 
                   frameBorder="0" 
