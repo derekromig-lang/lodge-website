@@ -52,7 +52,6 @@ const App = () => {
 
   const handleInquiry = (e) => {
     e.preventDefault();
-    // For a free setup, we can trigger a pre-filled email draft
     const subject = `Booking Inquiry: ${bookingData.checkIn} to ${bookingData.checkOut}`;
     const body = `Hi Derek,%0D%0A%0D%0AI'm interested in booking the Lodge.%0D%0A%0D%0ADates: ${bookingData.checkIn} - ${bookingData.checkOut}%0D%0AGuests: ${bookingData.guests}%0D%0AMy Name: ${bookingData.name}%0D%0A%0D%0AMessage: ${bookingData.message}`;
     
@@ -177,7 +176,7 @@ const App = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Column: Live Google Calendar Embed (100% Free) */}
+            {/* Left Column: Live Google Calendar Embed */}
             <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold flex items-center gap-2 text-slate-800">
@@ -190,10 +189,11 @@ const App = () => {
                 </span>
               </div>
               
-              {/* <iframe src="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>*/}
               <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[450px]">
+                {/* YOUR CALENDAR LINK INSERTED HERE */}
                 <iframe 
-                  <iframe src="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                  src="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0" 
+                  style={{border: 0}} 
                   width="100%" 
                   height="100%" 
                   frameBorder="0" 
@@ -312,7 +312,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Lodge Details (Condensed for speed) */}
+      {/* Lodge Details */}
       <section id="lodge" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -374,43 +374,6 @@ const App = () => {
                 <p className="text-slate-300 text-sm">Vistas of Honeoye Lake 1 mile away.</p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Attractions Map-Style */}
-      <section id="explore" className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 text-center md:text-left">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-2">Nearby Attractions</h2>
-              <p className="text-slate-600">The best of the Finger Lakes, minutes from your door.</p>
-            </div>
-            <a href="https://www.airbnb.com/rooms/634486229724134845" target="_blank" className="text-emerald-700 font-bold flex items-center gap-1 hover:underline justify-center">
-              View Guidebook <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "Nature", icon: <Compass />, spots: ["Harriet Hollister (1 mi)", "Letchworth (37 min)", "Stony Brook (30 min)"] },
-              { title: "Sip & Taste", icon: <Wine />, spots: ["Naples Wineries (12 min)", "Brewery Row (20 min)", "Grape Pie Bakeries"] },
-              { title: "Adventure", icon: <Mountain />, spots: ["Bristol Skiing (15 min)", "Honeoye Lake Access", "CMAC Concerts"] }
-            ].map((cat, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200/50 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                  {cat.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-4">{cat.title}</h3>
-                <ul className="space-y-3">
-                  {cat.spots.map((s, j) => (
-                    <li key={j} className="text-slate-600 text-sm flex items-center gap-2">
-                      <div className="w-1 h-1 bg-emerald-400 rounded-full"></div> {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
         </div>
       </section>
