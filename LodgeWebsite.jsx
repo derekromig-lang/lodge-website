@@ -191,8 +191,7 @@ const App = () => {
               
               <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[450px]">
                 {/* YOUR CALENDAR LINK INSERTED HERE */}
-                <iframe 
-                  src="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0" 
+               <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&src=YWRmODVhZWEwZTViZjdhNWEyMGNkY2RmZGVjMGViNDY5NTg2N2NmODkwZTAzNjFiMmIxNDI5ZDMxMjA3NTlkOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTNrMXBrMHBrNHI3Y2M4ZzJkcWtmZWUydXJ2OGNnNHVAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bXM3OTk0OG9hdDI2NDExYmI5a28ydDUyZnZrZG1iOWlAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23ad1457&color=%23795548&color=%23d81b60" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe> 
                   style={{border: 0}} 
                   width="100%" 
                   height="100%" 
