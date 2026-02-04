@@ -79,12 +79,12 @@ const App = () => {
   ];
 
   const galleryImages = [
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/b8a88269-23c4-41f8-ab1f-9958675a160a.jpeg?aki_policy=xx_large", caption: "Cozy Bedroom Retreat" },
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dfec48d7-4954-45d0-91e3-5b6560a64794.jpeg?aki_policy=xx_large", caption: "Spacious Living Area" },
-    { url: "https://a0.muscache.com/im/pictures/2f8d3b90-324b-4c47-8fc1-67e306d445ae.jpg?aki_policy=xx_large", caption: "Modern Rustic Bath" },
-    { url: "https://a0.muscache.com/im/pictures/76f68481-23ae-4af4-b0b5-9c01af42140f.jpg?aki_policy=xx_large", caption: "Comfortable Queen Suite" },
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/7b96143c-145c-4e59-813b-5ef5e279ef68.jpeg?aki_policy=xx_large", caption: "Elegant Dining Space" },
-    { url: "https://a0.muscache.com/im/pictures/99ba5a54-b772-4877-98c1-fe59b844b2ac.jpg?aki_policy=xx_large", caption: "Outdoor Entertainment" }
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/b8a88269-23c4-41f8-ab1f-9958675a160a.jpeg?aki_policy=xx_large", caption: "" },
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dfec48d7-4954-45d0-91e3-5b6560a64794.jpeg?aki_policy=xx_large", caption: "" },
+    { url: "https://a0.muscache.com/im/pictures/2f8d3b90-324b-4c47-8fc1-67e306d445ae.jpg?aki_policy=xx_large", caption: "" },
+    { url: "https://a0.muscache.com/im/pictures/76f68481-23ae-4af4-b0b5-9c01af42140f.jpg?aki_policy=xx_large", caption: "" },
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/7b96143c-145c-4e59-813b-5ef5e279ef68.jpeg?aki_policy=xx_large", caption: "" },
+    { url: "https://a0.muscache.com/im/pictures/99ba5a54-b772-4877-98c1-fe59b844b2ac.jpg?aki_policy=xx_large", caption: "" }
   ];
 
   const amenities = [
