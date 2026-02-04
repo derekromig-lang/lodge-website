@@ -369,30 +369,35 @@ const App = () => {
         </div>
       </section>
 
-      {/* Booking & Payments Section */}
-      <section id="book" className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Availability & Payments</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Check our live calendar. To book directly and avoid service fees, send us a request!
-            </p>
-          </div>
+/* Booking & Payments (only the relevant modified parts shown) */
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Calendar & Payments */}
-            <div className="space-y-8">
-              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-bold flex items-center gap-2 text-slate-800">
-                    <Calendar className="text-emerald-600 w-5 h-5" />
-                    Availability Calendar
-                  </h3>
-                  <span className="flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                    Synced
-                  </span>
-                </div>
+<div className="grid lg:grid-cols-2 gap-12 items-stretch"> {/* add items-stretch so grid children expand vertically */}
+  {/* Calendar & Payments */}
+  <div className="space-y-8 h-full flex flex-col"> {/* make this column a full-height flex column */}
+    <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col h-full"> {/* h-full so the card fills column height */}
+      <div className="flex items-center justify-between mb-6">
+        ...
+      </div>
+
+      <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 h-full min-h-[400px]"> {/* h-full + min-h as fallback */}
+        <iframe
+          src="https://calendar.google.com/calendar/embed?..."
+          className="w-full h-full block" /* ensure iframe fills the container */
+          style={{ border: 0 }}
+          title="Availability Calendar"
+        />
+      </div>
+    </div>
+
+    {/* Payment Prompt */}
+    ...
+  </div>
+
+  {/* Inquiry Form */}
+  <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 p-8 md:p-12 relative overflow-hidden h-full"> {/* add h-full so it matches the calendar column height */}
+    ...
+  </div>
+</div>
                 
                 <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[400px]">
                   <iframe 
