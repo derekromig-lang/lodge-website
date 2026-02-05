@@ -79,12 +79,12 @@ const App = () => {
   ];
 
   const galleryImages = [
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/b8a88269-23c4-41f8-ab1f-9958675a160a.jpeg?aki_policy=xx_large", caption: "" },
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dfec48d7-4954-45d0-91e3-5b6560a64794.jpeg?aki_policy=xx_large", caption: "" },
-    { url: "https://a0.muscache.com/im/pictures/2f8d3b90-324b-4c47-8fc1-67e306d445ae.jpg?aki_policy=xx_large", caption: "" },
-    { url: "https://a0.muscache.com/im/pictures/76f68481-23ae-4af4-b0b5-9c01af42140f.jpg?aki_policy=xx_large", caption: "" },
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/7b96143c-145c-4e59-813b-5ef5e279ef68.jpeg?aki_policy=xx_large", caption: "" },
-    { url: "https://a0.muscache.com/im/pictures/99ba5a54-b772-4877-98c1-fe59b844b2ac.jpg?aki_policy=xx_large", caption: "" }
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/b8a88269-23c4-41f8-ab1f-9958675a160a.jpeg?aki_policy=xx_large", caption: "Cozy Bedroom Retreat" },
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dfec48d7-4954-45d0-91e3-5b6560a64794.jpeg?aki_policy=xx_large", caption: "Spacious Living Area" },
+    { url: "https://a0.muscache.com/im/pictures/2f8d3b90-324b-4c47-8fc1-67e306d445ae.jpg?aki_policy=xx_large", caption: "Modern Rustic Bath" },
+    { url: "https://a0.muscache.com/im/pictures/76f68481-23ae-4af4-b0b5-9c01af42140f.jpg?aki_policy=xx_large", caption: "Comfortable Queen Suite" },
+    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/7b96143c-145c-4e59-813b-5ef5e279ef68.jpeg?aki_policy=xx_large", caption: "Elegant Dining Space" },
+    { url: "https://a0.muscache.com/im/pictures/99ba5a54-b772-4877-98c1-fe59b844b2ac.jpg?aki_policy=xx_large", caption: "Outdoor Entertainment" }
   ];
 
   const amenities = [
@@ -369,40 +369,35 @@ const App = () => {
         </div>
       </section>
 
-/* Booking & Payments (only the relevant modified parts shown) */
+      {/* Booking & Payments Section */}
+      <section id="book" className="py-24 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Availability & Payments</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Check our live calendar. To book directly and avoid service fees, send us a request!
+            </p>
+          </div>
 
-<div className="grid lg:grid-cols-2 gap-12 items-stretch"> {/* add items-stretch so grid children expand vertically */}
-  {/* Calendar & Payments */}
-  <div className="space-y-8 h-full flex flex-col"> {/* make this column a full-height flex column */}
-    <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col h-full"> {/* h-full so the card fills column height */}
-      <div className="flex items-center justify-between mb-6">
-        ...
-      </div>
-
-      <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 h-full min-h-[400px]"> {/* h-full + min-h as fallback */}
-        <iframe
-          src="https://calendar.google.com/calendar/embed?..."
-          className="w-full h-full block" /* ensure iframe fills the container */
-          style={{ border: 0 }}
-          title="Availability Calendar"
-        />
-      </div>
-    </div>
-
-    {/* Payment Prompt */}
-    ...
-  </div>
-
-  {/* Inquiry Form */}
-  <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 p-8 md:p-12 relative overflow-hidden h-full"> {/* add h-full so it matches the calendar column height */}
-    ...
-  </div>
-</div>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Calendar & Payments */}
+            <div className="space-y-8">
+              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col h-[650px]">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-bold flex items-center gap-2 text-slate-800">
+                    <Calendar className="text-emerald-600 w-5 h-5" />
+                    Availability Calendar
+                  </h3>
+                  <span className="flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                    Synced
+                  </span>
+                </div>
                 
-                <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200 min-h-[400px]">
+                <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200">
                   <iframe 
                     src="https://calendar.google.com/calendar/embed?wkst=1&ctz=America%2FNew_York&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YWRmODVhZWEwZTViZjdhNWEyMGNkY2RmZGVjMGViNDY5NTg2N2NmODkwZTAzNjFiMmIxNDI5ZDMxMjA3NTlkOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTNrMXBrMHBrNHI3Y2M4ZzJkcWtmZWUydXJ2OGNnNHVAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bXM3OTk0OG9hdDI2NDExYmI5a28ydDUyZnZrZG1iOWlAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23ad1457&color=%23795548&color=%23d81b60" 
-                    style={{border: 0}} 
+                    style={{ border: 0, minHeight: '550px' }} 
                     width="100%" 
                     height="100%" 
                     frameBorder="0" 
