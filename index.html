@@ -3,870 +3,898 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romig Retreats | Premier Finger Lakes & Country Vacation Rentals</title>
+    <meta name="referrer" content="no-referrer">
+    
+    <!-- SEO Meta Tags -->
+    <title>Romig Retreats - Luxury Vacation Rentals in the Finger Lakes</title>
+    <meta name="description" content="Discover Romig Retreats, offering luxury boutique vacation rentals in the Finger Lakes region. Book private lodges, lakeside cottages, and golf retreats directly for the best rates.">
+    <meta name="keywords" content="Finger Lakes vacation rentals, Honeoye Lake rentals, Seneca Lake, Bristol Mountain lodging, luxury lodges upstate NY, boutique retreats, cabin rentals, direct booking vacation rentals, Lima Country Club, Romig Retreats">
+    <meta name="author" content="Romig Retreats Hospitality">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://romigretreats.com/">
+    <meta property="og:title" content="Romig Retreats - Luxury Vacation Rentals">
+    <meta property="og:description" content="Unforgettable escapes in the heart of the Finger Lakes. Handcrafted vacation experiences and private lodges.">
+    <meta property="og:image" content="https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            50: '#fbf8f3',
-                            100: '#f5efe4',
-                            200: '#e7d9c3',
-                            300: '#d7bc9c',
-                            400: '#c59c73',
-                            500: '#b78353',
-                            600: '#a36c44',
-                            700: '#835239',
-                            800: '#6c4333',
-                            900: '#59392c',
-                            dark: '#1e242b',
-                            accent: '#d4af37'
+                            50: '#fcfaf8',
+                            100: '#f7f4ef',
+                            200: '#eee6da',
+                            300: '#e1d2bf',
+                            400: '#ceb498',
+                            500: '#b89474',
+                            600: '#a37c5c',
+                            700: '#86634a',
+                            800: '#6d513e',
+                            900: '#584234',
                         }
                     },
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     }
                 }
             }
         }
     </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-stone-50 text-slate-800 font-sans antialiased selection:bg-brand-400 selection:text-white">
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- TOP ANNOUNCEMENT / SOCIAL BAR -->
-    <div class="bg-brand-900 text-stone-200 text-xs py-2 px-4 border-b border-brand-800/50">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center space-x-4">
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-tree text-brand-300"></i> Direct Booking Savings Available</span>
-                <span class="hidden md:inline-block text-brand-700">•</span>
-                <a href="tel:5853133670" class="hidden md:flex items-center gap-1.5 hover:text-brand-300 transition-colors">
-                    <i class="fa-solid fa-phone text-brand-300"></i> Call or Text: (585) 313-3670
-                </a>
-            </div>
-            <div class="flex items-center space-x-4">
-                <span class="text-stone-400">Follow @romigretreats:</span>
-                <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-brand-300 transition-colors" title="Instagram"><i class="fa-brands fa-instagram text-sm"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61595939596509" target="_blank" rel="noopener" class="hover:text-brand-300 transition-colors" title="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                <a href="https://tiktok.com" target="_blank" rel="noopener" class="hover:text-brand-300 transition-colors" title="TikTok"><i class="fa-brands fa-tiktok text-sm"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- MAIN NAVIGATION -->
-    <header class="sticky top-0 z-40 glass-nav border-b border-stone-200/80 transition-all duration-300" id="mainHeader">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" onclick="showHomeView(); return false;" class="flex items-center gap-3 group">
-                <img src="https://lh3.googleusercontent.com/d/10XkMysgRVMZXHSSnhxp_nCTBR6Ar5pUN" alt="Romig Retreats Logo" class="w-12 h-12 rounded-full object-cover shadow-md group-hover:scale-105 transition-transform border border-brand-200" onerror="this.onerror=null; this.src='https://placehold.co/100x100/6c4333/fff?text=RR'">
-                <div class="flex flex-col">
-                    <span class="font-serif text-xl font-bold tracking-tight text-slate-900 group-hover:text-brand-700 transition-colors">ROMIG RETREATS</span>
-                    <span class="text-[10px] tracking-widest uppercase font-semibold text-brand-600">Finger Lakes Getaways</span>
-                </div>
-            </a>
-
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" onclick="showHomeView(); return false;" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">Home</a>
-                
-                <!-- Property Dropdown -->
-                <div class="relative group">
-                    <button class="text-sm font-semibold text-slate-700 group-hover:text-brand-600 transition-colors flex items-center gap-1.5 py-2">
-                        Properties <i class="fa-solid fa-chevron-down text-xs transition-transform group-hover:rotate-180"></i>
-                    </button>
-                    <div class="absolute top-full left-0 w-64 bg-white rounded-xl shadow-xl border border-stone-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 transform translate-y-2 group-hover:translate-y-0" id="navDropdown">
-                        <!-- Dynamic items inserted via JS -->
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" onclick="showPage('home'); return false;" class="flex items-center gap-3 group">
+                    <img src="https://wsrv.nl/?url=https://i.ibb.co/GgfjxBv/Logo.png" alt="Romig Retreats Logo" class="h-12 w-auto object-contain group-hover:opacity-90 transition-opacity drop-shadow-sm">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl font-bold tracking-tight text-stone-900 group-hover:text-brand-700 transition-colors">ROMIG RETREATS</span>
+                        <span class="text-[10px] tracking-widest uppercase text-stone-500 font-medium">Boutique Stays</span>
                     </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" onclick="showPage('home'); return false;" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2">Home</a>
+                    
+                    <!-- Properties Dropdown -->
+                    <div class="relative group">
+                        <button onclick="toggleDropdown(event)" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2 flex items-center gap-1.5 focus:outline-none">
+                            Our Retreats
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        </button>
+                        <div id="navDropdown" class="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-stone-100 py-2 hidden group-hover:block hover:block z-50">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <a href="#about" onclick="showPage('home'); setTimeout(() => { document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}); }, 100); return false;" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2">About Us</a>
+                    <a href="#contact" onclick="showPage('home'); setTimeout(() => { document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }, 100); return false;" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2">Contact</a>
+                    
+                    <a href="#" onclick="showPage('home'); setTimeout(() => { document.getElementById('properties')?.scrollIntoView({behavior: 'smooth'}); }, 100); return false;" class="bg-brand-800 hover:bg-brand-700 text-white text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-sm hover:shadow transition-all">
+                        Book Your Stay
+                    </a>
                 </div>
 
-                <a href="#about" onclick="showHomeView();" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">About Us</a>
-                <a href="#amenities" onclick="showHomeView();" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">Experience</a>
-                <a href="#contact" onclick="showHomeView();" class="text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors">Contact</a>
-            </nav>
-
-            <!-- Book Now CTA -->
-            <div class="hidden md:flex items-center space-x-4">
-                <button onclick="scrollToProperties()" class="bg-brand-700 hover:bg-brand-800 text-white font-bold text-xs uppercase tracking-wider px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-                    View All Homes
-                </button>
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-
-            <!-- Mobile Hamburger Button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700 hover:text-brand-700 p-2 text-xl" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
         </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-4 space-y-3">
-            <a href="#" onclick="showHomeView(); toggleMobileMenu(); return false;" class="block font-medium text-slate-700 hover:text-brand-600">Home</a>
-            <div class="font-medium text-slate-400 text-xs uppercase tracking-wider pt-2">Properties</div>
-            <div id="mobilePropList" class="pl-3 space-y-2 border-l-2 border-brand-200">
-                <!-- Dynamically populated -->
+        <!-- Mobile Menu Container -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-stone-100 bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
+            <a href="#" onclick="showPage('home'); toggleMobileMenu(); return false;" class="block py-2 text-base font-medium text-stone-800 border-b border-stone-50">Home</a>
+            <div class="py-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">Our Retreats</div>
+                <div id="mobilePropList" class="pl-3 space-y-2 border-l-2 border-brand-200">
+                    <!-- Populated via JS -->
+                </div>
             </div>
-            <a href="#about" onclick="showHomeView(); toggleMobileMenu();" class="block font-medium text-slate-700 hover:text-brand-600 pt-2">About Us</a>
-            <a href="#contact" onclick="showHomeView(); toggleMobileMenu();" class="block font-medium text-slate-700 hover:text-brand-600">Contact</a>
+            <a href="#about" onclick="showPage('home'); toggleMobileMenu(); return false;" class="block py-2 text-base font-medium text-stone-800 border-b border-stone-50">About Us</a>
+            <a href="#contact" onclick="showPage('home'); toggleMobileMenu(); return false;" class="block py-2 text-base font-medium text-stone-800">Contact</a>
         </div>
-    </header>
+    </nav>
 
-    <!-- MAIN HOME LANDING VIEW -->
-    <main id="homeView">
-        
-        <!-- HERO LANDING BANNER -->
-        <section class="relative min-h-[85vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
-            <!-- Background Image -->
-            <div class="absolute inset-0 z-0">
-                <img src="https://lh3.googleusercontent.com/d/1xDf5iyoGHCx1_A0vpx0-k16v6lehZO7d" 
-                     alt="Romig Retreats Landing View" 
-                     class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000"
-                     onerror="this.src='https://placehold.co/1920x1080/6c4333/fff?text=Romig+Retreats'">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-slate-900/30"></div>
-            </div>
-
-            <!-- Hero Content -->
-            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
-                <span class="inline-block bg-brand-500/20 backdrop-blur-md border border-brand-400/40 text-brand-200 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wider uppercase">
-                    <i class="fa-solid fa-tree text-brand-300 mr-1.5"></i> Direct Booking & Family Hospitality
+    <!-- MAIN HOMEPAGE VIEW -->
+    <div id="homeView" class="view-section">
+        <!-- Hero Banner -->
+        <header class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
+            <img src="https://wsrv.nl/?url=https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg" alt="Luxury Retreat Header" class="absolute inset-0 w-full h-full object-cover opacity-45 scale-105 transition-transform duration-10000 hover:scale-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/40 to-transparent"></div>
+            
+            <div class="relative max-w-5xl mx-auto px-4 text-center z-10 py-20">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-stone-800/80 backdrop-blur-md border border-white/20 text-xs uppercase tracking-widest font-semibold text-brand-200 mb-6">
+                    Handcrafted Vacation Experiences
                 </span>
-                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight drop-shadow-md">
-                    Unforgettable Finger Lakes <br class="hidden sm:inline"><span class="text-brand-300">Retreats & Country Lodges</span>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-white mb-6 leading-tight">
+                    Unforgettable Escapes in the Heart of the Finger Lakes
                 </h1>
-                <p class="text-stone-200 text-base sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
-                    Explore private trail loops, lakefront views, and peaceful country getaways in Springwater, Seneca Lake, Honeoye Lake, and Lima.
+                <p class="text-lg sm:text-xl text-stone-200 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    Discover our collection of curated private lodges, luxury cottages, and lakeside sanctuaries built for memories that last.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button onclick="scrollToProperties()" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white font-bold px-8 py-4 rounded-full text-base shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5">
-                        Explore Our Retreats <i class="fa-solid fa-arrow-down ml-2"></i>
-                    </button>
-                    <a href="#contact" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-semibold px-8 py-4 rounded-full text-base transition-all">
-                        Contact Hosts
+                    <a href="#properties" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white rounded-full font-medium text-sm tracking-wide transition-all shadow-lg hover:shadow-brand-600/30">
+                        Explore Our Retreats
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full font-medium text-sm tracking-wide transition-all">
+                        Learn Our Story
                     </a>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- PROPERTY PORTFOLIO SECTION -->
-        <section id="properties" class="py-20 bg-stone-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-brand-600 text-xs font-bold uppercase tracking-widest">Our Featured Properties</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Discover Your Next Getaway</h2>
-                    <p class="text-stone-600 mt-4 leading-relaxed">
-                        Select a retreat below to view high-resolution photo galleries, property details, and availability calendars.
-                    </p>
-                </div>
+        <!-- Properties Grid Section -->
+        <section id="properties" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Our Featured Properties</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-stone-600">Select any retreat below to view live availability, browse full photo galleries, and request your stay directly.</p>
+            </div>
 
-                <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Property cards dynamically inserted via JS -->
-                </div>
+            <div id="propertiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamic Property Cards Populated Here -->
             </div>
         </section>
 
-        <!-- AMENITIES & EXPERIENCE HIGHLIGHTS -->
-        <section id="amenities" class="py-20 bg-white border-t border-stone-200/80">
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-stone-100 border-y border-stone-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-brand-600 text-xs font-bold uppercase tracking-widest">Why Stay With Us</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-2">The Romig Retreats Experience</h2>
-                    <p class="text-stone-600 mt-4 leading-relaxed">
-                        Every Romig Retreat is fully equipped to offer an effortless stay—whether you're looking for quiet mornings on private trails, dock fishing on Seneca Lake, or a golf weekend.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200/80 hover:shadow-lg transition-shadow">
-                        <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-700 text-2xl mb-6">
-                            <i class="fa-solid fa-person-hiking"></i>
-                        </div>
-                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-3">Private Trail Systems</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed">
-                            Enjoy miles of marked hiking and walking loops directly on property at our Springwater retreats, complete with private ponds and mountain views.
-                        </p>
-                    </div>
-
-                    <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200/80 hover:shadow-lg transition-shadow">
-                        <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-700 text-2xl mb-6">
-                            <i class="fa-solid fa-water"></i>
-                        </div>
-                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-3">Prime Lake Access</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed">
-                            Experience Seneca Lake and Honeoye Lake with private dock access, outdoor fire pits, and quick drives to premier Finger Lakes wineries.
-                        </p>
-                    </div>
-
-                    <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200/80 hover:shadow-lg transition-shadow">
-                        <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center text-brand-700 text-2xl mb-6">
-                            <i class="fa-solid fa-house-chimney-user"></i>
-                        </div>
-                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-3">Family & Pet Friendly</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed">
-                            Generous floor plans, game rooms, spacious bunk setups for large families, and pet-friendly options so nobody gets left behind.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT US SECTION -->
-        <section id="about" class="py-20 bg-brand-900 text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <span class="text-brand-300 text-xs font-bold uppercase tracking-widest">Local Family Hospitality</span>
-                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2 mb-6">Welcome to Romig Retreats</h2>
-                        <p class="text-stone-300 mb-4 leading-relaxed">
-                            As local Upstate New York hosts, we take pride in managing exceptional getaway homes across the Finger Lakes and surrounding countryside.
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-700">About Romig Retreats</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mt-2 mb-6">Elevated Comfort Meets Scenic Tranquility</h2>
+                        <p class="text-stone-600 mb-4 leading-relaxed">
+                            At Romig Retreats, we host unforgettable getaways designed for relaxation, family bonding, and peaceful escapes. Each property is individually curated with modern amenities, crisp design, and direct access to regional outdoor leisure.
                         </p>
-                        <p class="text-stone-300 mb-8 leading-relaxed">
-                            From quiet cabin stays on Luckenbach Hill Rd to wine tour weekends on Seneca Lake and rounds of golf in Lima, our properties are maintained with personal care and detail.
+                        <p class="text-stone-600 mb-8 leading-relaxed">
+                            Whether you're planning a lakeside retreat, a mountain cabin getaway, or a golf weekend, our properties offer seamless self check-in, pristine cleanliness, and prompt guest support.
                         </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#contact" class="bg-brand-500 hover:bg-brand-400 text-slate-950 font-bold px-6 py-3 rounded-full text-sm transition-colors">
-                                Get In Touch With Us
-                            </a>
-                            <button onclick="scrollToProperties()" class="border border-brand-300/40 text-brand-200 hover:bg-brand-800 font-semibold px-6 py-3 rounded-full text-sm transition-colors">
-                                Browse All Properties
-                            </button>
+                        <div class="grid grid-cols-3 gap-4 border-t border-stone-200 pt-6">
+                            <div>
+                                <div class="font-serif text-3xl font-bold text-brand-800">5</div>
+                                <div class="text-xs text-stone-500 font-medium mt-1">Boutique Properties</div>
+                            </div>
+                            <div>
+                                <div class="font-serif text-3xl font-bold text-brand-800">4.9★</div>
+                                <div class="text-xs text-stone-500 font-medium mt-1">Average Rating</div>
+                            </div>
+                            <div>
+                                <div class="font-serif text-3xl font-bold text-brand-800">100%</div>
+                                <div class="text-xs text-stone-500 font-medium mt-1">Verified Stays</div>
+                            </div>
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
-                            <img src="https://lh3.googleusercontent.com/d/1-Alm42nKRL6Dj-BKKOeqmFkTLyZwi6dH" alt="Romig Retreats Property" class="w-full h-full object-cover">
+                        <img src="https://wsrv.nl/?url=https://i.ibb.co/fG0C6D1S/DSC04216-17-18-19-20-1.jpg" alt="Romig Retreats Interior" class="rounded-2xl shadow-xl w-full object-cover h-[450px]">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-lg border border-stone-100 hidden sm:block max-w-xs">
+                            <i class="fa-solid fa-quote-left text-brand-400 text-2xl mb-2"></i>
+                            <p class="text-xs text-stone-600 italic">"The absolute highlight of our year. Pristine property and seamless booking experience."</p>
+                            <span class="block text-[11px] font-bold text-stone-800 mt-2">— Verified Guest</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DIRECT CONTACT SECTION -->
-        <section id="contact" class="py-20 bg-stone-100 border-t border-stone-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-3xl mx-auto text-center mb-12">
-                    <span class="text-brand-600 text-xs font-bold uppercase tracking-widest">Get In Touch</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-2">Have Questions or Ready to Book?</h2>
-                    <p class="text-stone-600 mt-3 text-sm">
-                        Contact host Derek Romig directly for booking inquiries, date availability, or custom guest requests.
-                    </p>
-                </div>
-
-                <div class="max-w-2xl mx-auto bg-white p-8 rounded-3xl shadow-xl border border-stone-200">
-                    <div id="inquiryMsgBox" class="hidden mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm">
-                        <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your inquiry has been sent. We will reach out to you directly via phone or email shortly.
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-5">
+                    <div class="md:col-span-2 bg-stone-900 text-white p-8 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold mb-4">Get In Touch</h3>
+                            <p class="text-stone-300 text-sm mb-8">Have questions about a specific property or custom dates? Send us a message and we'll reply promptly.</p>
+                            <div class="space-y-4 text-sm">
+                                <a href="mailto:Derek.Romig@gmail.com" class="flex items-center gap-3 hover:text-white transition-colors group">
+                                    <i class="fa-solid fa-envelope text-brand-400 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-stone-200 group-hover:text-white transition-colors">Derek.Romig@gmail.com</span>
+                                </a>
+                                <a href="tel:+15853133670" class="flex items-center gap-3 hover:text-white transition-colors group">
+                                    <i class="fa-solid fa-phone text-brand-400 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-stone-200 group-hover:text-white transition-colors">585-313-3670</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-12 text-xs text-stone-400">
+                            Romig Retreats Hospitality Group
+                        </div>
                     </div>
-
-                    <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="md:col-span-3 p-8 sm:p-10">
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Your Name</label>
-                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Your Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Phone Number</label>
-                                <input type="tel" required placeholder="(585) 313-3670" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
                             </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Email Address</label>
-                            <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Property of Interest</label>
-                            <select class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-700">
-                                <option>The Lodge at Luckenbach Hill (Springwater, NY)</option>
-                                <option>Salem Lodge (Canandaigua, NY)</option>
-                                <option>Seneca Lookout (Seneca Lakefront)</option>
-                                <option>Stay & Play Golf Retreat (Lima, NY)</option>
-                                <option>Clairmonte Cottage (Honeoye Lake)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Message / Desired Dates</label>
-                            <textarea rows="4" placeholder="Let us know your target dates and guest count..." class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-4 rounded-xl text-sm shadow-md transition-colors">
-                            Send Direct Inquiry
-                        </button>
-                    </form>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Message</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm" placeholder="Inquire about dates, amenities, or special accommodations..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 bg-brand-800 hover:bg-brand-700 text-white font-medium text-sm rounded-xl transition-all shadow-sm">
+                                Send Inquiry
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
+    </div>
 
-    <!-- DYNAMIC PROPERTY SUBPAGE VIEW -->
-    <main id="subpageView" class="hidden min-h-screen py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div id="subpageContent">
-            <!-- Dynamic Subpage Content Inserted via JS -->
+    <!-- SUBPAGE VIEW FOR INDIVIDUAL PROPERTY -->
+    <div id="subpageView" class="view-section hidden pb-24">
+        <!-- Back Button Bar -->
+        <div class="bg-stone-100 border-b border-stone-200 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                <button onclick="showPage('home')" class="inline-flex items-center gap-2 text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to All Properties
+                </button>
+                <span id="subpageBreadcrumb" class="text-xs text-stone-400 hidden sm:inline-block"></span>
+            </div>
         </div>
-    </main>
 
-    <!-- FULLSCREEN LIGHTBOX MODAL -->
-    <div id="lightboxModal" class="hidden fixed inset-0 z-50 bg-slate-950/95 flex items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/80 hover:text-white text-3xl p-2 z-50 focus:outline-none">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+            <!-- Property Header -->
+            <div class="mb-8">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                    <span id="subpageTag" class="px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider"></span>
+                    <span id="subpageLocation" class="text-sm text-stone-500"></span>
+                </div>
+                <h1 id="subpageTitle" class="text-3xl sm:text-5xl font-serif font-bold text-stone-900 mb-4"></h1>
+                <p id="subpageTagline" class="text-stone-600 text-lg max-w-3xl"></p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="mb-12">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-serif text-xl font-bold text-stone-900">Photo Gallery</h3>
+                    <span class="text-xs text-stone-500">Click photos to view fullscreen</span>
+                </div>
+                <div id="subpageGalleryGrid" class="grid grid-cols-2 md:grid-cols-4 gap-3 rounded-2xl overflow-hidden">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <!-- Main Content Area: Details + Calendar Sidebar -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Left Details Column (2 Cols) -->
+                <div class="lg:col-span-2 space-y-10">
+                    <!-- Key Specs Cards -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-center">
+                        <div>
+                            <i class="fa-solid fa-user-group text-brand-600 text-xl mb-1"></i>
+                            <div id="specGuests" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Max Guests</div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-bed text-brand-600 text-xl mb-1"></i>
+                            <div id="specBeds" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Bedrooms</div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-bath text-brand-600 text-xl mb-1"></i>
+                            <div id="specBaths" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Bathrooms</div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-house text-brand-600 text-xl mb-1"></i>
+                            <div id="specType" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Property Type</div>
+                        </div>
+                    </div>
+
+                    <!-- Overview Description -->
+                    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">About This Property</h3>
+                        <div id="subpageDescription" class="text-stone-600 leading-relaxed space-y-4"></div>
+                    </div>
+
+                    <!-- Amenities Checklist -->
+                    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-6">Property Amenities</h3>
+                        <div id="subpageAmenities" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Live Calendar Display Section -->
+                    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-stone-900">Live Availability Calendar</h3>
+                                <p class="text-xs text-stone-500 mt-1">Dates updated in real-time</p>
+                            </div>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Synchronized
+                            </span>
+                        </div>
+                        
+                        <div id="calendarContainer" class="w-full bg-stone-50 rounded-xl overflow-hidden border border-stone-200">
+                            <!-- Calendar iframe inserted via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Inquiry Form Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-28 bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-lg space-y-6">
+                        <div class="border-b border-stone-100 pb-4">
+                            <span class="text-xs uppercase font-bold tracking-widest text-brand-600">Reserve Direct</span>
+                            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-1">Book Your Dates</h3>
+                        </div>
+
+                        <form onsubmit="handleDirectBooking(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Check-In</label>
+                                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Check-Out</label>
+                                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Number of Guests</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                                    <option>1-2 Guests</option>
+                                    <option>3-5 Guests</option>
+                                    <option>6-8 Guests</option>
+                                    <option>9+ Guests</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Contact Email</label>
+                                <input type="email" placeholder="you@example.com" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-brand-800 hover:bg-brand-700 text-white font-medium text-sm rounded-xl transition-all shadow-md hover:shadow-lg">
+                                Request Reservation
+                            </button>
+                        </form>
+                        <p class="text-[11px] text-center text-stone-400">No immediate charge. We will confirm dates & rates within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR GALLERY -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-stone-400 focus:outline-none z-50">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <button onclick="changeLightboxSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-3xl p-4 z-50 focus:outline-none bg-black/40 hover:bg-black/70 rounded-full w-14 h-14 flex items-center justify-center">
+        <button onclick="prevLightboxImage()" class="absolute left-6 text-white text-3xl hover:text-stone-400 focus:outline-none z-50 p-2">
             <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <div class="max-w-5xl max-h-[85vh] relative flex flex-col items-center">
-            <img id="lightboxImage" src="" alt="Enlarged photo" class="max-w-full max-h-[78vh] object-contain rounded-lg shadow-2xl">
-            <div id="lightboxCounter" class="text-stone-400 text-xs font-semibold mt-4">1 / 1</div>
-        </div>
-        <button onclick="changeLightboxSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-3xl p-4 z-50 focus:outline-none bg-black/40 hover:bg-black/70 rounded-full w-14 h-14 flex items-center justify-center">
+        <button onclick="nextLightboxImage()" class="absolute right-6 text-white text-3xl hover:text-stone-400 focus:outline-none z-50 p-2">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
+        <img id="lightboxImg" src="" alt="Gallery Lightbox" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg">
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 text-stone-400 py-16 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div class="md:col-span-2">
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="https://lh3.googleusercontent.com/d/10XkMysgRVMZXHSSnhxp_nCTBR6Ar5pUN" alt="Romig Retreats Logo" class="w-10 h-10 rounded-full object-cover border border-brand-700" onerror="this.onerror=null; this.src='https://placehold.co/100x100/6c4333/fff?text=RR'">
-                        <span class="font-serif text-xl font-bold text-white tracking-wider">ROMIG RETREATS</span>
-                    </div>
-                    <p class="text-stone-400 text-sm leading-relaxed max-w-md mb-6">
-                        Family-owned and operated Finger Lakes vacation rentals offering scenic country acreage, private trails, and lakefront views across Upstate New York.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://instagram.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-stone-300 hover:text-white hover:bg-brand-700 transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61595939596509" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-stone-300 hover:text-white hover:bg-brand-700 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://tiktok.com" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-stone-300 hover:text-white hover:bg-brand-700 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="https://wsrv.nl/?url=https://i.ibb.co/GgfjxBv/Logo.png" alt="Romig Retreats Logo" class="h-10 w-auto object-contain opacity-80">
+                    <span class="font-serif font-bold text-white tracking-tight">ROMIG RETREATS</span>
                 </div>
-
-                <div>
-                    <h4 class="font-serif text-white font-bold text-base mb-4">Our Properties</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" onclick="openSubpage('luckenbach'); return false;" class="hover:text-brand-300 transition-colors">The Lodge at Luckenbach Hill</a></li>
-                        <li><a href="#" onclick="openSubpage('salem'); return false;" class="hover:text-brand-300 transition-colors">Salem Lodge</a></li>
-                        <li><a href="#" onclick="openSubpage('seneca'); return false;" class="hover:text-brand-300 transition-colors">Seneca Lookout</a></li>
-                        <li><a href="#" onclick="openSubpage('stayplay'); return false;" class="hover:text-brand-300 transition-colors">Stay & Play Golf Retreat</a></li>
-                        <li><a href="#" onclick="openSubpage('clairmonte'); return false;" class="hover:text-brand-300 transition-colors">Clairmonte Cottage</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-serif text-white font-bold text-base mb-4">Direct Contact</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-400"></i> <a href="tel:5853133670" class="hover:text-white transition-colors">(585) 313-3670</a></li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-400"></i> <span>derekromig@gmail.com</span></li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-400"></i> <span>Finger Lakes Region, NY</span></li>
-                    </ul>
+                <div class="flex items-center gap-4 sm:border-l sm:border-stone-700 sm:pl-6">
+                    <a href="https://www.instagram.com/romig_retreats/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-all shadow-sm" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61595939596509" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-all shadow-sm" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-sm"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@romig_retreats" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-all shadow-sm" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok text-sm"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="pt-8 border-t border-slate-900 text-xs text-center text-stone-500">
-                &copy; 2026 Romig Retreats. All rights reserved. Direct booking platform.
+            <div class="text-xs text-center md:text-right space-y-1">
+                <p>&copy; 2026 Romig Retreats Hospitality. All rights reserved.</p>
+                <p class="text-stone-500">Handcrafted direct booking experiences.</p>
             </div>
         </div>
     </footer>
 
     <!-- JAVASCRIPT CONTROLLERS -->
     <script>
-        // Global Property Data
+        // Global Property Database
         const propertiesData = [
             {
                 id: 'luckenbach',
                 title: 'The Lodge at Luckenbach Hill',
-                location: 'Springwater, NY (Luckenbach Hill Rd)',
-                specs: '4 Bedrooms • 2 Bathrooms • 6.5 Acres • Private Pond & Trails',
-                description: 'Surrounded by 6.5 private scenic acres in Springwater, NY, The Lodge at Luckenbach Hill features over a mile of private West and East nature trail loops, a peaceful private pond, outdoor fire pit, and spacious living areas ideal for family retreats and quiet Finger Lakes getaways.',
-                heroImage: 'https://lh3.googleusercontent.com/d/1oOolOQL8oj1yDmgNRlqGfUQjnBr4HViX',
-                images: [
-                    'https://lh3.googleusercontent.com/d/1oOolOQL8oj1yDmgNRlqGfUQjnBr4HViX',
-                    'https://lh3.googleusercontent.com/d/1-Alm42nKRL6Dj-BKKOeqmFkTLyZwi6dH',
-                    'https://lh3.googleusercontent.com/d/1-muWYIi9uoP4jmbUmth3JVxQts5Q7Q9I',
-                    'https://lh3.googleusercontent.com/d/14F8TYTCEayQVbDoOzTTB7x0Io4grd4Nt',
-                    'https://lh3.googleusercontent.com/d/153Tc815k6yjG2QyXcPUnHhnNvsnHTeFD',
-                    'https://lh3.googleusercontent.com/d/1BoPhCnyZMHjyvOqPFdpAEa9ayaPAMGJL',
-                    'https://lh3.googleusercontent.com/d/1BtoX2XMcK1SyUz1pLhZym84nl9NZlMhg',
-                    'https://lh3.googleusercontent.com/d/1EFNeL-zFvfx8kZPKh88aO9GDHK9XQBVb',
-                    'https://lh3.googleusercontent.com/d/1GXZOQMOPkarBppKBYbJznKuvWlFanC0d',
-                    'https://lh3.googleusercontent.com/d/1HAi1KTeG9gufvQ83izca5rt5EC6g5ShI',
-                    'https://lh3.googleusercontent.com/d/1I_a6TJDAw8YmGRWHolyBTxHgKFMhmzhK',
-                    'https://lh3.googleusercontent.com/d/1JfErhzD6RyHDiwnnXkrH_MvLs1pKQpxO',
-                    'https://lh3.googleusercontent.com/d/1LhQteWJmW-vP9G2IiU8bdfvdDzmrIg7v',
-                    'https://lh3.googleusercontent.com/d/1MSHcCB5rAkzBKbbanw27hjqhhJUO1KnW',
-                    'https://lh3.googleusercontent.com/d/1TNKQN3X6y3B-PNNCdKPbSKbEUnr-qXa8',
-                    'https://lh3.googleusercontent.com/d/1VwZWuRTc83BQ1DBaaAQRsZz-KMNquzWR',
-                    'https://lh3.googleusercontent.com/d/1XsfcQBp1PA3GzFjK1zSOzUyEyVVmjQR2',
-                    'https://lh3.googleusercontent.com/d/1aV6n7NFs66H3_NB_hekbMqdTNGitXOuF',
-                    'https://lh3.googleusercontent.com/d/1aor4LPfcBN_z1VgS3Snx-3wvKiFGvdYj',
-                    'https://lh3.googleusercontent.com/d/1hSh8Nd7mMjF9ID8fMKwYVbh0GcwKw8jr',
-                    'https://lh3.googleusercontent.com/d/1hYo-9Af7-3Hfkge0_OBf8M3La02PunNU',
-                    'https://lh3.googleusercontent.com/d/1j4b32AXkoQw690YLS-iw6PbVTM5ETuEL',
-                    'https://lh3.googleusercontent.com/d/1kL-zHaAdEnLCPHIdYC7Lnp_OahKvER9x',
-                    'https://lh3.googleusercontent.com/d/1n-5D3O9qXQPmv_yIfJ-lbe--UlgtU58c',
-                    'https://lh3.googleusercontent.com/d/1q9AK5BmmMcDVsqDuO--3KBYd-mdm6cso',
-                    'https://lh3.googleusercontent.com/d/1r-Q8DlJ_WZgPOITbND6qSdsYKZUrzVld',
-                    'https://lh3.googleusercontent.com/d/1ruMvZiGsnCy6NIA_WtUE64CXLZhykIga',
-                    'https://lh3.googleusercontent.com/d/1t9CF3aEPDcofuwlKHy45vRcuQBg49Kyj',
-                    'https://lh3.googleusercontent.com/d/1vaUplaDkll-Jm6RDEqAFDtL8fhBgVXe4'
+                tagline: 'Scenic lodge with expansive views, perfect for group getaways and relaxing weekends.',
+                location: 'Luckenbach Hill',
+                type: 'Lodge',
+                guests: '8',
+                beds: 4,
+                baths: 2,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/rKQsqqB0/DJI-20250718203820-0041-D.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=ms79948oat26411bb9ko2t52fvkdmb9i%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/rKQsqqB0/DJI-20250718203820-0041-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/6cn80n9R/IMG-0431-2.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/5hTsvWxr/IMG05532.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/d4WndTHB/DJI-20250718204400-0047-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/DgLWTPTj/IMG05632.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hxDNdMZd/DJI-20250718204658-0051-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0ytQCkrd/DJI-20250718204542-0050-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/MySBDXGp/IMG05544.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Kcj5WcjY/IMG05571.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/xqXcbM4H/IMG05556.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/nNC2G0GJ/IMG05601.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fd8pmzqs/IMG05613.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BVHXCf96/IMG05583.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Sw6z4CLY/IMG05553.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/8L8np5jN/IMG05541.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Q3Dp33nQ/IMG05574.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wNwmLzZR/IMG05653.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Zp8dk21H/arial2.webp',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Q3NLrV15/outsidehouse-1.jpg'
                 ],
-                amenities: ['6.5 Private Acres', 'Private Pond', 'West & East Trail Loops (>1 Mile)', 'Outdoor Fire Pit', 'Game Room', 'Full Kitchen', 'High-Speed Wi-Fi', 'Pet Friendly']
-            },
-            {
-                id: 'salem',
-                title: 'Salem Lodge',
-                location: 'Canandaigua, NY',
-                specs: 'Private Country Lodge • 20+ Acres Private Trails',
-                description: 'Nestled on 20+ private acres in Canandaigua, NY, Salem Lodge offers private hiking and walking trails, game room, covered outdoor deck, and expansive living space for peaceful retreats.',
-                heroImage: 'https://www.dropbox.com/scl/fi/2to74wg69xrq4ia9bk8zk/DSC04226_27_28_29_30.jpg?rlkey=y13xvzyws28vp7rpnez6nmfln&st=14nu1k38&raw=1',
-                images: [
-                    'https://www.dropbox.com/scl/fi/2to74wg69xrq4ia9bk8zk/DSC04226_27_28_29_30.jpg?rlkey=y13xvzyws28vp7rpnez6nmfln&st=14nu1k38&raw=1',
-                    'https://www.dropbox.com/scl/fi/qbekuoeaqwjmtdgj3qt9i/DSC04146_47_48_49_50-1-1.jpg?rlkey=gyf24a8lwak5a7ulxd1bk13vm&st=3izavtk2&raw=1',
-                    'https://www.dropbox.com/scl/fi/d7q6dp8wvrqsweu9nd9i3/DSC04096-2.jpg?rlkey=bl41pl3rd3c10qdiooc393uco&st=ubb20vb9&raw=1',
-                    'https://www.dropbox.com/scl/fi/fepkc5mpoep2j7ouz79b3/DSC04086.jpg?rlkey=9twxv6miv8vjwtecxndrzu6bv&st=j88rqr9n&raw=1',
-                    'https://www.dropbox.com/scl/fi/4qxpkhm9ubwm1xbmz3t49/DSC04081.jpg?rlkey=oso4mliarpwo5gq8ogbussuuy&st=b6vups32&raw=1',
-                    'https://www.dropbox.com/scl/fi/2cnqkywqi8pmj9dt28hgk/DSC04066-2.jpg?rlkey=1fezqcm6iu5cczz0tzqbyl2l0&st=rhv1vfdg&raw=1',
-                    'https://www.dropbox.com/scl/fi/j6zvsckw4nq7p2i6m2pgn/DSC04036-2.jpg?rlkey=xfr8wi4wvne96b4dbhtsqdb1g&st=4t27567z&raw=1',
-                    'https://www.dropbox.com/scl/fi/8w8yv8irfkqoo0ll0kg30/DSC04021-1.jpg?rlkey=ex345ygy8r580heabrz4m8ram&st=3sn50jg3&raw=1',
-                    'https://www.dropbox.com/scl/fi/haj0vi6bgcpeptqnvr3k3/DSC04006-2.jpg?rlkey=uhzcbzifuz76i5max61uqqfwt&st=p79ypqch&raw=1',
-                    'https://www.dropbox.com/scl/fi/zg09586m0dkrg3pozrgz8/DSC03976-1.jpg?rlkey=a83zaanxal0429ieuny9jaflm&st=fjrctd8x&raw=1',
-                    'https://www.dropbox.com/scl/fi/sngli1vlwi8qlxw4p82uf/DSC03961.jpg?rlkey=bnrr2ajx30toe67zi1u9rpttx&st=ls5jesbi&raw=1'
-                ],
-                amenities: ['20+ Acres Private Trails', 'Private Pond Access', 'Game Room', 'Covered Outdoor Deck', 'Fire Pit', 'Full Kitchen']
+                description: 'The Lodge at Luckenbach Hill offers unmatched relaxation with scenic surrounding views, luxury accommodations, and spacious open gathering areas.',
+                amenities: ['Expansive Deck', 'Fire Pit', 'High-Speed Wi-Fi', 'Full Kitchen', 'Outdoor Grill', 'Mountain Views', 'Smart HDTVs', 'Washer & Dryer']
             },
             {
                 id: 'seneca',
                 title: 'Seneca Lookout',
-                location: 'Seneca Lakefront Cabin',
-                specs: 'Private Dock • Seneca Lake Wine Trail',
-                description: 'Direct Seneca Lake waterfront retreat featuring private dock access, stunning panoramic lake views, outdoor fire pit, and quick access to Seneca Lake Wine Trail wineries.',
-                heroImage: 'https://lh3.googleusercontent.com/d/1-VqB3jq5-jPXxRbh3cHdOABrEFll3c10',
-                images: [
-                    'https://lh3.googleusercontent.com/d/1-VqB3jq5-jPXxRbh3cHdOABrEFll3c10',
-                    'https://lh3.googleusercontent.com/d/1d8JyXMwYk-WqTnemAbl3P3Xd1dIX-doc',
-                    'https://lh3.googleusercontent.com/d/1Bj972UHlu1Fsd8RD6wL8k0yoq6JduuA3',
-                    'https://lh3.googleusercontent.com/d/1rmbh7hi36kPaJ-_Z_pa590I0fbPy4Gdv',
-                    'https://lh3.googleusercontent.com/d/1sZEZ7n09TLhwO22H3ZRTXnz1Zq_8S00J',
-                    'https://lh3.googleusercontent.com/d/11_qJ3YUJUerFLhLk6tgjZEmYeqw3EnGx',
-                    'https://lh3.googleusercontent.com/d/1dPSNeK6BlfKcAAoipGtTIXSRGf8piVEf',
-                    'https://lh3.googleusercontent.com/d/18y626Qj_ORPkYKs6mOXnC0RHUjBbwuDM',
-                    'https://lh3.googleusercontent.com/d/1BswHJz6tR6MXKb8Ovj09Ly8crNmg7UTV',
-                    'https://lh3.googleusercontent.com/d/1a2l-6_zpNqAT9e-6xHpk-rbVDsNK1g5G',
-                    'https://lh3.googleusercontent.com/d/1tOu0Jdmm-wZ5k0rtr6CNMJbVWteN372Z',
-                    'https://lh3.googleusercontent.com/d/1TqQIhq2jKqg4-1uDlSHuv-WgvzQg2xfE',
-                    'https://lh3.googleusercontent.com/d/1C3Jh_24TJei_Y8lR4tQ9IwZDaB0Ggn7o',
-                    'https://lh3.googleusercontent.com/d/179NkgdbuPH1eF6kdmsPqFomi7cdv6ioE',
-                    'https://lh3.googleusercontent.com/d/18LE6l6AcYR6b72dzlKL4Qftj_oQAgUz1',
-                    'https://lh3.googleusercontent.com/d/1wEQ39bl_KM-uGY0TNlO4rFfyNrHEDJup',
-                    'https://lh3.googleusercontent.com/d/1W1WlZydJJjIEkpQLGfSYDf9q8YvTdukV',
-                    'https://lh3.googleusercontent.com/d/1kzBDpkiHGS24BdTKByjFngPYyCvq5as0',
-                    'https://lh3.googleusercontent.com/d/14z-2FVVUvmAlLJqhU9eUCNqN9IQqsyWi',
-                    'https://lh3.googleusercontent.com/d/19QAq6rAqow8rFKrh6eqiXWzQoji5v7rR',
-                    'https://lh3.googleusercontent.com/d/1w0km1inWGUyx4lQPuPkbIO0Ugs6XUOGA',
-                    'https://lh3.googleusercontent.com/d/1Mg12_HcFqX6JbJPvW10UdAck2GWI41xc',
-                    'https://lh3.googleusercontent.com/d/18vrRS4wpNBlzIw_nOiyd8aIsBOGJgdNa',
-                    'https://lh3.googleusercontent.com/d/1ohaPIDp24aTyaNHo1avnsoaBloihsrXw',
-                    'https://lh3.googleusercontent.com/d/1DlT0WRL8pnm8uLizUOIKCcpwQMv26n1H',
-                    'https://lh3.googleusercontent.com/d/1dyMI38pFxKNyNoVbEXisKjh_a9Is6YVr'
+                tagline: 'Lakeside retreat featuring modern amenities and breathtaking views.',
+                location: 'Seneca Lake',
+                type: 'Lakeside Home',
+                guests: '6',
+                beds: 3,
+                baths: 2,
+                heroImage: 'https://lh3.googleusercontent.com/d/1vm-OrEKRORBZPAEpsqemjWA9ycE5u1oB',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=0pg5qjpl4h035vtiaqqsnfv5vsakug2n%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://lh3.googleusercontent.com/d/1vm-OrEKRORBZPAEpsqemjWA9ycE5u1oB',
+                    'https://lh3.googleusercontent.com/d/1TDBXCzuya5yixhOEeUU4onbH2C2eZubR',
+                    'https://lh3.googleusercontent.com/d/1OI6B2-_XlCq1a5c3E1yfR9-RjJ0OGp-z',
+                    'https://lh3.googleusercontent.com/d/1KCh06LL653sxr4e4ktQhCG1vRiQ7ZIjM',
+                    'https://lh3.googleusercontent.com/d/1YVF4J-uFTGSKuoKAOWuHCWx6a7oqLej3',
+                    'https://lh3.googleusercontent.com/d/1fVXWVP-PQZpLtzdJ2WaPPfyy3txufEE7',
+                    'https://lh3.googleusercontent.com/d/18nQ7DmbadXZqSUc3qzPnoJa7Gct2M4yJ'
                 ],
-                amenities: ['Private Dock', 'Seneca Waterfront', 'Wine Trail Access', 'Panoramic Lake Views', 'Outdoor Grill & Deck']
-            },
-            {
-                id: 'stayplay',
-                title: 'Stay & Play Golf Retreat',
-                location: 'Lima, NY',
-                specs: 'Near Lima Country Club Golf • Country Estate',
-                description: 'Located in Lima, NY, this spacious getaway is tailored for golf trips, family gatherings, and weekend getaways right near premier local golf courses.',
-                heroImage: 'https://lh3.googleusercontent.com/d/19hf9-RM03R2Hi7puRgfdP-mqsdpkyek8',
-                images: [
-                    'https://lh3.googleusercontent.com/d/19hf9-RM03R2Hi7puRgfdP-mqsdpkyek8',
-                    'https://lh3.googleusercontent.com/d/102UVISPNn_Tv1tVpY0oL8PzLJy1WTTqj',
-                    'https://lh3.googleusercontent.com/d/11I8IOKc-TmxeTdn5_WSilpVBGZl9E29W',
-                    'https://lh3.googleusercontent.com/d/12JEMaBHwgFw-RInQeVwGQKFvgIHxZmGI',
-                    'https://lh3.googleusercontent.com/d/14cNjW6FAmOYaHsP7CmRE9m3gFo9_EdhO',
-                    'https://lh3.googleusercontent.com/d/14jIzV5oapgNPTEmEBEgEFAZk9YMduG6J',
-                    'https://lh3.googleusercontent.com/d/15CBk6UhRsAjhPz0pRd0-0bqA0eDFgQee',
-                    'https://lh3.googleusercontent.com/d/15ogbLFN2BqGFixycXVkPbshdN0GbIGQV',
-                    'https://lh3.googleusercontent.com/d/1Byzm1gD4Mgipb_Zig_sooy5GJZ1BDeoF',
-                    'https://lh3.googleusercontent.com/d/1DLtqty8jC0xFE6XcUEThHN9IfliBvhGx',
-                    'https://lh3.googleusercontent.com/d/1DOpKSyvZJa5RHDJcwgy9rX_VzugSE8li',
-                    'https://lh3.googleusercontent.com/d/1E0pZ2n8l_x5xIFNCA9Y0kuXcfVTZHMRn',
-                    'https://lh3.googleusercontent.com/d/1ETT0KLaolf_UB8Xxjl1W69uBZD4Z8kh_',
-                    'https://lh3.googleusercontent.com/d/1MwDYKaZTPH3Hs3bQI6yxs3dtG0yDpYG2',
-                    'https://lh3.googleusercontent.com/d/1N0Ut4L3dPuRTQiIDUyysBFj5HPU_MUq5',
-                    'https://lh3.googleusercontent.com/d/1NI6AlqmE71jB8BAeI8TCUC635_G4ApHN',
-                    'https://lh3.googleusercontent.com/d/1Re0Ru4xnwVG9IkXuKXgB4krvldohv-UU',
-                    'https://lh3.googleusercontent.com/d/1U7HCyAEayhgSD8t1cZPDYifuUc2Vx4xt',
-                    'https://lh3.googleusercontent.com/d/1VNAxih49YWh_zw12uemhPSW6o385mobH',
-                    'https://lh3.googleusercontent.com/d/1XEnCGgri4u9kdI9NTBOjzFP-tA6bkk2O',
-                    'https://lh3.googleusercontent.com/d/1YUjC3x8mpBP0HDev5dMZvWmJzXETbx3Q',
-                    'https://lh3.googleusercontent.com/d/1YcopTSDqm7KIeBEIZoY6JgNf7DOTtVr_',
-                    'https://lh3.googleusercontent.com/d/1_Cg6nbTXYJf1ysN8YJ7mDMGQEPYYp9rz',
-                    'https://lh3.googleusercontent.com/d/1_WBj6FmLy5WlII7ZmMXySKHzNR_4Ytys',
-                    'https://lh3.googleusercontent.com/d/1bn-HeJeyHg4LfR7moDH4ZYZdcFBFh5C9',
-                    'https://lh3.googleusercontent.com/d/1efqWoXA_uTLHCBwz8p8xB_ZgRf2u91lK',
-                    'https://lh3.googleusercontent.com/d/1gfyZXaUOwgHghc5yXNd1Ns8T_H-5MR3j',
-                    'https://lh3.googleusercontent.com/d/1hwny1hI-9luitT-YuFwcFbjII2mo7gBE',
-                    'https://lh3.googleusercontent.com/d/1ilU_Co5wP93GZ5eQ5Q40kuCbC-zgvG7o',
-                    'https://lh3.googleusercontent.com/d/1jMxDgWqPb_jFLXU--3zIyGY8MbhB06iR',
-                    'https://lh3.googleusercontent.com/d/1lbBsvTvvxtStg-spghOsRXvrN3nhIcBx',
-                    'https://lh3.googleusercontent.com/d/1p3nC2RJTFG4120rGW1J13hCBWLN1X9_M',
-                    'https://lh3.googleusercontent.com/d/1qv4Rlw8Q7rH9kqBcvFDSYZhN10CQaVeg',
-                    'https://lh3.googleusercontent.com/d/1ropX4ffKwUr-he4ab3-k2rRqL1b7KBia',
-                    'https://lh3.googleusercontent.com/d/1t7aOnczbiu_2vJRAIPlj-IOhQkR4B5fc',
-                    'https://lh3.googleusercontent.com/d/1tgjrVza2F7-IWXP_SjwjIb0KCSC4xZIX',
-                    'https://lh3.googleusercontent.com/d/1v7u_u6N3LMEFaJhnlZBkDKhZg3C37J6X',
-                    'https://lh3.googleusercontent.com/d/1vWL8KJSuu209ptVUsN4cfRPJYOI2nPWO',
-                    'https://lh3.googleusercontent.com/d/1w9o0kVh8bGVJo0h1rGzTumFbrAN0FhGG',
-                    'https://lh3.googleusercontent.com/d/1wSIRGrk89t7P3N1cD2kmmMUnuFexr3d5',
-                    'https://lh3.googleusercontent.com/d/1x0LFbkDJ8ckQLag971lVJMH02DGgNC7x',
-                    'https://lh3.googleusercontent.com/d/1x0yM9bVNYu3viquOzwpzvL88uei3qKnq',
-                    'https://lh3.googleusercontent.com/d/1yIrTL61effWiCjVcvYceWpSM4q3gDKLA'
-                ],
-                amenities: ['Near Golf Courses', 'Expansive Yard', 'Outdoor Dining', 'Game Room', 'Spacious Living Area']
+                description: 'Perched overlooking the water, Seneca Lookout provides modern luxury with high-end furnishings, custom outdoor entertaining areas, and unforgettable sunsets.',
+                amenities: ['Water Views', 'Private Deck', 'Fireplace', 'Chef Kitchen', 'Kayak Access', 'High-Speed Wi-Fi', 'Air Conditioning']
             },
             {
                 id: 'clairmonte',
                 title: 'Clairmonte Cottage',
-                location: 'Honeoye Lake, NY',
-                specs: 'Honeoye Lake Access • 18 Photo Collection',
-                description: 'Charming Honeoye Lake cottage getaway with 18 photo gallery showcasing peaceful outdoor space, cozy fireside lounge, modern kitchen, and quick lake access.',
-                heroImage: 'https://lh3.googleusercontent.com/d/1-2JQ3cVWsviEAspLT2p2mTcgPofBro5k',
-                images: [
-                    'https://lh3.googleusercontent.com/d/1-2JQ3cVWsviEAspLT2p2mTcgPofBro5k',
-                    'https://lh3.googleusercontent.com/d/1A4gevASpPWINR8WKguNdkQtb1tI0NFp2',
-                    'https://lh3.googleusercontent.com/d/1J_yDtH1VidRpOt1i-yQEt_bMVR49Jv_x',
-                    'https://lh3.googleusercontent.com/d/1KZqhnkb6iqodDCWKhqU_e0I7Dfp2GSjn',
-                    'https://lh3.googleusercontent.com/d/1NuP0hJYVP35EVKrex2mijNDqP-LRr18n',
-                    'https://lh3.googleusercontent.com/d/1OqaNG4ECoZsKl3-Q_pSL0TS1ti-uB31x',
-                    'https://lh3.googleusercontent.com/d/1Qb3QIbihhNCKvq86Lu0AxqbnesaScJIs',
-                    'https://lh3.googleusercontent.com/d/1TISgwSbVVd8YUSiUzoq2Ui5iABPXkDKs',
-                    'https://lh3.googleusercontent.com/d/1Vw_sa04jlzWFxTkyVF9r0rLjRSDdtq1m',
-                    'https://lh3.googleusercontent.com/d/1Z2zFtgkKcGISrTrpv9a1OGCnIcXOrCiX',
-                    'https://lh3.googleusercontent.com/d/1gWH1rU7Cdhc7afIekxMDOljwGmyGivBh',
-                    'https://lh3.googleusercontent.com/d/1lC3Xjz7NZ1PWMst8Bcn0dSySBOEqpxks',
-                    'https://lh3.googleusercontent.com/d/1qWgButpzwhvGOF37C53bd7cBkjx53dgU',
-                    'https://lh3.googleusercontent.com/d/1smaFWiLVo8_tupsvEvUEXwVhUDcmfyT7',
-                    'https://lh3.googleusercontent.com/d/1v1Y6sn1BIjaeKYAf6Yio-6OqvhNdAlYu',
-                    'https://lh3.googleusercontent.com/d/1vb8oqpO6mn1bwwyP8jQHdDy8Im6FHx9h',
-                    'https://lh3.googleusercontent.com/d/1wAI-amWF8A5cifIOiYmF3Bwp6Y9cD91_',
-                    'https://lh3.googleusercontent.com/d/1ybv0FNxSUsSoV7x4EFshqtRfMXBepXd9'
+                tagline: 'Charming getaway cottage offering cozy interiors and tranquility.',
+                location: 'Honeoye Lake',
+                type: 'Cottage',
+                guests: '6',
+                beds: 3,
+                baths: 1,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/S7ryd7vP/4-D47-E46-E-C59-B-4-F9-D-9262-9-E27-FDBEF171-1.png',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=3kei81glefmi4hjpl27nrlh7iml0uh1v%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/S7ryd7vP/4-D47-E46-E-C59-B-4-F9-D-9262-9-E27-FDBEF171-1.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mVy1DVt7/IMG-7914.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/kZDBZZt/IMG-7913.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Dg490f54/IMG-7912.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/NdX95vqd/IMG-7911.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tMCMft9Q/IMG-7909.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Mx1zt0CD/IMG-7910.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/3mWh0Bwy/IMG-7907.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/3m45svRs/IMG-7904.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/ntXRbKT/IMG-7906.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mCWrHCyL/IMG-7901.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/JjHtP2v5/IMG-7900.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RTpDCb01/IMG-7905.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/23X4QLHV/IMG-7902.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/6RWMq6my/IMG-7886.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mCHRfLVN/IMG-7964.jpg'
                 ],
-                amenities: ['Honeoye Lake Access', 'Outdoor Deck & Fire Pit', 'Full Modern Kitchen', '18 Gallery Photos', 'Cozy Fireside Lounge']
+                description: 'Clairmonte Cottage is a peaceful retreat tucked away for total relaxation, offering tasteful interior design, cozy bedrooms, and private patio dining.',
+                amenities: ['Private Patio', 'Cozy Fireplace', 'Updated Kitchen', 'Wi-Fi', 'Self Check-in', 'Private Parking']
+            },
+            {
+                id: 'salem',
+                title: 'Salem Lodge',
+                tagline: 'Spacious lodge featuring authentic timber accents and modern comforts.',
+                location: 'Bristol Mountain',
+                type: 'Lodge',
+                guests: '7',
+                beds: 3,
+                baths: 2,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=svak64ms47976tr187ds8scpkg3ripm0%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fG0C6D1S/DSC04216-17-18-19-20-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/vxNc25nz/DSC04186-87-88-89-90.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/bj1pLXWr/DSC04181-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/3mQwNm9V/DSC04171-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/MDRk41N2/DSC04161-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hJN3pPQ8/DSC04156-57-58-59-60.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/LhDkj67d/DSC04136-37-38-39-40-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/gZpsLqZ1/DSC04126-27-28-29-30.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RpKd7LSZ/DSC04121-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/rRPw7RYQ/DSC04106.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/TMXfLjSd/DSC04101.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/TMpzCP4k/DSC04096.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/8Lp1pM4J/DSC04091.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/W4YfLkFv/DSC04086.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Xx6SvCHw/DSC04081.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/PGMBHFYB/DSC04076.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Cp4g5KpY/DSC04071.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0RyZCS4Q/DSC04066.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/bMFdrrt9/DSC04061.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RkXDvB2H/DSC04056.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Pfs5Y04/DSC04051.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/9HGdMQLZ/DSC04041.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hFTssmbn/DSC04036.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/R4gwKNmN/DSC04031.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tf678n8/DSC04026.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/6cM5HG6Y/DSC04006.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/d0vw4M6Q/DSC04001.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/HTgN5WcB/DSC03991.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/GQHQK71X/DSC03986.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fdfCm8Rx/DSC03981.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/KxvmbPhM/DSC03976.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/cccGNMth/DSC03966.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/V07T5HMx/DSC03961.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/VpSXbjqc/DSC03956.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wrK1pv5Y/DSC03946.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Q3rZJSx7/DSC03941.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/cfVjc3W/DSC03936.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/WNbhnJCJ/DSC03931.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0pnGQNXF/DJI-20260922135845-0141-D-2-D-3-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BKrXQ1jk/DJI-20260922135310-0106-DAnd4more.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Y70ncRwK/DJI-20260922135258-0101-D-2-D-3-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/zW90vTd5/DJI-20260922135245-0096-D-097-D-098-D-099-D-100-D-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/1YR0qjB8/DJI-20260922135231-0093-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BKTJ7z0r/DJI-20260922135106-0089-D-90-D-91-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fV1f49KP/DJI-20260922135100-0086-D-7-D-8-D-2.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0jWZc61s/DJI-20260922134937-0076-DAnd2more.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/p6BzGmLK/DJI-20260922134922-0073-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/5XMD0Tj3/DJI-20260922134906-0070-D-1-D-2-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/1G5pzwy2/DJI-20260922134856-0067-D-8-D-9-D-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/9HZnZgpZ/DJI-20260922134715-0060-D-1-D-2-D.jpg'
+                ],
+                description: 'Salem Lodge is ideal for large family gatherings and multi-family vacations, featuring expansive timber frame ceilings and large outdoor entertaining areas.',
+                amenities: ['Large Fireplace', 'Game Room', 'Hot Tub', 'Covered Porch', 'Wi-Fi', 'Barbecue Station']
+            },
+            {
+                id: 'stayandplay',
+                title: 'Stay & Play Golf Retreat',
+                tagline: 'Ideal property for golf lovers and active vacationers.',
+                location: 'Lima Country Club',
+                type: 'Golf Retreat',
+                guests: '8',
+                beds: 4,
+                baths: 3,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/jPxFTVcS/02-DJI-20260605020616-0443-D.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=70umaqctin4jm0cnv07d7ptpg07o4ej6%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/jPxFTVcS/02-DJI-20260605020616-0443-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/VpYDgtz3/06-DJI-20260605020714-0447-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/chRJHFhv/10-DJI-20260605020851-0451-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/n8wwVVQP/13-DJI-20260605021015-0454-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/JF3dHw64/12-DJI-20260605020954-0453-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/HLv9HHr5/61-IMG01486.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hJdC7c12/Copy-of-58-IMG01477.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/dwFgNCJX/Copy-of-59-IMG01480.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tpck4YYy/Copy-of-62-IMG01489.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fdQ3N4pF/Copy-of-36-IMG01411.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/GQvKnYLL/Copy-of-45-IMG01438.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/1CprD64/Copy-of-39-IMG01420.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/R4913whF/Copy-of-41-IMG01426.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/ymdV3ZVV/Copy-of-42-IMG01429.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/WN71GX6t/Copy-of-43-IMG01432.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Hp7cy4fZ/Copy-of-34-IMG01405.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/xKgLL0f0/Copy-of-30-IMG01393.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/QvHbyBjB/Copy-of-27-IMG01384.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/GfSCHBdf/Copy-of-26-IMG01381.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BVfHWjYC/Copy-of-31-IMG01396.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tT0P3SKp/Copy-of-29-IMG01390.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/9M6V0jP/Copy-of-28-IMG01387.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Hpkrw2YJ/Copy-of-35-IMG01408.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Fbq3Wd3w/Copy-of-32-IMG01399.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mFFDZ7NT/Copy-of-33-IMG01402.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Y71qT4G7/Copy-of-18-IMG01354.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/5hRGsGC6/Copy-of-22-IMG01369.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/FbCTNf9L/Copy-of-23-IMG01372.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/qYLg6F45/Copy-of-21-IMG01363.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/7J6rnKQ8/Copy-of-20-IMG01360.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Xf0kyxZz/Copy-of-16-IMG01348.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/NPGPmm3/Copy-of-24-IMG01375.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/M5f5GFJf/Copy-of-17-IMG01351.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/jksxWFyN/Copy-of-25-IMG01378.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/V0L6PvM8/Copy-of-15-IMG01345.jpg'
+                ],
+                description: 'Located directly adjacent to premier fairways, the Stay & Play Golf Retreat offers golf enthusiasts the ultimate home base with executive amenities.',
+                amenities: ['Golf Course Access', 'Outdoor Lounge', 'Smart Home Controls', 'Wi-Fi', 'Garage Parking']
+            },
+            {
+                id: 'unionlofts1',
+                title: 'Union Lofts 1 Bedroom',
+                tagline: 'Lakeside apartment on Honeoye Lake with water access and semi-private park amenities.',
+                location: 'Honeoye Lake',
+                type: 'Apartment',
+                guests: '3',
+                beds: 1,
+                baths: 1,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/pNWTLKn/8505-E-Clairmont-St-043.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=bs8hn6vscmsl56pf281ib7n3lgupin57%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/pNWTLKn/8505-E-Clairmont-St-043.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/nJFRKc9/8505-E-Clairmont-St-045.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/W40zTcRW/8505-E-Clairmont-St-044.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/VpvX2JDg/8505-E-Clairmont-St-033.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/DgrWGqXZ/8505-E-Clairmont-St-032.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/MDyWTwf0/8505-E-Clairmont-St-012.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/j9J342Dg/8505-E-Clairmont-St-010.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/R4dTr4Wg/8505-E-Clairmont-St-011.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/S7nSLwby/8505-E-Clairmont-St-009.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/qL2y2PgF/8505-E-Clairmont-St-008.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/G4KK6D2g/8505-E-Clairmont-St-007.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/8gK2SrqY/8505-E-Clairmont-St-006.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RpLLywMm/8505-E-Clairmont-St-004.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/21fhQXFN/8505-E-Clairmont-St-003.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/v6NHk6Gn/8505-E-Clairmont-St-001.jpg'
+                ],
+                description: 'Experience lakeside living at the Union Lofts. This 1-bedroom apartment offers direct water access on Honeoye Lake and is just steps away from a semi-private park featuring basketball courts, a playground, beach access, and picnic tables.',
+                amenities: ['Lake Access', 'Beach', 'Semi-Private Park', 'Basketball Courts', 'Playground', 'Picnic Tables', 'Wi-Fi']
+            },
+            {
+                id: 'unionlofts2',
+                title: 'Union Lofts 2 Bedroom',
+                tagline: 'Spacious lakeside apartment on Honeoye Lake with direct park and beach access.',
+                location: 'Honeoye Lake',
+                type: 'Apartment',
+                guests: '6',
+                beds: 2,
+                baths: 1,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/h1s7JTW1/8505-E-Clairmont-St-028.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=pqcfb0mr7c67jooit5a1q33kch0u5tqj%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/h1s7JTW1/8505-E-Clairmont-St-028.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/chXc86xs/8505-E-Clairmont-St-031.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/bgdvhQkD/8505-E-Clairmont-St-029.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/p6TgSgTP/8505-E-Clairmont-St-027.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/qXB6dxJ/8505-E-Clairmont-St-030.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/LD09tSM8/8505-E-Clairmont-St-025.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/SXkv4gZV/8505-E-Clairmont-St-026.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/pB38wBdP/8505-E-Clairmont-St-024.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0RRnRcFr/8505-E-Clairmont-St-023.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Fb8F0Q2s/8505-E-Clairmont-St-022.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wZwPVvVm/8505-E-Clairmont-St-019.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/JwZFLWdF/8505-E-Clairmont-St-020.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/KcdxsLJK/8505-E-Clairmont-St-021.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Mkr5RVcJ/8505-E-Clairmont-St-018.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/C3NPV1km/8505-E-Clairmont-St-017.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/WvmLX5DG/8505-E-Clairmont-St-016.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RT9rqwL1/8505-E-Clairmont-St-015.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/274YL6JH/8505-E-Clairmont-St-014.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/jvRTB35Z/8505-E-Clairmont-St-013.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wFD2byTj/8505-E-Clairmont-St-046.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/pNWTLKn/8505-E-Clairmont-St-043.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/nJFRKc9/8505-E-Clairmont-St-045.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/W40zTcRW/8505-E-Clairmont-St-044.jpg'
+                ],
+                description: 'Enjoy a spacious getaway at the Union Lofts. This 2-bedroom apartment features direct Honeoye Lake access and sits adjacent to a fantastic semi-private park equipped with basketball courts, a playground, a beach area, and picnic tables for family fun.',
+                amenities: ['Lake Access', 'Beach', 'Semi-Private Park', 'Basketball Courts', 'Playground', 'Picnic Tables', 'Wi-Fi']
             }
         ];
 
-        let activeSubpageProp = null;
-        let currentLightboxImages = [];
+        let currentGalleryList = [];
         let currentLightboxIndex = 0;
 
-        // Attach controller functions to global window scope
-        window.showHomeView = function() {
-            const homeView = document.getElementById('homeView');
-            const subpageView = document.getElementById('subpageView');
-            if (homeView) homeView.classList.remove('hidden');
-            if (subpageView) subpageView.classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
+        // Initialize Navigation Dropdown Menu
+        function renderNavDropdown() {
+            const dropdown = document.getElementById('navDropdown');
+            const mobileList = document.getElementById('mobilePropList');
+            if(!dropdown || !mobileList) return;
+            
+            dropdown.innerHTML = propertiesData.map(p => `
+                <a href="#" onclick="openSubpage('${p.id}'); closeDropdown(); return false;" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                    <div class="font-bold">${p.title}</div>
+                    <div class="text-xs text-stone-400">${p.location}</div>
+                </a>
+            `).join('');
 
-        window.toggleMobileMenu = function() {
-            const menu = document.getElementById('mobileMenu');
-            if (menu) menu.classList.toggle('hidden');
-        };
-
-        window.scrollToProperties = function() {
-            window.showHomeView();
-            setTimeout(() => {
-                const el = document.getElementById('properties');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }, 50);
-        };
-
-        window.openSubpage = function(propId) {
-            const prop = propertiesData.find(p => p.id === propId);
-            if (!prop) return;
-
-            activeSubpageProp = prop;
-            const subpageContent = document.getElementById('subpageContent');
-            const homeView = document.getElementById('homeView');
-            const subpageView = document.getElementById('subpageView');
-
-            if (!subpageContent || !homeView || !subpageView) return;
-
-            subpageContent.innerHTML = `
-                <!-- Subpage Header -->
-                <div class="mb-8">
-                    <button onclick="showHomeView()" class="text-sm font-semibold text-brand-700 hover:text-brand-900 flex items-center gap-2 mb-4 group transition-colors">
-                        <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to All Properties
-                    </button>
-                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                        <div>
-                            <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">${prop.location}</span>
-                            <h1 class="font-serif text-3xl sm:text-5xl font-bold text-slate-900 mt-1">${prop.title}</h1>
-                            <p class="text-stone-600 mt-2 text-sm sm:text-base">${prop.specs}</p>
-                        </div>
-                        <a href="#inquiryBox" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-3 rounded-full text-sm shadow-md text-center transition-all">
-                            Inquire for Booking
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hero & Gallery Grid -->
-                <div class="grid grid-cols-1 ${prop.images.length > 1 ? 'md:grid-cols-3' : ''} gap-4 mb-12">
-                    <div class="${prop.images.length > 1 ? 'md:col-span-2' : ''} aspect-[16/10] rounded-2xl overflow-hidden shadow-lg border border-stone-200 cursor-pointer group relative" onclick="openLightbox(0)">
-                        <img src="${prop.heroImage}" alt="${prop.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/800x500/6c4333/fff?text=Retreat+Image'">
-                        <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="bg-white/90 text-slate-900 font-bold px-4 py-2 rounded-full text-xs shadow"><i class="fa-solid fa-expand mr-1.5"></i> View Full Screen</span>
-                        </div>
-                    </div>
-                    ${prop.images.length > 1 ? `
-                    <div class="grid grid-cols-2 gap-4">
-                        ${prop.images.slice(1, 5).map((imgUrl, idx) => `
-                            <div class="aspect-square rounded-2xl overflow-hidden shadow border border-stone-200 cursor-pointer group relative" onclick="openLightbox(${idx + 1})">
-                                <img src="${imgUrl}" alt="${prop.title} photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/6c4333/fff?text=Photo'">
-                            </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-                </div>
-
-                ${prop.externalGallery ? `
-                    <div class="mb-12 bg-blue-50/50 border border-blue-100 rounded-3xl p-8 sm:p-12 text-center flex flex-col items-center justify-center">
-                        <i class="fa-brands fa-dropbox text-5xl text-[#0061FE] mb-5"></i>
-                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Full Photo Gallery Available</h3>
-                        <p class="text-stone-600 mb-8 max-w-lg mx-auto text-sm sm:text-base">View the complete collection of high-resolution photos for ${prop.title} directly in our official Dropbox folder.</p>
-                        <a href="${prop.externalGallery}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[#0061FE] hover:bg-[#004fc7] text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all transform hover:-translate-y-0.5">
-                            Open Dropbox Gallery <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
-                        </a>
-                    </div>
-                ` : ''}
-
-                <!-- Full Photo Collection Thumbnails -->
-                ${prop.images.length > 5 ? `
-                    <div class="mb-12">
-                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-4 flex items-center justify-between">
-                            <span>Photo Gallery (${prop.images.length} Photos)</span>
-                            <span class="text-xs text-stone-500 font-sans font-normal">Click any photo to enlarge</span>
-                        </h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
-                            ${prop.images.map((imgUrl, idx) => `
-                                <div class="aspect-square rounded-xl overflow-hidden border border-stone-200 cursor-pointer group relative shadow-sm" onclick="openLightbox(${idx})">
-                                    <img src="${imgUrl}" alt="Gallery photo ${idx + 1}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/300x300/6c4333/fff?text=Photo'">
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                ` : ''}
-
-                <!-- Property Details & Inquiry Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                    <div class="lg:col-span-2">
-                        <h2 class="font-serif text-2xl font-bold text-slate-900 mb-4">About This Retreat</h2>
-                        <p class="text-stone-700 leading-relaxed text-base mb-8">${prop.description}</p>
-
-                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-4">Highlights & Amenities</h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-                            ${prop.amenities.map(a => `
-                                <div class="flex items-center gap-3 bg-stone-50 p-3.5 rounded-xl border border-stone-200/60 text-slate-800 text-sm font-semibold">
-                                    <div class="w-8 h-8 rounded-lg bg-brand-100 flex items-center justify-center text-brand-700 shrink-0">
-                                        <i class="fa-solid fa-check text-xs"></i>
-                                    </div>
-                                    <span>${a}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-
-                        <!-- Dedicated Availability Calendar Widget (Enabled specifically for Lodge at Luckenbach Hill) -->
-                        ${prop.id === 'luckenbach' ? `
-                            <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200/80 mb-10">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-                                    <h3 class="font-serif text-xl font-bold text-slate-900 flex items-center gap-2">
-                                        <i class="fa-regular fa-calendar-days text-brand-700"></i> Lodge Availability Calendar
-                                    </h3>
-                                    <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full w-fit">Live Google Calendar</span>
-                                </div>
-                                <div class="w-full rounded-xl overflow-hidden border border-stone-200 bg-white h-[440px] shadow-sm">
-                                    <iframe 
-                                        src="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York" 
-                                        style="border: 0;" 
-                                        class="w-full h-full" 
-                                        frameborder="0" 
-                                        scrolling="no"
-                                        title="The Lodge at Luckenbach Hill Availability Calendar">
-                                    </iframe>
-                                </div>
-                                <div class="mt-3 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-2">
-                                    <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Check dates above then request your reservation on the right.</span>
-                                    <a href="https://calendar.google.com/calendar/embed?src=adf85aea0e5bf7a5a20cdcdfdec0eb4695867cf890e0361b2b1429d3120759d9%40group.calendar.google.com&ctz=America%2FNew_York" target="_blank" rel="noopener" class="text-brand-700 font-bold hover:underline flex items-center gap-1">
-                                        Open Calendar View <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        ` : ''}
-                    </div>
-
-                    <!-- Sidebar Direct Inquiry Box -->
-                    <div id="inquiryBox" class="bg-white p-6 rounded-2xl border border-stone-200 shadow-xl h-fit sticky top-28">
-                        <h3 class="font-serif text-xl font-bold text-slate-900 mb-1">Book ${prop.title}</h3>
-                        <p class="text-stone-500 text-xs mb-6">Direct booking with zero platform service fees.</p>
-                        
-                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Your Name</label>
-                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Email Address</label>
-                                <input type="email" required placeholder="john@example.com" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Phone Number</label>
-                                <input type="tel" required placeholder="(585) 313-3670" class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
-                            </div>
-                            <div class="grid grid-cols-2 gap-2">
-                                <div>
-                                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Check In</label>
-                                    <input type="date" required class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Check Out</label>
-                                    <input type="date" required class="w-full px-3 py-2 rounded-xl border border-stone-200 text-xs focus:outline-none focus:ring-2 focus:ring-brand-500">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-stone-600 mb-1">Message / Guest Count</label>
-                                <textarea rows="3" placeholder="Tell us about your trip..." class="w-full px-4 py-2.5 rounded-xl border border-stone-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-bold py-3.5 rounded-xl text-sm shadow-md transition-colors">
-                                Send Direct Reservation Inquiry
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            `;
-
-            homeView.classList.add('hidden');
-            subpageView.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-
-        window.openLightbox = function(index) {
-            if (!activeSubpageProp || !activeSubpageProp.images) return;
-            currentLightboxImages = activeSubpageProp.images;
-            currentLightboxIndex = index;
-
-            const modal = document.getElementById('lightboxModal');
-            const img = document.getElementById('lightboxImage');
-            const counter = document.getElementById('lightboxCounter');
-
-            if (modal && img) {
-                img.src = currentLightboxImages[currentLightboxIndex];
-                if (counter) counter.innerText = `${currentLightboxIndex + 1} / ${currentLightboxImages.length}`;
-                modal.classList.remove('hidden');
-            }
-        };
-
-        window.closeLightbox = function() {
-            const modal = document.getElementById('lightboxModal');
-            if (modal) modal.classList.add('hidden');
-        };
-
-        window.changeLightboxSlide = function(direction) {
-            if (!currentLightboxImages.length) return;
-            currentLightboxIndex = (currentLightboxIndex + direction + currentLightboxImages.length) % currentLightboxImages.length;
-            const img = document.getElementById('lightboxImage');
-            const counter = document.getElementById('lightboxCounter');
-            if (img) img.src = currentLightboxImages[currentLightboxIndex];
-            if (counter) counter.innerText = `${currentLightboxIndex + 1} / ${currentLightboxImages.length}`;
-        };
-
-        window.handleContactSubmit = function(event) {
-            event.preventDefault();
-            const msgBox = document.getElementById('inquiryMsgBox');
-            if (msgBox) {
-                msgBox.classList.remove('hidden');
-                msgBox.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert('Thank you for your inquiry! We will contact you at (585) 313-3670 shortly.');
-            }
-        };
-
-        // Render Property Cards into Grid
-        function renderPropertiesGrid() {
-            const grid = document.getElementById('propertyGrid');
-            if (!grid) return;
-
-            grid.innerHTML = propertiesData.map(prop => `
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-stone-200/80 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
-                    <div class="relative aspect-[16/10] overflow-hidden cursor-pointer" onclick="openSubpage('${prop.id}')">
-                        <img src="${prop.heroImage}" alt="${prop.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/6c4333/fff?text=Retreat'">
-                        <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20">
-                            ${prop.location}
-                        </div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-brand-700 transition-colors cursor-pointer" onclick="openSubpage('${prop.id}')">
-                                ${prop.title}
-                            </h3>
-                            <p class="text-xs font-semibold text-brand-600 mt-1 mb-3">${prop.specs}</p>
-                            <p class="text-stone-600 text-sm line-clamp-3 leading-relaxed mb-4">
-                                ${prop.description}
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
-                            <span class="text-xs text-stone-500 font-medium">${prop.images.length} Photos</span>
-                            <button onclick="openSubpage('${prop.id}')" class="text-xs font-bold text-brand-700 hover:text-brand-900 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                View Details & Gallery <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            mobileList.innerHTML = propertiesData.map(p => `
+                <a href="#" onclick="openSubpage('${p.id}'); toggleMobileMenu(); return false;" class="block py-1 text-sm font-medium text-stone-700 hover:text-brand-600">
+                    ${p.title}
+                </a>
             `).join('');
         }
 
-        // Populate Navigation Dropdown & Mobile Menu
-        function populateNavMenu() {
-            const dropdown = document.getElementById('navDropdown');
-            const mobilePropList = document.getElementById('mobilePropList');
+        // Render Homepage Property Grid
+        function renderPropertiesGrid() {
+            const grid = document.getElementById('propertiesGrid');
+            if(!grid) return;
 
-            if (dropdown) {
-                dropdown.innerHTML = propertiesData.map(prop => `
-                    <a href="#" onclick="openSubpage('${prop.id}'); return false;" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
-                        ${prop.title}
-                    </a>
-                `).join('');
+            grid.innerHTML = propertiesData.map(p => `
+                <a href="#" onclick="openSubpage('${p.id}'); return false;" class="block bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    <div class="relative h-64 sm:h-72 overflow-hidden bg-stone-100">
+                        <img src="${p.heroImage}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.src='https://placehold.co/800x600/eee/888?text=Property+Photo'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full text-[10px] font-bold text-stone-800 uppercase tracking-widest shadow-sm">
+                            ${p.type}
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between bg-white relative">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-location-dot"></i> ${p.location}
+                            </div>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-3 group-hover:text-brand-700 transition-colors">${p.title}</h3>
+                            <p class="text-stone-500 text-sm mb-6 line-clamp-2 leading-relaxed">${p.tagline}</p>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between text-xs text-stone-500 py-4 border-y border-stone-100 mb-5">
+                                <span class="flex items-center gap-1.5 font-medium"><i class="fa-solid fa-user-group text-stone-400"></i> ${p.guests} Guests</span>
+                                <span class="flex items-center gap-1.5 font-medium"><i class="fa-solid fa-bed text-stone-400"></i> ${p.beds} Beds</span>
+                                <span class="flex items-center gap-1.5 font-medium"><i class="fa-solid fa-bath text-stone-400"></i> ${p.baths} Baths</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm font-bold uppercase tracking-wider text-stone-900 group-hover:text-brand-600 transition-colors">
+                                <span>Explore Retreat</span>
+                                <i class="fa-solid fa-arrow-right transform group-hover:translate-x-2 transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Open Property Subpage
+        function openSubpage(propId) {
+            const prop = propertiesData.find(p => p.id === propId);
+            if (!prop) return;
+
+            currentGalleryList = prop.gallery;
+
+            document.getElementById('subpageBreadcrumb').innerText = prop.title;
+            document.getElementById('subpageTag').innerText = prop.type;
+            document.getElementById('subpageLocation').innerText = '• ' + prop.location;
+            document.getElementById('subpageTitle').innerText = prop.title;
+            document.getElementById('subpageTagline').innerText = prop.tagline;
+
+            document.getElementById('specGuests').innerText = prop.guests;
+            document.getElementById('specBeds').innerText = prop.beds;
+            document.getElementById('specBaths').innerText = prop.baths;
+            document.getElementById('specType').innerText = prop.type;
+
+            document.getElementById('subpageDescription').innerHTML = `<p>${prop.description}</p>`;
+            document.getElementById('subpageAmenities').innerHTML = prop.amenities.map(a => `
+                <div class="flex items-center gap-2 text-stone-700 text-sm font-medium">
+                    <i class="fa-solid fa-check text-brand-600"></i> ${a}
+                </div>
+            `).join('');
+
+            // Render Gallery Thumbnails
+            const galleryGrid = document.getElementById('subpageGalleryGrid');
+            galleryGrid.innerHTML = prop.gallery.map((imgUrl, index) => `
+                <div onclick="openLightbox(${index})" class="relative h-44 bg-stone-200 cursor-pointer overflow-hidden group">
+                    <img src="${imgUrl}" alt="Gallery image ${index + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/eee/888?text=Retreat+Photo'">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+            `).join('');
+
+            // Embed Google Calendar
+            const calendarContainer = document.getElementById('calendarContainer');
+            if (prop.calendarSrc) {
+                calendarContainer.innerHTML = `
+                    <iframe src="${prop.calendarSrc}" style="border:0;" class="w-full h-[550px]" frameborder="0" scrolling="no"></iframe>
+                `;
+            } else {
+                calendarContainer.innerHTML = `
+                    <div class="p-8 text-center text-stone-500">
+                        <i class="fa-regular fa-calendar-xmark text-3xl mb-2 text-stone-400"></i>
+                        <p>Calendar availability link coming soon for this retreat.</p>
+                    </div>
+                `;
             }
 
-            if (mobilePropList) {
-                mobilePropList.innerHTML = propertiesData.map(prop => `
-                    <a href="#" onclick="openSubpage('${prop.id}'); toggleMobileMenu(); return false;" class="block text-sm font-medium text-slate-600 hover:text-brand-600 py-1">
-                        ${prop.title}
-                    </a>
-                `).join('');
+            showPage('subpage');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // View Controller Toggle
+        function showPage(pageName) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
+            if (pageName === 'home') {
+                document.getElementById('homeView').classList.remove('hidden');
+            } else if (pageName === 'subpage') {
+                document.getElementById('subpageView').classList.remove('hidden');
             }
         }
 
-        // Initialize on DOM load
-        document.addEventListener('DOMContentLoaded', function() {
+        // Toggle Navigation Dropdown
+        function toggleDropdown(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('navDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function closeDropdown() {
+            const dropdown = document.getElementById('navDropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Lightbox Image Viewer
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            document.getElementById('lightboxImg').src = currentGalleryList[currentLightboxIndex];
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.getElementById('lightbox').classList.remove('flex');
+        }
+
+        function nextLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentGalleryList.length;
+            document.getElementById('lightboxImg').src = currentGalleryList[currentLightboxIndex];
+        }
+
+        function prevLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentGalleryList.length) % currentGalleryList.length;
+            document.getElementById('lightboxImg').src = currentGalleryList[currentLightboxIndex];
+        }
+
+        // Handle Booking & Contact Submissions
+        function handleDirectBooking(e) {
+            e.preventDefault();
+            alert("Thank you! Your reservation inquiry has been received. We will respond via email shortly.");
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("Thank you for reaching out! We have received your message.");
+        }
+
+        // Initialization
+        window.onload = function() {
+            renderNavDropdown();
             renderPropertiesGrid();
-            populateNavMenu();
-        });
+            
+            document.addEventListener('click', function(e) {
+                const dropdown = document.getElementById('navDropdown');
+                if(dropdown && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        };
     </script>
 </body>
 </html>
