@@ -1,541 +1,922 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Navigation, 
-  MapPin, 
-  Wifi, 
-  Wind, 
-  Users, 
-  Bed, 
-  Waves, 
-  Utensils, 
-  Coffee, 
-  Tv, 
-  ExternalLink, 
-  Mail, 
-  Phone, 
-  Star,
-  ChevronRight,
-  Menu,
-  X,
-  Mountain,
-  Zap,
-  CheckCircle,
-  Camera,
-  Flame,
-  Calendar,
-  Compass,
-  Wine,
-  ShieldCheck,
-  CreditCard,
-  Send,
-  MessageCircle,
-  Quote,
-  Maximize2,
-  Instagram
-} from 'lucide-react';
-
-const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [bookingData, setBookingData] = useState({
-    checkIn: '',
-    checkOut: '',
-    guests: '1',
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const logoUrl = "https://lh3.googleusercontent.com/d/1F5ewK2BZgziU12A7IEl_bj2ECQqyC-gW";
-  const venmoUrl = "https://account.venmo.com/u/Derek-Romig";
-  const instagramUrl = "https://www.instagram.com/romig_retreats/";
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleInquiry = (e) => {
-    e.preventDefault();
-    const subject = `Booking Inquiry: ${bookingData.checkIn} to ${bookingData.checkOut}`;
-    const body = `Hi Derek,%0D%0A%0D%0AI'm interested in booking the Lodge.%0D%0A%0D%0ADates: ${bookingData.checkIn} - ${bookingData.checkOut}%0D%0AGuests: ${bookingData.guests}%0D%0AMy Name: ${bookingData.name}%0D%0A%0D%0AMessage: ${bookingData.message}`;
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     
-    window.location.href = `mailto:Derek.Romig@gmail.com?subject=${subject}&body=${body}`;
+    <!-- SEO Meta Tags -->
+    <title>Romig Retreats - Luxury Vacation Rentals in the Finger Lakes</title>
+    <meta name="description" content="Discover Romig Retreats, offering luxury boutique vacation rentals in the Finger Lakes region. Book private lodges, lakeside cottages, and golf retreats directly for the best rates.">
+    <meta name="keywords" content="Finger Lakes vacation rentals, Honeoye Lake rentals, Seneca Lake, Bristol Mountain lodging, luxury lodges upstate NY, boutique retreats, cabin rentals, direct booking vacation rentals, Lima Country Club, Romig Retreats">
+    <meta name="author" content="Romig Retreats Hospitality">
     
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
-  };
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://romigretreats.com/">
+    <meta property="og:title" content="Romig Retreats - Luxury Vacation Rentals">
+    <meta property="og:description" content="Unforgettable escapes in the heart of the Finger Lakes. Handcrafted vacation experiences and private lodges.">
+    <meta property="og:image" content="https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg">
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'The Lodge', href: '#lodge' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Grounds', href: '#grounds' },
-    { name: 'Reviews', href: '#reviews' },
-    { name: 'Availability', href: '#book' }
-  ];
-
-  const galleryImages = [
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/b8a88269-23c4-41f8-ab1f-9958675a160a.jpeg?aki_policy=xx_large", caption: "Cozy Bedroom Retreat" },
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dfec48d7-4954-45d0-91e3-5b6560a64794.jpeg?aki_policy=xx_large", caption: "Spacious Living Area" },
-    { url: "https://a0.muscache.com/im/pictures/2f8d3b90-324b-4c47-8fc1-67e306d445ae.jpg?aki_policy=xx_large", caption: "Modern Rustic Bath" },
-    { url: "https://a0.muscache.com/im/pictures/76f68481-23ae-4af4-b0b5-9c01af42140f.jpg?aki_policy=xx_large", caption: "Comfortable Queen Suite" },
-    { url: "https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/7b96143c-145c-4e59-813b-5ef5e279ef68.jpeg?aki_policy=xx_large", caption: "Elegant Dining Space" },
-    { url: "https://a0.muscache.com/im/pictures/99ba5a54-b772-4877-98c1-fe59b844b2ac.jpg?aki_policy=xx_large", caption: "Outdoor Entertainment" }
-  ];
-
-  const amenities = [
-    { icon: <Bed className="w-5 h-5" />, label: "4 Queen Bedrooms" },
-    { icon: <Users className="w-5 h-5" />, label: "Family Friendly" },
-    { icon: <Waves className="w-5 h-5" />, label: "6-Person Hot Tub" },
-    { icon: <Zap className="w-5 h-5" />, label: "Game Room" },
-    { icon: <Utensils className="w-5 h-5" />, label: "Full Kitchen" },
-    { icon: <Wifi className="w-5 h-5" />, label: "High Speed WiFi" },
-    { icon: <Wind className="w-5 h-5" />, label: "A/C & Heating" },
-    { icon: <Flame className="w-5 h-5" />, label: "Fire Pit" },
-  ];
-
-  const reviews = [
-    {
-      name: "Sarah Jenkins",
-      date: "October 2025",
-      rating: 5,
-      text: "Absolutely stunning property. The views of Honeoye Lake from the nearby park were breathtaking, but honestly, we didn't want to leave the lodge. The private pond and hot tub made for the most relaxing weekend we've had in years.",
-      source: "Direct Booking"
-    },
-    {
-      name: "The Miller Family",
-      date: "August 2025",
-      rating: 5,
-      text: "Derek was a fantastic host. The lodge is impeccably clean and the game room kept the kids entertained for hours while the adults enjoyed the fire pit. 6 stars if I could!",
-      source: "Airbnb Guest"
-    },
-    {
-      name: "James T.",
-      date: "December 2025",
-      rating: 5,
-      text: "A winter wonderland. We stayed for a ski trip to Bristol Mountain and coming back to that hot tub was heaven. The kitchen is fully equipped—we cooked every night.",
-      source: "Direct Booking"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 scroll-smooth">
-      {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <img 
-              src={logoUrl} 
-              alt="Luckenbach Hill Logo" 
-              className={`transition-all duration-300 ${scrolled ? 'h-10 w-10' : 'h-14 w-14'} object-contain brightness-0 ${scrolled ? '' : 'invert'}`}
-            />
-            <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-slate-800' : 'text-white'}`}>
-              LUCKENBACH HILL
-            </span>
-          </div>
-
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className={`text-sm font-medium transition-colors ${scrolled ? 'text-slate-600 hover:text-emerald-700' : 'text-white/90 hover:text-white'}`}>
-                {link.name}
-              </a>
-            ))}
-            <a href="#book" className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-xl">
-              Book Direct
-            </a>
-          </div>
-
-          <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? 
-              <X className={scrolled ? 'text-slate-900' : 'text-white'} /> : 
-              <Menu className={scrolled ? 'text-slate-900' : 'text-white'} />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fcfaf8',
+                            100: '#f7f4ef',
+                            200: '#eee6da',
+                            300: '#e1d2bf',
+                            400: '#ceb498',
+                            500: '#b89474',
+                            600: '#a37c5c',
+                            700: '#86634a',
+                            800: '#6d513e',
+                            900: '#584234',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
             }
-          </button>
-        </div>
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-brand-500 selection:text-white">
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-slate-200 py-4 px-4 space-y-2">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                onClick={() => setIsMenuOpen(false)}
-                className="block py-2 text-slate-600 font-medium border-b border-slate-50 last:border-0"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a href="#book" className="block py-3 bg-emerald-600 text-white text-center rounded-lg font-bold">
-              Check Availability
-            </a>
-          </div>
-        )}
-      </nav>
-
-      {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://a0.muscache.com/im/pictures/miso/Hosting-634486229724134845/original/ec2c94a8-e1f2-40f4-bb75-2b6ddf1452d2.jpeg?aki_policy=xx_large" 
-            className="w-full h-full object-cover" 
-            alt="Lodge Exterior"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-        
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <div className="flex justify-center mb-8">
-            <img 
-              src={logoUrl} 
-              alt="Logo" 
-              className="h-24 w-24 object-contain invert drop-shadow-2xl opacity-90"
-            />
-          </div>
-          <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 text-white text-sm font-medium mb-6">
-            <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-            <span>Top-Rated Finger Lakes Retreat</span>
-          </div>
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg leading-tight">
-            Rustic Elegance in the <br/><span className="text-emerald-300">Finger Lakes</span>
-          </h1>
-          <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-light drop-shadow">
-            6 private acres with a private pond, 6-person hot tub, and modern comfort just 1 mile from Harriet Hollister Park.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#book" className="px-10 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-lg shadow-2xl transition-all transform hover:-translate-y-1">
-              Check Availability
-            </a>
-            <a href="#lodge" className="px-10 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 rounded-full font-bold text-lg transition-all">
-              See The Lodge
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Lodge Details */}
-      <section id="lodge" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div>
-                <span className="text-emerald-600 font-bold tracking-widest uppercase text-xs">Comfort Meets Nature</span>
-                <h2 className="text-4xl font-bold text-slate-900 mt-2 leading-tight">Modern Luxury In The Wild</h2>
-              </div>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Our 4-bedroom retreat offers the perfect balance of rustic charm and modern amenities. Gather around the fire, relax in the hot tub, or explore 6 private acres.
-              </p>
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                {amenities.map((item, idx) => (
-                  <div key={idx} className="flex items-center space-x-3 text-slate-700">
-                    <div className="text-emerald-600">{item.icon}</div>
-                    <span className="text-sm font-medium">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4">
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/c8865a1a-e31e-47f3-a978-8f88e5679c64.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-64 object-cover mt-8" alt="Kitchen" />
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/2375c61f-7700-4601-a3f8-37eaac183dea.jpeg?aki_policy=xx_large" className="rounded-2xl shadow-lg w-full h-80 object-cover" alt="Living Room" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section id="gallery" className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-emerald-600 font-bold tracking-widest uppercase text-xs">Interior & Details</span>
-            <h2 className="text-4xl font-bold text-slate-900 mt-2">Take a Closer Look</h2>
-            <p className="text-slate-500 mt-4">Every corner of the Lodge is designed for comfort and style.</p>
-          </div>
-
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {galleryImages.map((img, idx) => (
-              <div 
-                key={idx} 
-                className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-md bg-white break-inside-avoid transition-all hover:shadow-2xl"
-                onClick={() => setSelectedImage(img)}
-              >
-                <img 
-                  src={img.url} 
-                  alt={img.caption} 
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="text-center p-4">
-                    <Maximize2 className="text-white w-8 h-8 mx-auto mb-2" />
-                    <p className="text-white font-medium">{img.caption}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Grounds Section */}
-      <section id="grounds" className="py-24 bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">The Grounds</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">Six private acres of Springwater's finest hillside.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/540ec5e2-1f9e-4e26-a7db-a596320374bb.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Serene Pond" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h3 className="text-2xl font-bold mb-2">Serene Pond</h3>
-                <p className="text-slate-300 text-sm">Private swimming and fishing.</p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-634486229724134845/original/dcbe31f5-8c8f-4755-8357-e33fccf6dd77.jpeg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Hot Tub" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h3 className="text-2xl font-bold mb-2">Private Spa</h3>
-                <p className="text-slate-300 text-sm">6-Person Hot Tub under the stars.</p>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-3xl h-96 shadow-2xl">
-              <img src="https://a0.muscache.com/im/pictures/f910b196-6a56-493e-9a7e-3db5e168062c.jpg?aki_policy=xx_large" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Harriet Hollister" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent p-8 flex flex-col justify-end">
-                <h3 className="text-2xl font-bold mb-2">Stunning Views</h3>
-                <p className="text-slate-300 text-sm">Vistas of Honeoye Lake 1 mile away.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section id="reviews" className="py-24 bg-slate-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-xl">
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <h2 className="text-4xl font-bold text-slate-900 leading-tight">
-                Guest Experiences
-              </h2>
-              <p className="text-slate-600 mt-4 text-lg">
-                We take pride in providing a perfect getaway. Read what our guests have to say.
-              </p>
-            </div>
-            <div className="bg-white px-6 py-4 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4">
-              <div className="text-3xl font-bold text-slate-900">4.9</div>
-              <div className="h-10 w-[1px] bg-slate-200"></div>
-              <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                Average <br/> Rating
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {reviews.map((review, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col relative group transition-all hover:shadow-xl hover:-translate-y-1">
-                <Quote className="absolute top-6 right-8 w-10 h-10 text-emerald-50 opacity-50 transition-colors group-hover:text-emerald-100" />
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-slate-700 leading-relaxed mb-8 flex-grow italic">
-                  "{review.text}"
-                </p>
-                <div className="flex items-center justify-between pt-6 border-t border-slate-50">
-                  <div>
-                    <h4 className="font-bold text-slate-900">{review.name}</h4>
-                    <p className="text-xs text-slate-400 font-medium">{review.date}</p>
-                  </div>
-                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-tighter">
-                    {review.source}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Booking & Payments Section */}
-      <section id="book" className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Availability & Payments</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Check our live calendar. To book directly and avoid service fees, send us a request!
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Calendar & Payments */}
-            <div className="space-y-8">
-              <div className="bg-slate-50 rounded-3xl p-6 border border-slate-100 flex flex-col h-[650px]">
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="font-bold flex items-center gap-2 text-slate-800">
-                    <Calendar className="text-emerald-600 w-5 h-5" />
-                    Availability Calendar
-                  </h3>
-                  <span className="flex items-center gap-1.5 px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
-                    Synced
-                  </span>
-                </div>
-                
-                <div className="flex-grow bg-white rounded-2xl overflow-hidden shadow-inner border border-slate-200">
-                  <iframe 
-                    src="https://calendar.google.com/calendar/embed?wkst=1&ctz=America%2FNew_York&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=YWRmODVhZWEwZTViZjdhNWEyMGNkY2RmZGVjMGViNDY5NTg2N2NmODkwZTAzNjFiMmIxNDI5ZDMxMjA3NTlkOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=OTNrMXBrMHBrNHI3Y2M4ZzJkcWtmZWUydXJ2OGNnNHVAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=bXM3OTk0OG9hdDI2NDExYmI5a28ydDUyZnZrZG1iOWlAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23ad1457&color=%23795548&color=%23d81b60" 
-                    style={{ border: 0, minHeight: '550px' }} 
-                    width="100%" 
-                    height="100%" 
-                    frameBorder="0" 
-                    scrolling="no"
-                    title="Availability Calendar"
-                  ></iframe>
-                </div>
-              </div>
-
-              {/* Payment Prompt */}
-              <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-xl flex items-center justify-between">
-                <div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-1">Already Booked?</h4>
-                  <p className="text-slate-500 text-sm">Secure your dates via Venmo.</p>
-                </div>
-                <a 
-                  href={venmoUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-[#008CFF] hover:bg-[#0074D9] text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all transform hover:scale-105 active:scale-95 shadow-lg"
-                >
-                  <CreditCard className="w-5 h-5" />
-                  Pay with Venmo
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" onclick="showPage('home'); return false;" class="flex items-center gap-3 group">
+                    <img src="https://wsrv.nl/?url=https://i.ibb.co/GgfjxBv/Logo.png" alt="Romig Retreats Logo" class="h-12 w-auto object-contain group-hover:opacity-90 transition-opacity drop-shadow-sm">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl font-bold tracking-tight text-stone-900 group-hover:text-brand-700 transition-colors">ROMIG RETREATS</span>
+                        <span class="text-[10px] tracking-widest uppercase text-stone-500 font-medium">Boutique Stays</span>
+                    </div>
                 </a>
-              </div>
-            </div>
 
-            {/* Inquiry Form */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-4">
-                <ShieldCheck className="w-12 h-12 text-emerald-50 opacity-10" />
-              </div>
-              
-              {isSubmitted ? (
-                <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12 animate-in fade-in zoom-in duration-300">
-                  <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-inner">
-                    <CheckCircle className="w-10 h-10" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Request Drafted!</h3>
-                  <p className="text-slate-600">Your email client should have opened. <strong>Just hit send!</strong></p>
-                  <button onClick={() => setIsSubmitted(false)} className="text-emerald-600 font-bold hover:underline">Back to form</button>
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" onclick="showPage('home'); return false;" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2">Home</a>
+                    
+                    <!-- Properties Dropdown -->
+                    <div class="relative group">
+                        <button onclick="toggleDropdown(event)" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2 flex items-center gap-1.5 focus:outline-none">
+                            Our Retreats
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200 group-hover:rotate-180"></i>
+                        </button>
+                        <div id="navDropdown" class="absolute left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-stone-100 py-2 hidden group-hover:block hover:block z-50">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <a href="#about" onclick="showPage('home'); setTimeout(() => { document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}); }, 100); return false;" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2">About Us</a>
+                    <a href="#contact" onclick="showPage('home'); setTimeout(() => { document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}); }, 100); return false;" class="text-sm font-medium text-stone-700 hover:text-brand-600 transition-colors py-2">Contact</a>
+                    
+                    <a href="#" onclick="showPage('home'); setTimeout(() => { document.getElementById('properties')?.scrollIntoView({behavior: 'smooth'}); }, 100); return false;" class="bg-brand-800 hover:bg-brand-700 text-white text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-sm hover:shadow transition-all">
+                        Book Your Stay
+                    </a>
                 </div>
-              ) : (
-                <form onSubmit={handleInquiry} className="space-y-6">
-                  <div className="space-y-1">
-                    <h3 className="text-2xl font-bold text-slate-900">Request to Book</h3>
-                    <p className="text-slate-500 text-sm italic">Direct bookings save you ~15% vs Airbnb fees.</p>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Check In</label>
-                      <input type="date" required className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none" onChange={(e) => setBookingData({...bookingData, checkIn: e.target.value})} />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Check Out</label>
-                      <input type="date" required className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none" onChange={(e) => setBookingData({...bookingData, checkOut: e.target.value})} />
-                    </div>
-                  </div>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Your Name</label>
-                      <input type="text" required placeholder="Name" className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none" onChange={(e) => setBookingData({...bookingData, name: e.target.value})} />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-slate-400 uppercase tracking-tighter">Guests</label>
-                      <select className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 focus:ring-2 focus:ring-emerald-500 outline-none appearance-none" onChange={(e) => setBookingData({...bookingData, guests: e.target.value})}>
-                        {[1,2,3,4,5,6,7,8].map(n => <option key={n} value={n}>{n} Guests</option>)}
-                      </select>
-                    </div>
-                  </div>
-                  <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2">
-                    <span>Send Booking Inquiry</span>
-                    <Send className="w-5 h-5" />
-                  </button>
-                  <div className="flex items-center justify-center gap-6 pt-4 text-slate-400 text-xs font-medium border-t border-slate-100">
-                    <a href="tel:5853133670" className="flex items-center gap-1 hover:text-emerald-600"><Phone className="w-3.5 h-3.5" /> Call</a>
-                    <a href="sms:5853133670" className="flex items-center gap-1 hover:text-emerald-600"><MessageCircle className="w-3.5 h-3.5" /> Text</a>
-                  </div>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Lightbox */}
-      {selectedImage && (
-        <div className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-200" onClick={() => setSelectedImage(null)}>
-          <button className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full"><X className="w-8 h-8" /></button>
-          <img src={selectedImage.url} alt={selectedImage.caption} className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
-          <div className="absolute bottom-10 text-center"><p className="text-white text-lg font-medium">{selectedImage.caption}</p></div>
-        </div>
-      )}
-
-      {/* Footer */}
-      <footer id="contact" className="bg-slate-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12 border-b border-slate-800 pb-12 mb-12">
-            <div className="max-w-xs">
-              <div className="flex items-center space-x-3 mb-6">
-                <img src={logoUrl} alt="Logo" className="h-12 w-12 object-contain invert opacity-90" />
-                <span className="text-2xl font-bold tracking-tight uppercase">Romig Retreats</span>
-              </div>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6 italic">
-                Follow our journey in the Finger Lakes at <span className="text-emerald-400 font-bold">@romig_retreats</span>
-              </p>
-              <div className="flex gap-4">
-                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 transition-all transform hover:-translate-y-1">
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a href="mailto:Derek.Romig@gmail.com" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition-all transform hover:-translate-y-1">
-                  <Mail className="w-5 h-5" />
-                </a>
-              </div>
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-stone-100 bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
+            <a href="#" onclick="showPage('home'); toggleMobileMenu(); return false;" class="block py-2 text-base font-medium text-stone-800 border-b border-stone-50">Home</a>
+            <div class="py-2">
+                <div class="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">Our Retreats</div>
+                <div id="mobilePropList" class="pl-3 space-y-2 border-l-2 border-brand-200">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+            <a href="#about" onclick="showPage('home'); toggleMobileMenu(); return false;" class="block py-2 text-base font-medium text-stone-800 border-b border-stone-50">About Us</a>
+            <a href="#contact" onclick="showPage('home'); toggleMobileMenu(); return false;" class="block py-2 text-base font-medium text-stone-800">Contact</a>
+        </div>
+    </nav>
+
+    <!-- MAIN HOMEPAGE VIEW -->
+    <div id="homeView" class="view-section">
+        <!-- Hero Banner -->
+        <header class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
+            <img src="https://wsrv.nl/?url=https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg" alt="Luxury Retreat Header" class="absolute inset-0 w-full h-full object-cover opacity-45 scale-105 transition-transform duration-10000 hover:scale-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/40 to-transparent"></div>
             
-            <div className="grid grid-cols-2 gap-12 md:gap-24">
-              <div>
-                <h4 className="font-bold mb-6 text-emerald-400 uppercase tracking-widest text-[10px]">Reach Out</h4>
-                <div className="space-y-3 text-slate-400 text-sm font-medium">
-                  <p className="flex items-center gap-2"><Phone className="w-4 h-4" /> 585-313-3670</p>
-                  <p className="flex items-center gap-2 uppercase tracking-tighter">@romig_retreats</p>
+            <div class="relative max-w-5xl mx-auto px-4 text-center z-10 py-20">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-stone-800/80 backdrop-blur-md border border-white/20 text-xs uppercase tracking-widest font-semibold text-brand-200 mb-6">
+                    Handcrafted Vacation Experiences
+                </span>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-tight text-white mb-6 leading-tight">
+                    Unforgettable Escapes in the Heart of the Finger Lakes
+                </h1>
+                <p class="text-lg sm:text-xl text-stone-200 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    Discover our collection of curated private lodges, luxury cottages, and lakeside sanctuaries built for memories that last.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#properties" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white rounded-full font-medium text-sm tracking-wide transition-all shadow-lg hover:shadow-brand-600/30">
+                        Explore Our Retreats
+                    </a>
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full font-medium text-sm tracking-wide transition-all">
+                        Learn Our Story
+                    </a>
                 </div>
-              </div>
-              <div>
-                <h4 className="font-bold mb-6 text-emerald-400 uppercase tracking-widest text-[10px]">Location</h4>
-                <div className="space-y-3 text-slate-400 text-sm">
-                  <p>8948 Luckenbach Hill Road</p>
-                  <p>Springwater NY 14560</p>
-                </div>
-              </div>
             </div>
-          </div>
-          <p className="text-center text-slate-600 text-[10px] uppercase tracking-[0.3em]">© {new Date().getFullYear()} Romig Retreats • Luckenbach Hill</p>
-        </div>
-      </footer>
-    </div>
-  );
-};
+        </header>
 
-export default App;
+        <!-- Properties Grid Section -->
+        <section id="properties" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">Our Featured Properties</h2>
+                <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-stone-600">Select any retreat below to view live availability, browse full photo galleries, and request your stay directly.</p>
+            </div>
+
+            <div id="propertiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamic Property Cards Populated Here -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-stone-100 border-y border-stone-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-700">About Romig Retreats</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mt-2 mb-6">Elevated Comfort Meets Scenic Tranquility</h2>
+                        <p class="text-stone-600 mb-4 leading-relaxed">
+                            At Romig Retreats, we host unforgettable getaways designed for relaxation, family bonding, and peaceful escapes. Each property is individually curated with modern amenities, crisp design, and direct access to regional outdoor leisure.
+                        </p>
+                        <p class="text-stone-600 mb-8 leading-relaxed">
+                            Whether you're planning a lakeside retreat, a mountain cabin getaway, or a golf weekend, our properties offer seamless self check-in, pristine cleanliness, and prompt guest support.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 border-t border-stone-200 pt-6">
+                            <div>
+                                <div class="font-serif text-3xl font-bold text-brand-800">7</div>
+                                <div class="text-xs text-stone-500 font-medium mt-1">Boutique Properties</div>
+                            </div>
+                            <div>
+                                <div class="font-serif text-3xl font-bold text-brand-800">4.9★</div>
+                                <div class="text-xs text-stone-500 font-medium mt-1">Average Rating</div>
+                            </div>
+                            <div>
+                                <div class="font-serif text-3xl font-bold text-brand-800">100%</div>
+                                <div class="text-xs text-stone-500 font-medium mt-1">Verified Stays</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <img src="https://wsrv.nl/?url=https://i.ibb.co/fG0C6D1S/DSC04216-17-18-19-20-1.jpg" alt="Romig Retreats Interior" class="rounded-2xl shadow-xl w-full object-cover h-[450px]">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-lg border border-stone-100 hidden sm:block max-w-xs">
+                            <i class="fa-solid fa-quote-left text-brand-400 text-2xl mb-2"></i>
+                            <p class="text-xs text-stone-600 italic">"The absolute highlight of our year. Pristine property and seamless booking experience."</p>
+                            <span class="block text-[11px] font-bold text-stone-800 mt-2">— Verified Guest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-5">
+                    <div class="md:col-span-2 bg-stone-900 text-white p-8 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-serif font-bold mb-4">Get In Touch</h3>
+                            <p class="text-stone-300 text-sm mb-8">Have questions about a specific property or custom dates? Send us a message and we'll reply promptly.</p>
+                            <div class="space-y-4 text-sm">
+                                <a href="mailto:Derek.Romig@gmail.com" class="flex items-center gap-3 hover:text-white transition-colors group">
+                                    <i class="fa-solid fa-envelope text-brand-400 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-stone-200 group-hover:text-white transition-colors">Derek.Romig@gmail.com</span>
+                                </a>
+                                <a href="tel:+15853133670" class="flex items-center gap-3 hover:text-white transition-colors group">
+                                    <i class="fa-solid fa-phone text-brand-400 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-stone-200 group-hover:text-white transition-colors">585-313-3670</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-12 text-xs text-stone-400">
+                            Romig Retreats Hospitality Group
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 p-8 sm:p-10">
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Your Name</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Email Address</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Message</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm" placeholder="Inquire about dates, amenities, or special accommodations..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 bg-brand-800 hover:bg-brand-700 text-white font-medium text-sm rounded-xl transition-all shadow-sm">
+                                Send Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SUBPAGE VIEW FOR INDIVIDUAL PROPERTY -->
+    <div id="subpageView" class="view-section hidden pb-24">
+        <!-- Back Button Bar -->
+        <div class="bg-stone-100 border-b border-stone-200 py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                <button onclick="showPage('home')" class="inline-flex items-center gap-2 text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to All Properties
+                </button>
+                <span id="subpageBreadcrumb" class="text-xs text-stone-400 hidden sm:inline-block"></span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+            <!-- Property Header -->
+            <div class="mb-8">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                    <span id="subpageTag" class="px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold uppercase tracking-wider"></span>
+                    <span id="subpageLocation" class="text-sm text-stone-500"></span>
+                </div>
+                <h1 id="subpageTitle" class="text-3xl sm:text-5xl font-serif font-bold text-stone-900 mb-4"></h1>
+                <p id="subpageTagline" class="text-stone-600 text-lg max-w-3xl"></p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="mb-12">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-serif text-xl font-bold text-stone-900">Photo Gallery</h3>
+                    <span class="text-xs text-stone-500">Click photos to view fullscreen</span>
+                </div>
+                <div id="subpageGalleryGrid" class="grid grid-cols-2 md:grid-cols-4 gap-3 rounded-2xl overflow-hidden">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <!-- Main Content Area: Details + Calendar Sidebar -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Left Details Column (2 Cols) -->
+                <div class="lg:col-span-2 space-y-10">
+                    <!-- Key Specs Cards -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm text-center">
+                        <div>
+                            <i class="fa-solid fa-user-group text-brand-600 text-xl mb-1"></i>
+                            <div id="specGuests" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Max Guests</div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-bed text-brand-600 text-xl mb-1"></i>
+                            <div id="specBeds" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Bedrooms</div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-bath text-brand-600 text-xl mb-1"></i>
+                            <div id="specBaths" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Bathrooms</div>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-house text-brand-600 text-xl mb-1"></i>
+                            <div id="specType" class="font-bold text-stone-900 text-lg"></div>
+                            <div class="text-xs text-stone-400">Property Type</div>
+                        </div>
+                    </div>
+
+                    <!-- Overview Description -->
+                    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-4">About This Property</h3>
+                        <div id="subpageDescription" class="text-stone-600 leading-relaxed space-y-4"></div>
+                    </div>
+
+                    <!-- Amenities Checklist -->
+                    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-6">Property Amenities</h3>
+                        <div id="subpageAmenities" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Live Calendar Display Section -->
+                    <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-stone-900">Live Availability Calendar</h3>
+                                <p class="text-xs text-stone-500 mt-1">Dates updated in real-time</p>
+                            </div>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Synchronized
+                            </span>
+                        </div>
+                        
+                        <div id="calendarContainer" class="w-full bg-stone-50 rounded-xl overflow-hidden border border-stone-200">
+                            <!-- Calendar iframe inserted via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Inquiry Form Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-28 bg-white p-6 sm:p-8 rounded-3xl border border-stone-200 shadow-lg space-y-6">
+                        <div class="border-b border-stone-100 pb-4">
+                            <span class="text-xs uppercase font-bold tracking-widest text-brand-600">Reserve Direct</span>
+                            <h3 class="font-serif text-2xl font-bold text-stone-900 mt-1">Book Your Dates</h3>
+                        </div>
+
+                        <form onsubmit="handleDirectBooking(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Check-In</label>
+                                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Check-Out</label>
+                                <input type="date" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Number of Guests</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                                    <option>1-2 Guests</option>
+                                    <option>3-5 Guests</option>
+                                    <option>6-8 Guests</option>
+                                    <option>9+ Guests</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Contact Email</label>
+                                <input type="email" placeholder="you@example.com" required class="w-full px-4 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-brand-800 hover:bg-brand-700 text-white font-medium text-sm rounded-xl transition-all shadow-md hover:shadow-lg">
+                                Request Reservation
+                            </button>
+                        </form>
+                        <p class="text-[11px] text-center text-stone-400">No immediate charge. We will confirm dates & rates within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR GALLERY -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-stone-400 focus:outline-none z-50">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button onclick="prevLightboxImage()" class="absolute left-6 text-white text-3xl hover:text-stone-400 focus:outline-none z-50 p-2">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button onclick="nextLightboxImage()" class="absolute right-6 text-white text-3xl hover:text-stone-400 focus:outline-none z-50 p-2">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="Gallery Lightbox" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg">
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="https://wsrv.nl/?url=https://i.ibb.co/GgfjxBv/Logo.png" alt="Romig Retreats Logo" class="h-10 w-auto object-contain opacity-80">
+                    <span class="font-serif font-bold text-white tracking-tight">ROMIG RETREATS</span>
+                </div>
+                <div class="flex items-center gap-4 sm:border-l sm:border-stone-700 sm:pl-6">
+                    <a href="https://www.instagram.com/romig_retreats/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-all shadow-sm" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61595939596509" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-all shadow-sm" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-sm"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@romig_retreats" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-600 hover:text-white transition-all shadow-sm" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok text-sm"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-xs text-center md:text-right space-y-1">
+                <p>&copy; 2026 Romig Retreats Hospitality. All rights reserved.</p>
+                <p class="text-stone-500">Handcrafted direct booking experiences.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT CONTROLLERS -->
+    <script>
+        // Global Property Database
+        const propertiesData = [
+            {
+                id: 'luckenbach',
+                title: 'The Lodge at Luckenbach Hill',
+                tagline: 'Rustic elegance on 6 private acres featuring a 6-person hot tub and a massive stocked fishing pond.',
+                location: 'Springwater, NY',
+                type: 'Cabin / Lodge',
+                guests: '8',
+                beds: 4,
+                baths: 2,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/rKQsqqB0/DJI-20250718203820-0041-D.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=ms79948oat26411bb9ko2t52fvkdmb9i%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/rKQsqqB0/DJI-20250718203820-0041-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/6cn80n9R/IMG-0431-2.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/5hTsvWxr/IMG05532.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/d4WndTHB/DJI-20250718204400-0047-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/DgLWTPTj/IMG05632.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hxDNdMZd/DJI-20250718204658-0051-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0ytQCkrd/DJI-20250718204542-0050-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/MySBDXGp/IMG05544.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Kcj5WcjY/IMG05571.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/xqXcbM4H/IMG05556.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/nNC2G0GJ/IMG05601.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fd8pmzqs/IMG05613.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BVHXCf96/IMG05583.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Sw6z4CLY/IMG05553.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/8L8np5jN/IMG05541.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Q3Dp33nQ/IMG05574.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wNwmLzZR/IMG05653.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Zp8dk21H/arial2.webp',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Q3NLrV15/outsidehouse-1.jpg'
+                ],
+                description: 'Experience unmatched relaxation at The Lodge at Luckenbach Hill. Nestled on 6 secluded acres between Honeoye and Canadice Lakes, this property offers the perfect balance of rustic charm and modern luxury. Spend your days swimming or taking the pedal boat out on the immaculate 1-acre stocked fishing pond. In the evenings, soak in the 6-person private hot tub, gather around the fire pits, or head down to the basement game room. Just 1 mile from Harriet Hollister Park, this pet-friendly retreat features incredibly comfortable queen beds, unmatched stargazing away from city lights, and ultra-fast WiFi.',
+                amenities: ['6-Person Hot Tub', '1-Acre Stocked Fishing Pond', 'Pedal Boat & Dock', 'Fire Pits', 'Basement Game Room', 'Ultra-Fast Wi-Fi (300+ Mbps)', 'Pet Friendly', 'Washer & Dryer', 'A/C & Heating', 'Smart HDTVs']
+            },
+            {
+                id: 'seneca',
+                title: 'Seneca Lookout',
+                tagline: 'A private lakefront cabin on the Seneca Lake Wine Trail featuring a private dock, hot tub, and sweeping water views.',
+                location: 'Seneca Lake',
+                type: 'Lakeside Cabin',
+                guests: '6',
+                beds: 3,
+                baths: 2,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/nqqJwkwb/1677-Long-Point-Beach-Rd-040.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=0pg5qjpl4h035vtiaqqsnfv5vsakug2n%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/nqqJwkwb/1677-Long-Point-Beach-Rd-040.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/B5fJpqMZ/1677-Long-Point-Beach-Rd-027.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/S4JwLT9j/1677-Long-Point-Beach-Rd-028.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Vp0TNdv9/1677-Long-Point-Beach-Rd-016.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/PZV50vwK/1677-Long-Point-Beach-Rd-017.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/3Yf8NLbn/1677-Long-Point-Beach-Rd-015.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/VY64MZVH/1677-Long-Point-Beach-Rd-014.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/35sBhK57/1677-Long-Point-Beach-Rd-012.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/4ggBmjPz/1677-Long-Point-Beach-Rd-011.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/20XTg5bT/1677-Long-Point-Beach-Rd-009.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/kT2Ggyf/1677-Long-Point-Beach-Rd-002.jpg'
+                ],
+                description: 'Escape to Seneca Lookout, a private 3-bedroom, 2-bathroom lakefront cabin perfectly situated right on the Seneca Lake Wine Trail. With its combination of privacy, modern comfort, and unbeatable waterfront views, this is the ultimate Finger Lakes vacation rental. Enjoy direct water access from your private dock, soak in the relaxing hot tub after a day of wine tasting, and take in the stunning sunset views from the outdoor entertaining areas.',
+                amenities: ['Lakefront Hot Tub', 'Private Dock', 'Direct Water Access', 'Seneca Lake Wine Trail', 'Private Deck', 'Fireplace', 'Chef Kitchen', 'High-Speed Wi-Fi', 'Air Conditioning', 'Washer & Dryer']
+            },
+            {
+                id: 'clairmonte',
+                title: 'Clairmonte Cottage',
+                tagline: 'Cozy 800 sq. ft. retreat just steps from Honeoye Lake featuring a private hot tub, kayaks, and fire pit.',
+                location: 'Honeoye Lake',
+                type: 'Cottage',
+                guests: '6',
+                beds: 3,
+                baths: 1,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/S7ryd7vP/4-D47-E46-E-C59-B-4-F9-D-9262-9-E27-FDBEF171-1.png',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=3kei81glefmi4hjpl27nrlh7iml0uh1v%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/S7ryd7vP/4-D47-E46-E-C59-B-4-F9-D-9262-9-E27-FDBEF171-1.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mVy1DVt7/IMG-7914.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/kZDBZZt/IMG-7913.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Dg490f54/IMG-7912.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/NdX95vqd/IMG-7911.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tMCMft9Q/IMG-7909.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Mx1zt0CD/IMG-7910.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/3mWh0Bwy/IMG-7907.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/3m45svRs/IMG-7904.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/ntXRbKT/IMG-7906.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mCWrHCyL/IMG-7901.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/JjHtP2v5/IMG-7900.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RTpDCb01/IMG-7905.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/23X4QLHV/IMG-7902.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/6RWMq6my/IMG-7886.png',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mCHRfLVN/IMG-7964.jpg'
+                ],
+                description: 'Welcome to Clairmonte Cottage! Relax in this cozy retreat just steps from Honeoye Lake. Walk down the street to the community beach and lakeside park, or unwind in the peaceful neighborhood. After a day on the water, come home to soak in the 6-person private hot tub, gather around the natural gas fire pit, or enjoy dinner outdoors with the gas grill. The cottage is dog-and-kid-friendly, features a newly installed privacy fence, and comes fully equipped for the perfect Finger Lakes getaway.',
+                amenities: ['Private Hot Tub', '2 Kayaks & Dock Access', 'Natural Gas Fire Pit', 'Gas Grill', 'Shared Beach Access', 'Smart TVs', 'Fully Stocked Kitchen', 'Washer & Dryer', 'High-Speed Wi-Fi', 'Pet Friendly']
+            },
+            {
+                id: 'salem',
+                title: 'Salem Lodge',
+                tagline: 'A breathtaking timber-frame lodge at Bristol Mountain with expansive views, a massive stone fireplace, and a private hot tub.',
+                location: 'Bristol Mountain',
+                type: 'Lodge',
+                guests: '7',
+                beds: 3,
+                baths: 2,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=svak64ms47976tr187ds8scpkg3ripm0%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/Lzm9M25p/DJI-20260922140134-0165-D-6-D-7-D-8-D-9-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fG0C6D1S/DSC04216-17-18-19-20-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/vxNc25nz/DSC04186-87-88-89-90.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/bj1pLXWr/DSC04181-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/3mQwNm9V/DSC04171-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/MDRk41N2/DSC04161-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hJN3pPQ8/DSC04156-57-58-59-60.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/LhDkj67d/DSC04136-37-38-39-40-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/gZpsLqZ1/DSC04126-27-28-29-30.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RpKd7LSZ/DSC04121-2-3-4-5.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/rRPw7RYQ/DSC04106.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/TMXfLjSd/DSC04101.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/TMpzCP4k/DSC04096.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/8Lp1pM4J/DSC04091.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/W4YfLkFv/DSC04086.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Xx6SvCHw/DSC04081.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/PGMBHFYB/DSC04076.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Cp4g5KpY/DSC04071.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0RyZCS4Q/DSC04066.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/bMFdrrt9/DSC04061.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RkXDvB2H/DSC04056.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Pfs5Y04/DSC04051.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/9HGdMQLZ/DSC04041.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hFTssmbn/DSC04036.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/R4gwKNmN/DSC04031.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tf678n8/DSC04026.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/6cM5HG6Y/DSC04006.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/d0vw4M6Q/DSC04001.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/HTgN5WcB/DSC03991.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/GQHQK71X/DSC03986.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fdfCm8Rx/DSC03981.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/KxvmbPhM/DSC03976.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/cccGNMth/DSC03966.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/V07T5HMx/DSC03961.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/VpSXbjqc/DSC03956.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wrK1pv5Y/DSC03946.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Q3rZJSx7/DSC03941.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/cfVjc3W/DSC03936.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/WNbhnJCJ/DSC03931.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0pnGQNXF/DJI-20260922135845-0141-D-2-D-3-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BKrXQ1jk/DJI-20260922135310-0106-DAnd4more.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Y70ncRwK/DJI-20260922135258-0101-D-2-D-3-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/zW90vTd5/DJI-20260922135245-0096-D-097-D-098-D-099-D-100-D-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/1YR0qjB8/DJI-20260922135231-0093-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BKTJ7z0r/DJI-20260922135106-0089-D-90-D-91-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fV1f49KP/DJI-20260922135100-0086-D-7-D-8-D-2.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0jWZc61s/DJI-20260922134937-0076-DAnd2more.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/p6BzGmLK/DJI-20260922134922-0073-D-4-D-5-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/5XMD0Tj3/DJI-20260922134906-0070-D-1-D-2-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/1G5pzwy2/DJI-20260922134856-0067-D-8-D-9-D-1.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/9HZnZgpZ/DJI-20260922134715-0060-D-1-D-2-D.jpg'
+                ],
+                description: 'Welcome to Salem Lodge, a magnificent custom-built timber frame retreat nestled near Bristol Mountain. Perfect for large family gatherings, ski vacations, or summer getaways. This luxurious lodge boasts soaring cathedral ceilings, a spectacular floor-to-ceiling stone fireplace, and a fully stocked chef\'s kitchen. Step outside to enjoy the massive covered porch, soak in the private 7-person hot tub under the stars, or gather around the outdoor fire pit. With a dedicated basement game room, spacious bedrooms, and modern smart home amenities, Salem Lodge offers an unforgettable premium mountain escape.',
+                amenities: ['Private 7-Person Hot Tub', 'Floor-to-Ceiling Stone Fireplace', 'Basement Game Room', 'Expansive Covered Porch', 'Outdoor Fire Pit & Gas Grill', 'Fully Stocked Chef\'s Kitchen', 'Bristol Mountain Proximity', 'Ultra-Fast Wi-Fi', 'Smart TVs', 'Washer & Dryer']
+            },
+            {
+                id: 'stayandplay',
+                title: 'Stay & Play Golf Retreat',
+                tagline: 'The ultimate golf getaway located directly on the pristine fairways of the Lima Country Club, featuring an expansive patio and modern luxury.',
+                location: 'Lima Country Club',
+                type: 'Golf Retreat',
+                guests: '8',
+                beds: 4,
+                baths: 3,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/jPxFTVcS/02-DJI-20260605020616-0443-D.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=70umaqctin4jm0cnv07d7ptpg07o4ej6%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/jPxFTVcS/02-DJI-20260605020616-0443-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/VpYDgtz3/06-DJI-20260605020714-0447-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/chRJHFhv/10-DJI-20260605020851-0451-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/n8wwVVQP/13-DJI-20260605021015-0454-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/JF3dHw64/12-DJI-20260605020954-0453-D.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/HLv9HHr5/61-IMG01486.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/hJdC7c12/Copy-of-58-IMG01477.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/dwFgNCJX/Copy-of-59-IMG01480.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tpck4YYy/Copy-of-62-IMG01489.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/fdQ3N4pF/Copy-of-36-IMG01411.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/GQvKnYLL/Copy-of-45-IMG01438.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/1CprD64/Copy-of-39-IMG01420.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/R4913whF/Copy-of-41-IMG01426.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/ymdV3ZVV/Copy-of-42-IMG01429.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/WN71GX6t/Copy-of-43-IMG01432.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Hp7cy4fZ/Copy-of-34-IMG01405.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/xKgLL0f0/Copy-of-30-IMG01393.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/QvHbyBjB/Copy-of-27-IMG01384.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/GfSCHBdf/Copy-of-26-IMG01381.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/BVfHWjYC/Copy-of-31-IMG01396.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/tT0P3SKp/Copy-of-29-IMG01390.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/9M6V0jP/Copy-of-28-IMG01387.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Hpkrw2YJ/Copy-of-35-IMG01408.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Fbq3Wd3w/Copy-of-32-IMG01399.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/mFFDZ7NT/Copy-of-33-IMG01402.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Y71qT4G7/Copy-of-18-IMG01354.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/5hRGsGC6/Copy-of-22-IMG01369.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/FbCTNf9L/Copy-of-23-IMG01372.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/qYLg6F45/Copy-of-21-IMG01363.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/7J6rnKQ8/Copy-of-20-IMG01360.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Xf0kyxZz/Copy-of-16-IMG01348.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/NPGPmm3/Copy-of-24-IMG01375.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/M5f5GFJf/Copy-of-17-IMG01351.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/jksxWFyN/Copy-of-25-IMG01378.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/V0L6PvM8/Copy-of-15-IMG01345.jpg'
+                ],
+                description: 'Welcome to the Stay & Play Golf Retreat, your premier home base for the ultimate golf vacation. Situated directly on the beautiful grounds of the Lima Country Club, this spacious 4-bedroom home is perfectly designed for groups, families, and golf enthusiasts alike. After a day on the links, relax on the expansive outdoor patio, fire up the gas grill, or gather in the open-concept living area. With sweeping fairway views, a fully equipped chef\'s kitchen, and ultra-fast Wi-Fi, this retreat offers the perfect blend of active recreation and modern relaxation.',
+                amenities: ['Direct Golf Course Access', 'Expansive Outdoor Patio', 'Gas Grill & Outdoor Dining', 'Fully Stocked Chef\'s Kitchen', 'Open-Concept Living Area', 'Ultra-Fast Wi-Fi', 'Smart TVs', 'Washer & Dryer', 'Garage Parking', 'Central A/C & Heating']
+            },
+            {
+                id: 'unionlofts1',
+                title: 'Union Lofts 1 Bedroom',
+                tagline: 'Cozy and modern lakeside apartment on Honeoye Lake offering water access and incredible community park amenities.',
+                location: 'Honeoye Lake',
+                type: 'Apartment',
+                guests: '3',
+                beds: 1,
+                baths: 1,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/pNWTLKn/8505-E-Clairmont-St-043.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=bs8hn6vscmsl56pf281ib7n3lgupin57%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/pNWTLKn/8505-E-Clairmont-St-043.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/nJFRKc9/8505-E-Clairmont-St-045.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/W40zTcRW/8505-E-Clairmont-St-044.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/VpvX2JDg/8505-E-Clairmont-St-033.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/DgrWGqXZ/8505-E-Clairmont-St-032.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/MDyWTwf0/8505-E-Clairmont-St-012.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/j9J342Dg/8505-E-Clairmont-St-010.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/R4dTr4Wg/8505-E-Clairmont-St-011.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/S7nSLwby/8505-E-Clairmont-St-009.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/qL2y2PgF/8505-E-Clairmont-St-008.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/G4KK6D2g/8505-E-Clairmont-St-007.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/8gK2SrqY/8505-E-Clairmont-St-006.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RpLLywMm/8505-E-Clairmont-St-004.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/21fhQXFN/8505-E-Clairmont-St-003.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/v6NHk6Gn/8505-E-Clairmont-St-001.jpg'
+                ],
+                description: 'Experience the ultimate lakeside getaway at the Union Lofts. This beautifully updated 1-bedroom apartment offers direct water access on Honeoye Lake, making it a perfect cozy retreat for couples or small families. Step outside and you are just a short walk away from a fantastic semi-private park, complete with basketball courts, a playground, a sandy community beach, and shaded picnic tables. Enjoy your morning coffee with lake breezes, spend the day exploring local breweries, wineries, and hiking trails, and return to modern comforts including a fully stocked kitchen, smart TV, and high-speed Wi-Fi.',
+                amenities: ['Lake & Beach Access', 'Semi-Private Park', 'Basketball Courts', 'Playground & Picnic Area', 'Dedicated Workspace', 'Smart TV', 'High-Speed Wi-Fi', 'Fully Stocked Kitchen', 'Air Conditioning', 'Free Parking']
+            },
+            {
+                id: 'unionlofts2',
+                title: 'Union Lofts 2 Bedroom',
+                tagline: 'Brand new lakeside condo with a private deck, open-air pavilion, and direct park & beach access.',
+                location: 'Honeoye Lake',
+                type: 'Apartment',
+                guests: '6',
+                beds: 4,
+                baths: 1,
+                heroImage: 'https://wsrv.nl/?url=https://i.ibb.co/h1s7JTW1/8505-E-Clairmont-St-028.jpg',
+                calendarSrc: 'https://calendar.google.com/calendar/embed?src=pqcfb0mr7c67jooit5a1q33kch0u5tqj%40import.calendar.google.com&ctz=America%2FNew_York',
+                gallery: [
+                    'https://wsrv.nl/?url=https://i.ibb.co/h1s7JTW1/8505-E-Clairmont-St-028.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/chXc86xs/8505-E-Clairmont-St-031.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/bgdvhQkD/8505-E-Clairmont-St-029.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/p6TgSgTP/8505-E-Clairmont-St-027.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/qXB6dxJ/8505-E-Clairmont-St-030.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/LD09tSM8/8505-E-Clairmont-St-025.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/SXkv4gZV/8505-E-Clairmont-St-026.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/pB38wBdP/8505-E-Clairmont-St-024.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/0RRnRcFr/8505-E-Clairmont-St-023.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Fb8F0Q2s/8505-E-Clairmont-St-022.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wZwPVvVm/8505-E-Clairmont-St-019.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/JwZFLWdF/8505-E-Clairmont-St-020.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/KcdxsLJK/8505-E-Clairmont-St-021.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/Mkr5RVcJ/8505-E-Clairmont-St-018.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/C3NPV1km/8505-E-Clairmont-St-017.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/WvmLX5DG/8505-E-Clairmont-St-016.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/RT9rqwL1/8505-E-Clairmont-St-015.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/274YL6JH/8505-E-Clairmont-St-014.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/jvRTB35Z/8505-E-Clairmont-St-013.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/wFD2byTj/8505-E-Clairmont-St-046.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/pNWTLKn/8505-E-Clairmont-St-043.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/nJFRKc9/8505-E-Clairmont-St-045.jpg',
+                    'https://wsrv.nl/?url=https://i.ibb.co/W40zTcRW/8505-E-Clairmont-St-044.jpg'
+                ],
+                description: 'Welcome to your dream Finger Lakes getaway! Nestled in a serene lake community just 200 yards from the water, this cozy 2-bedroom apartment offers a private deck with stunning lake views, an outdoor gas grill, and an open-air pavilion. Enjoy access to a well-maintained community park featuring a private beach, playground, basketball court, and boat launch. Located minutes from top breweries, wineries, and Bristol Mountain, this retreat is perfect for both relaxation and adventure.',
+                amenities: ['Lake View', 'Private Deck', 'Community Beach Access', 'Gas Grill & Pavilion', 'Semi-Private Park', 'Basketball Court & Playground', 'Wi-Fi', 'Smart TV', 'Fully Equipped Kitchen', 'Shared Laundry']
+            },
+            {
+                id: 'harrolds',
+                title: 'Harrold\'s Hideaway',
+                tagline: 'Coming Soon! A beautiful 3-bedroom, 2-bathroom house on Honeoye Lake.',
+                location: 'Honeoye Lake',
+                type: 'House',
+                guests: '6',
+                beds: 3,
+                baths: 2,
+                heroImage: 'https://placehold.co/800x600/eee/888?text=Coming+Soon',
+                calendarSrc: '',
+                gallery: [
+                    'https://placehold.co/800x600/eee/888?text=Coming+Soon'
+                ],
+                description: 'Harrold\'s Hideaway is coming soon to Romig Retreats! This spacious 3-bedroom, 2-bathroom house on Honeoye Lake is currently being prepared for guests. Check back soon for full details, photos, and live availability.',
+                amenities: ['Coming Soon', 'Honeoye Lake Access', 'Air Conditioning', 'Free Parking']
+            }
+        ];
+
+        let currentGalleryList = [];
+        let currentLightboxIndex = 0;
+
+        // Initialize Navigation Dropdown Menu
+        function renderNavDropdown() {
+            const dropdown = document.getElementById('navDropdown');
+            const mobileList = document.getElementById('mobilePropList');
+            if(!dropdown || !mobileList) return;
+            
+            dropdown.innerHTML = propertiesData.map(p => `
+                <a href="#" onclick="openSubpage('${p.id}'); closeDropdown(); return false;" class="block px-4 py-2.5 text-sm text-stone-700 hover:bg-brand-50 hover:text-brand-700 transition-colors">
+                    <div class="font-bold">${p.title}</div>
+                    <div class="text-xs text-stone-400">${p.location}</div>
+                </a>
+            `).join('');
+
+            mobileList.innerHTML = propertiesData.map(p => `
+                <a href="#" onclick="openSubpage('${p.id}'); toggleMobileMenu(); return false;" class="block py-1 text-sm font-medium text-stone-700 hover:text-brand-600">
+                    ${p.title}
+                </a>
+            `).join('');
+        }
+
+        // Render Homepage Property Grid
+        function renderPropertiesGrid() {
+            const grid = document.getElementById('propertiesGrid');
+            if(!grid) return;
+
+            grid.innerHTML = propertiesData.map(p => `
+                <a href="#" onclick="openSubpage('${p.id}'); return false;" class="block bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    <div class="relative h-64 sm:h-72 overflow-hidden bg-stone-100">
+                        <img src="${p.heroImage}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.src='https://placehold.co/800x600/eee/888?text=Property+Photo'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="absolute top-5 left-5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full text-[10px] font-bold text-stone-800 uppercase tracking-widest shadow-sm">
+                            ${p.type}
+                        </div>
+                    </div>
+                    <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between bg-white relative">
+                        <div>
+                            <div class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3 flex items-center gap-1.5">
+                                <i class="fa-solid fa-location-dot"></i> ${p.location}
+                            </div>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-3 group-hover:text-brand-700 transition-colors">${p.title}</h3>
+                            <p class="text-stone-500 text-sm mb-6 line-clamp-2 leading-relaxed">${p.tagline}</p>
+                        </div>
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between text-xs text-stone-500 py-4 border-y border-stone-100 mb-5">
+                                <span class="flex items-center gap-1.5 font-medium"><i class="fa-solid fa-user-group text-stone-400"></i> ${p.guests} Guests</span>
+                                <span class="flex items-center gap-1.5 font-medium"><i class="fa-solid fa-bed text-stone-400"></i> ${p.beds} Beds</span>
+                                <span class="flex items-center gap-1.5 font-medium"><i class="fa-solid fa-bath text-stone-400"></i> ${p.baths} Baths</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm font-bold uppercase tracking-wider text-stone-900 group-hover:text-brand-600 transition-colors">
+                                <span>Explore Retreat</span>
+                                <i class="fa-solid fa-arrow-right transform group-hover:translate-x-2 transition-transform duration-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Open Property Subpage
+        function openSubpage(propId) {
+            const prop = propertiesData.find(p => p.id === propId);
+            if (!prop) return;
+
+            currentGalleryList = prop.gallery;
+
+            document.getElementById('subpageBreadcrumb').innerText = prop.title;
+            document.getElementById('subpageTag').innerText = prop.type;
+            document.getElementById('subpageLocation').innerText = '• ' + prop.location;
+            document.getElementById('subpageTitle').innerText = prop.title;
+            document.getElementById('subpageTagline').innerText = prop.tagline;
+
+            document.getElementById('specGuests').innerText = prop.guests;
+            document.getElementById('specBeds').innerText = prop.beds;
+            document.getElementById('specBaths').innerText = prop.baths;
+            document.getElementById('specType').innerText = prop.type;
+
+            document.getElementById('subpageDescription').innerHTML = `<p>${prop.description}</p>`;
+            document.getElementById('subpageAmenities').innerHTML = prop.amenities.map(a => `
+                <div class="flex items-center gap-2 text-stone-700 text-sm font-medium">
+                    <i class="fa-solid fa-check text-brand-600"></i> ${a}
+                </div>
+            `).join('');
+
+            // Render Gallery Thumbnails
+            const galleryGrid = document.getElementById('subpageGalleryGrid');
+            galleryGrid.innerHTML = prop.gallery.map((imgUrl, index) => `
+                <div onclick="openLightbox(${index})" class="relative h-44 bg-stone-200 cursor-pointer overflow-hidden group">
+                    <img src="${imgUrl}" alt="Gallery image ${index + 1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/eee/888?text=Retreat+Photo'">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-solid fa-magnifying-glass-plus text-xl"></i>
+                    </div>
+                </div>
+            `).join('');
+
+            // Embed Google Calendar
+            const calendarContainer = document.getElementById('calendarContainer');
+            if (prop.calendarSrc && prop.calendarSrc !== '') {
+                calendarContainer.innerHTML = `
+                    <iframe src="${prop.calendarSrc}" style="border:0;" class="w-full h-[550px]" frameborder="0" scrolling="no"></iframe>
+                `;
+            } else {
+                calendarContainer.innerHTML = `
+                    <div class="p-8 text-center text-stone-500 bg-stone-100 rounded-xl border border-stone-200">
+                        <i class="fa-regular fa-calendar-xmark text-3xl mb-3 text-stone-400"></i>
+                        <p class="font-medium text-stone-600">Calendar availability coming soon!</p>
+                        <p class="text-sm mt-1">Please use the reservation form to inquire about specific dates.</p>
+                    </div>
+                `;
+            }
+
+            showPage('subpage');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // View Controller Toggle
+        function showPage(pageName) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
+            if (pageName === 'home') {
+                document.getElementById('homeView').classList.remove('hidden');
+            } else if (pageName === 'subpage') {
+                document.getElementById('subpageView').classList.remove('hidden');
+            }
+        }
+
+        // Toggle Navigation Dropdown
+        function toggleDropdown(e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('navDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function closeDropdown() {
+            const dropdown = document.getElementById('navDropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Lightbox Image Viewer
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            document.getElementById('lightboxImg').src = currentGalleryList[currentLightboxIndex];
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.getElementById('lightbox').classList.remove('flex');
+        }
+
+        function nextLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentGalleryList.length;
+            document.getElementById('lightboxImg').src = currentGalleryList[currentLightboxIndex];
+        }
+
+        function prevLightboxImage() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentGalleryList.length) % currentGalleryList.length;
+            document.getElementById('lightboxImg').src = currentGalleryList[currentLightboxIndex];
+        }
+
+        // Handle Booking & Contact Submissions
+        function handleDirectBooking(e) {
+            e.preventDefault();
+            alert("Thank you! Your reservation inquiry has been received. We will respond via email shortly.");
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("Thank you for reaching out! We have received your message.");
+        }
+
+        // Initialization
+        window.onload = function() {
+            renderNavDropdown();
+            renderPropertiesGrid();
+            
+            document.addEventListener('click', function(e) {
+                const dropdown = document.getElementById('navDropdown');
+                if(dropdown && !dropdown.contains(e.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+        };
+    </script>
+</body>
+</html>
