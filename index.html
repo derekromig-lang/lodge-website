@@ -1347,8 +1347,8 @@
             }
 
             // Toggle Pet Friendly Booking Options
-            const petContainer = document.getElementById('petDropdownContainer');
-            const guestContainer = document.getElementById('guestDropdownContainer');
+            const petContainer = document.getElementById('petSelectContainer');
+            const guestContainer = document.getElementById('guestSelectContainer');
             if (petContainer && guestContainer) {
                 if (prop.petFriendly) {
                     petContainer.classList.remove('hidden');
@@ -1363,7 +1363,7 @@
             // Reset Booking Form Calculator
             document.getElementById('bookingCheckIn').value = '';
             document.getElementById('bookingCheckOut').value = '';
-            petSelect.value = '0 Pets';
+            document.getElementById('bookingPetCount').value = '0 Pets';
             document.getElementById('priceBreakdownContainer').classList.add('hidden');
 
             showPage('subpage');
