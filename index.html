@@ -120,7 +120,7 @@
               "name": "Which Romig Retreats properties have private hot tubs?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The Lodge at Luckenbach Hill (Springwater), Seneca Lookout (Seneca Lake), Clairmonte Cottage (Honeoye Lake), and Salem Lodge (Bristol Mountain) all feature private outdoor hot tubs."
+                "text": "The Lodge at Luckenbach Hill (Springwater), Seneca Lookout (Seneca Lake), and Clairmonte Cottage (Honeoye Lake) all feature private outdoor hot tubs."
               }
             },
             {
@@ -339,7 +339,7 @@
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
                     <h3 class="font-serif text-lg font-bold text-stone-900 mb-2">Which properties feature private hot tubs?</h3>
-                    <p class="text-sm text-stone-600 leading-relaxed">Four of our signature retreats include private year-round outdoor hot tubs: The Lodge at Luckenbach Hill (Springwater), Seneca Lookout (Seneca Lake), Clairmonte Cottage (Honeoye Lake), and Salem Lodge (Bristol Mountain).</p>
+                    <p class="text-sm text-stone-600 leading-relaxed">Three of our signature retreats include private year-round outdoor hot tubs: The Lodge at Luckenbach Hill (Springwater), Seneca Lookout (Seneca Lake), and Clairmonte Cottage (Honeoye Lake).</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
                     <h3 class="font-serif text-lg font-bold text-stone-900 mb-2">Do you offer pet-friendly vacation rentals?</h3>
@@ -520,7 +520,7 @@
                             </div>
 
                             <div class="grid grid-cols-2 gap-3">
-                                <div>
+                                <div id="guestSelectContainer">
                                     <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Guests</label>
                                     <select id="bookingGuestCount" class="w-full px-3 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
                                         <option value="1 Guest">1 Guest</option>
@@ -533,7 +533,7 @@
                                         <option value="8+ Guests">8+ Guests</option>
                                     </select>
                                 </div>
-                                <div>
+                                <div id="petSelectContainer">
                                     <label class="block text-xs font-semibold text-stone-700 uppercase tracking-wider mb-1">Pets (Max 2)</label>
                                     <select id="bookingPetCount" onchange="calculateBookingPrice()" class="w-full px-3 py-3 rounded-xl border border-stone-200 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm text-stone-700">
                                         <option value="0 Pets" selected>No Pets</option>
@@ -676,6 +676,7 @@
                 tagline: 'Rustic elegance on 6 private acres featuring a 6-person hot tub and a massive stocked fishing pond.',
                 location: 'Springwater, NY',
                 type: 'Cabin / Lodge',
+                petFriendly: true,
                 guests: '8',
                 beds: 4,
                 baths: 2,
@@ -727,6 +728,7 @@
                 tagline: 'A private lakefront cabin on the Seneca Lake Wine Trail featuring a private dock, hot tub, and sweeping water views.',
                 location: 'Seneca Lake',
                 type: 'Lakeside Cabin',
+                petFriendly: true,
                 guests: '6',
                 beds: 3,
                 baths: 2,
@@ -769,7 +771,45 @@
                     'https://wsrv.nl/?url=https://i.ibb.co/kT2Ggyf/1677-Long-Point-Beach-Rd-002.jpg'
                 ],
                 description: 'Escape to Seneca Lookout, a private 3-bedroom, 2-bathroom lakefront cabin perfectly situated right on the Seneca Lake Wine Trail. With its combination of privacy, modern comfort, and unbeatable waterfront views, this is the ultimate Finger Lakes vacation rental. Enjoy direct water access from your private dock, soak in the relaxing hot tub after a day of wine tasting, and take in the stunning sunset views from the outdoor entertaining areas.',
-                amenities: ['Lakefront Hot Tub', 'Private Dock', 'Direct Water Access', 'Seneca Lake Wine Trail', 'Private Deck', 'Fireplace', 'Chef Kitchen', 'High-Speed Wi-Fi', 'Air Conditioning', 'Washer & Dryer']
+                amenities: ['Lakefront Hot Tub', 'Private Dock', 'Direct Water Access', 'Seneca Lake Wine Trail', 'Private Deck', 'Fireplace', 'Chef Kitchen', 'High-Speed Wi-Fi', 'Air Conditioning', 'Washer & Dryer'],
+                pricing: {
+                    cleaningFee: 180, // Defaulted to 180, let me know if this needs changing!
+                    taxRate: 0.08,
+                    getNightlyRate: function(date) {
+                        const m = date.getMonth(); // 0 is Jan, 11 is Dec
+                        const day = date.getDay(); // 0 is Sun, 5 is Fri, 6 is Sat
+                        const isWeekend = (day === 5 || day === 6);
+                        const monthDay = `${m + 1}/${date.getDate()}`;
+
+                        // Greece Central School District Off-Days (Approximate NY standard breaks)
+                        const isHoliday = [
+                            '1/1', '1/19', // New Years, MLK
+                            '2/16', '2/17', '2/18', '2/19', '2/20', // Mid-Winter Recess
+                            '4/14', '4/15', '4/16', '4/17', '4/18', // Spring Break / Easter
+                            '5/26', // Memorial Day
+                            '10/13', // Indigenous Peoples' Day
+                            '11/11', // Veterans Day
+                            '11/26', '11/27', '11/28', // Thanksgiving Break
+                            '12/24', '12/25', '12/26', '12/27', '12/28', '12/29', '12/30', '12/31' // Winter Break
+                        ].includes(monthDay);
+
+                        // Holidays match Peak Weekend rate
+                        if (isHoliday) return 849;
+
+                        // Peak Season: June (5), July (6), August (7)
+                        if (m >= 5 && m <= 7) {
+                            return isWeekend ? 849 : 799;
+                        }
+                        
+                        // Shoulder Season: April (3), May (4), September (8), October (9)
+                        if (m === 3 || m === 4 || m === 8 || m === 9) {
+                            return isWeekend ? 699 : 599;
+                        }
+
+                        // Off Season: Jan, Feb, Mar, Nov, Dec
+                        return isWeekend ? 599 : 449;
+                    }
+                }
             },
             {
                 id: 'clairmonte',
@@ -777,6 +817,7 @@
                 tagline: 'Cozy 800 sq. ft. retreat just steps from Honeoye Lake featuring a private hot tub, kayaks, and fire pit.',
                 location: 'Honeoye Lake',
                 type: 'Cottage',
+                petFriendly: true,
                 guests: '6',
                 beds: 3,
                 baths: 1,
@@ -801,14 +842,39 @@
                     'https://wsrv.nl/?url=https://i.ibb.co/mCHRfLVN/IMG-7964.jpg'
                 ],
                 description: 'Welcome to Clairmonte Cottage! Relax in this cozy retreat just steps from Honeoye Lake. Walk down the street to the community beach and lakeside park, or unwind in the peaceful neighborhood. After a day on the water, come home to soak in the 6-person private hot tub, gather around the natural gas fire pit, or enjoy dinner outdoors with the gas grill. The cottage is dog-and-kid-friendly, features a newly installed privacy fence, and comes fully equipped for the perfect Finger Lakes getaway.',
-                amenities: ['Private Hot Tub', '2 Kayaks & Dock Access', 'Natural Gas Fire Pit', 'Gas Grill', 'Shared Beach Access', 'Smart TVs', 'Fully Stocked Kitchen', 'Washer & Dryer', 'High-Speed Wi-Fi', 'Pet Friendly']
+                amenities: ['Private Hot Tub', '2 Kayaks & Dock Access', 'Natural Gas Fire Pit', 'Gas Grill', 'Shared Beach Access', 'Smart TVs', 'Fully Stocked Kitchen', 'Washer & Dryer', 'High-Speed Wi-Fi', 'Pet Friendly'],
+                pricing: {
+                    cleaningFee: 80,
+                    taxRate: 0.08,
+                    stripePaymentUrl: 'https://buy.stripe.com/9B69AT4WD6TBcSOa5dcs800',
+                    getNightlyRate: function(date) {
+                        const m = date.getMonth();
+                        const day = date.getDay();
+                        const isWeekend = (day === 5 || day === 6);
+                        const monthDay = `${m + 1}/${date.getDate()}`;
+                        const isHoliday = ['1/1', '5/25', '5/26', '7/4', '9/7', '11/26', '11/27', '12/24', '12/25', '12/31'].includes(monthDay);
+
+                        // Greece Central School District Holidays override to Peak Weekend rate
+                        if (isHoliday) return 299;
+
+                        // Peak Season (June - August)
+                        if (m === 5 || m === 6 || m === 7) return 299;
+                        
+                        // Shoulder Season (April, May, September, October)
+                        if (m === 3 || m === 4 || m === 8 || m === 9) return isWeekend ? 269 : 229;
+                        
+                        // Off Season (Nov, Dec, Jan, Feb, Mar)
+                        return isWeekend ? 229 : 199;
+                    }
+                }
             },
             {
                 id: 'salem',
                 title: 'Salem Lodge',
-                tagline: 'A breathtaking timber-frame lodge at Bristol Mountain with expansive views, a massive stone fireplace, and a private hot tub.',
+                tagline: 'A breathtaking timber-frame lodge at Bristol Mountain with expansive views and a massive stone fireplace.',
                 location: 'Bristol Mountain',
                 type: 'Lodge',
+                petFriendly: true,
                 guests: '7',
                 beds: 3,
                 baths: 2,
@@ -867,8 +933,41 @@
                     'https://wsrv.nl/?url=https://i.ibb.co/1G5pzwy2/DJI-20260922134856-0067-D-8-D-9-D-1.jpg',
                     'https://wsrv.nl/?url=https://i.ibb.co/9HZnZgpZ/DJI-20260922134715-0060-D-1-D-2-D.jpg'
                 ],
-                description: 'Welcome to Salem Lodge, a magnificent custom-built timber frame retreat nestled near Bristol Mountain. Perfect for large family gatherings, ski vacations, or summer getaways. This luxurious lodge boasts soaring cathedral ceilings, a spectacular floor-to-ceiling stone fireplace, and a fully stocked chef\'s kitchen. Step outside to enjoy the massive covered porch, soak in the private 7-person hot tub under the stars, or gather around the outdoor fire pit. With a dedicated basement game room, spacious bedrooms, and modern smart home amenities, Salem Lodge offers an unforgettable premium mountain escape.',
-                amenities: ['Private 7-Person Hot Tub', 'Floor-to-Ceiling Stone Fireplace', 'Basement Game Room', 'Expansive Covered Porch', 'Outdoor Fire Pit & Gas Grill', 'Fully Stocked Chef\'s Kitchen', 'Bristol Mountain Proximity', 'Ultra-Fast Wi-Fi', 'Smart TVs', 'Washer & Dryer']
+                description: 'Welcome to Salem Lodge, a magnificent custom-built timber frame retreat nestled near Bristol Mountain. Perfect for large family gatherings, ski vacations, or summer getaways. This luxurious lodge boasts soaring cathedral ceilings, a spectacular floor-to-ceiling stone fireplace, and a fully stocked chef\'s kitchen. Step outside to enjoy the massive covered porch, stargaze, or gather around the outdoor fire pit. With a dedicated basement game room, spacious bedrooms, and modern smart home amenities, Salem Lodge offers an unforgettable premium mountain escape.',
+                amenities: ['Floor-to-Ceiling Stone Fireplace', 'Basement Game Room', 'Expansive Covered Porch', 'Outdoor Fire Pit & Gas Grill', 'Fully Stocked Chef\'s Kitchen', 'Bristol Mountain Proximity', 'Ultra-Fast Wi-Fi', 'Smart TVs', 'Washer & Dryer'],
+                pricing: {
+                    cleaningFee: 200,
+                    taxRate: 0.08,
+                    getNightlyRate: function(date) {
+                        const m = date.getMonth();
+                        const day = date.getDay();
+                        const isWeekend = (day === 5 || day === 6);
+                        const monthDay = `${m + 1}/${date.getDate()}`;
+                        
+                        const isHoliday = [
+                            '1/1', '1/19',
+                            '2/16', '2/17', '2/18', '2/19', '2/20',
+                            '4/14', '4/15', '4/16', '4/17', '4/18',
+                            '5/26',
+                            '10/13',
+                            '11/11',
+                            '11/26', '11/27', '11/28',
+                            '12/24', '12/25', '12/26', '12/27', '12/28', '12/29', '12/30', '12/31'
+                        ].includes(monthDay);
+
+                        // Holidays match Peak Weekend rate
+                        if (isHoliday) return 499;
+
+                        // Peak Season (June - August)
+                        if (m === 5 || m === 6 || m === 7) return 499;
+                        
+                        // Shoulder Season (April, May, September, October)
+                        if (m === 3 || m === 4 || m === 8 || m === 9) return isWeekend ? 449 : 429;
+                        
+                        // Off Season (Nov, Dec, Jan, Feb, Mar)
+                        return isWeekend ? 399 : 369;
+                    }
+                }
             },
             {
                 id: 'stayandplay',
@@ -919,7 +1018,23 @@
                     'https://wsrv.nl/?url=https://i.ibb.co/V0L6PvM8/Copy-of-15-IMG01345.jpg'
                 ],
                 description: 'Welcome to the Stay & Play Golf Retreat, your premier home base for the ultimate golf vacation. Situated directly on the beautiful grounds of the Lima Country Club, this spacious 4-bedroom home is perfectly designed for groups, families, and golf enthusiasts alike. After a day on the links, relax on the expansive outdoor patio, fire up the gas grill, or gather in the open-concept living area. With sweeping fairway views, a fully equipped chef\'s kitchen, and ultra-fast Wi-Fi, this retreat offers the perfect blend of active recreation and modern relaxation.',
-                amenities: ['Direct Golf Course Access', 'Expansive Outdoor Patio', 'Gas Grill & Outdoor Dining', 'Fully Stocked Chef\'s Kitchen', 'Open-Concept Living Area', 'Ultra-Fast Wi-Fi', 'Smart TVs', 'Washer & Dryer', 'Garage Parking', 'Central A/C & Heating']
+                amenities: ['Direct Golf Course Access', 'Expansive Outdoor Patio', 'Gas Grill & Outdoor Dining', 'Fully Stocked Chef\'s Kitchen', 'Open-Concept Living Area', 'Ultra-Fast Wi-Fi', 'Smart TVs', 'Washer & Dryer', 'Garage Parking', 'Central A/C & Heating'],
+                pricing: {
+                    cleaningFee: 180,
+                    taxRate: 0.08,
+                    stripePaymentUrl: 'https://buy.stripe.com/9B69AT4WD6TBcSOa5dcs800',
+                    getNightlyRate: function(date) {
+                        const m = date.getMonth();
+                        const day = date.getDay();
+                        const isWeekend = (day === 5 || day === 6);
+                        const monthDay = `${m + 1}/${date.getDate()}`;
+                        const isHoliday = ['1/1', '5/25', '5/26', '7/4', '9/7', '11/26', '11/27', '12/24', '12/25', '12/31'].includes(monthDay);
+
+                        if (m === 6 || m === 7) return 449;
+                        if (m >= 3 && m <= 5) return isHoliday ? 399 : (isWeekend ? 399 : 299);
+                        return isHoliday ? 399 : (isWeekend ? 299 : 199);
+                    }
+                }
             },
             {
                 id: 'unionlofts1',
@@ -950,7 +1065,38 @@
                     'https://wsrv.nl/?url=https://i.ibb.co/v6NHk6Gn/8505-E-Clairmont-St-001.jpg'
                 ],
                 description: 'Experience the ultimate lakeside getaway at the Union Lofts. This beautifully updated 1-bedroom apartment offers direct water access on Honeoye Lake, making it a perfect cozy retreat for couples or small families. Step outside and you are just a short walk away from a fantastic semi-private park, complete with basketball courts, a playground, a sandy community beach, and shaded picnic tables. Enjoy your morning coffee with lake breezes, spend the day exploring local breweries, wineries, and hiking trails, and return to modern comforts including a fully stocked kitchen, smart TV, and high-speed Wi-Fi.',
-                amenities: ['Lake & Beach Access', 'Semi-Private Park', 'Basketball Courts', 'Playground & Picnic Area', 'Dedicated Workspace', 'Smart TV', 'High-Speed Wi-Fi', 'Fully Stocked Kitchen', 'Air Conditioning', 'Free Parking']
+                amenities: ['Lake & Beach Access', 'Semi-Private Park', 'Basketball Courts', 'Playground & Picnic Area', 'Dedicated Workspace', 'Smart TV', 'High-Speed Wi-Fi', 'Fully Stocked Kitchen', 'Air Conditioning', 'Free Parking'],
+                pricing: {
+                    cleaningFee: 60,
+                    taxRate: 0.08,
+                    getNightlyRate: function(date) {
+                        const m = date.getMonth(); // 0=Jan, 11=Dec
+                        const day = date.getDay(); // 0=Sun, 5=Fri, 6=Sat
+                        const isWeekend = (day === 5 || day === 6);
+                        const monthDay = `${m + 1}/${date.getDate()}`;
+                        
+                        const isHoliday = [
+                            '1/1', '1/19', '2/16', '2/17', '2/18', '2/19', '2/20', 
+                            '4/14', '4/15', '4/16', '4/17', '4/18', '5/26', '10/13', 
+                            '11/11', '11/26', '11/27', '11/28', '12/24', '12/25', 
+                            '12/26', '12/27', '12/28', '12/29', '12/30', '12/31'
+                        ].includes(monthDay);
+
+                        // Holidays match Peak rate
+                        if (isHoliday) return 159;
+
+                        // Peak Season (June - August)
+                        if (m >= 5 && m <= 7) return 159;
+                        
+                        // Shoulder Season (April, May, September, October)
+                        if (m === 3 || m === 4 || m === 8 || m === 9) {
+                            return isWeekend ? 139 : 119;
+                        }
+
+                        // Off Season (Nov, Dec, Jan, Feb, Mar)
+                        return 100;
+                    }
+                }
             },
             {
                 id: 'unionlofts2',
@@ -989,7 +1135,34 @@
                     'https://wsrv.nl/?url=https://i.ibb.co/W40zTcRW/8505-E-Clairmont-St-044.jpg'
                 ],
                 description: 'Welcome to your dream Finger Lakes getaway! Nestled in a serene lake community just 200 yards from the water, this cozy 2-bedroom apartment offers a private deck with stunning lake views, an outdoor gas grill, and an open-air pavilion. Enjoy access to a well-maintained community park featuring a private beach, playground, basketball court, and boat launch. Located minutes from top breweries, wineries, and Bristol Mountain, this retreat is perfect for both relaxation and adventure.',
-                amenities: ['Lake View', 'Private Deck', 'Community Beach Access', 'Gas Grill & Pavilion', 'Semi-Private Park', 'Basketball Court & Playground', 'Wi-Fi', 'Smart TV', 'Fully Equipped Kitchen', 'Shared Laundry']
+                amenities: ['Lake View', 'Private Deck', 'Community Beach Access', 'Gas Grill & Pavilion', 'Semi-Private Park', 'Basketball Court & Playground', 'Wi-Fi', 'Smart TV', 'Fully Equipped Kitchen', 'Shared Laundry'],
+                pricing: {
+                    cleaningFee: 90, // Set to 90 as a placeholder for a 2-bedroom. Let me know if this needs to change!
+                    taxRate: 0.08,
+                    getNightlyRate: function(date) {
+                        const m = date.getMonth();
+                        const day = date.getDay();
+                        const isWeekend = (day === 5 || day === 6);
+                        const monthDay = `${m + 1}/${date.getDate()}`;
+                        const isHoliday = [
+                            '1/1', '1/19', // New Years, MLK
+                            '2/16', '2/17', '2/18', '2/19', '2/20', // Mid-Winter Recess
+                            '4/14', '4/15', '4/16', '4/17', '4/18', // Spring Break / Easter
+                            '5/26', // Memorial Day
+                            '10/13', // Indigenous Peoples' Day
+                            '11/11', // Veterans Day
+                            '11/26', '11/27', '11/28', // Thanksgiving Break
+                            '12/24', '12/25', '12/26', '12/27', '12/28', '12/29', '12/30', '12/31' // Winter Break
+                        ].includes(monthDay);
+
+                        // Peak & Holidays
+                        if (isHoliday) return 179;
+                        if (m >= 5 && m <= 7) return 179; // June - August
+                        
+                        // Rest of the year
+                        return isWeekend ? 159 : 139;
+                    }
+                }
             },
             {
                 id: 'harrolds',
@@ -1033,29 +1206,33 @@
             `).join('');
         }
 
-        // Render Homepage Property Grid
+        // Render Homepage Properties Grid
         function renderPropertiesGrid() {
             const grid = document.getElementById('propertiesGrid');
-            if(!grid) return;
+            if (!grid) return;
 
             grid.innerHTML = propertiesData.map(p => `
-                <a href="#" onclick="openSubpage('${p.id}'); return false;" class="block bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500">
-                    <div class="relative h-64 sm:h-72 overflow-hidden bg-stone-100">
-                        <img src="${p.heroImage}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" onerror="this.src='https://placehold.co/800x600/eee/888?text=Property+Photo'">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-stone-800 shadow-sm">
+                <a href="#" onclick="openSubpage('${p.id}'); return false;" class="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-stone-200 transition-all duration-300 flex flex-col h-full">
+                    <div class="relative h-64 overflow-hidden bg-stone-100">
+                        <img src="${p.heroImage}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/eee/888?text=Image+Unavailable'">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-brand-700 shadow-sm">
                             ${p.type}
                         </div>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-xs font-semibold text-brand-700 uppercase tracking-wider">${p.location}</span>
-                                <span class="text-xs text-stone-400 font-medium">${p.guests} Guests • ${p.beds} Beds</span>
-                            </div>
-                            <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-700 transition-colors mb-2">${p.title}</h3>
-                            <p class="text-stone-600 text-sm line-clamp-2 font-light">${p.tagline}</p>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex items-center gap-2 text-xs text-stone-400 font-medium uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-location-dot"></i> ${p.location}
                         </div>
-                        <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                        <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-700 transition-colors mb-2">${p.title}</h3>
+                        <p class="text-stone-600 text-sm line-clamp-2 font-light mb-4">${p.tagline}</p>
+                        
+                        <div class="grid grid-cols-3 gap-2 mt-auto pt-4 border-t border-stone-100 text-center text-xs text-stone-500 font-medium">
+                            <div><i class="fa-solid fa-user-group mb-1 block text-brand-400 text-sm"></i> ${p.guests} Max</div>
+                            <div><i class="fa-solid fa-bed mb-1 block text-brand-400 text-sm"></i> ${p.beds} Beds</div>
+                            <div><i class="fa-solid fa-bath mb-1 block text-brand-400 text-sm"></i> ${p.baths} Baths</div>
+                        </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between">
                             <span class="text-xs font-bold text-brand-800 uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                                 View Retreat Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </span>
@@ -1169,9 +1346,24 @@
                 `;
             }
 
+            // Toggle Pet Friendly Booking Options
+            const petContainer = document.getElementById('petDropdownContainer');
+            const guestContainer = document.getElementById('guestDropdownContainer');
+            if (petContainer && guestContainer) {
+                if (prop.petFriendly) {
+                    petContainer.classList.remove('hidden');
+                    guestContainer.classList.remove('col-span-2');
+                } else {
+                    petContainer.classList.add('hidden');
+                    guestContainer.classList.add('col-span-2');
+                    document.getElementById('bookingPetCount').value = '0 Pets'; // Ensure pet fee resets to $0
+                }
+            }
+
             // Reset Booking Form Calculator
             document.getElementById('bookingCheckIn').value = '';
             document.getElementById('bookingCheckOut').value = '';
+            petSelect.value = '0 Pets';
             document.getElementById('priceBreakdownContainer').classList.add('hidden');
 
             showPage('subpage');
